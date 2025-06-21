@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import type { KeyStates } from "../types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Instructions({ keystates }: { keystates: KeyStates }) {
   const [toggled, setToggled] = useState(true);
@@ -41,23 +41,32 @@ function Toggler({
   toggled: boolean;
   toggler: (toggled: boolean) => void;
 }) {
-  return (
-    <div className={`absolute top-1/2 ${toggled ? "-right-64" : "-right-8"}`}>
-      <button onClick={() => toggler(!toggled)} className="border">
-        {toggled && (
-          <div className="flex">
-            <ChevronLeft />
-            <p>
-              Click here or press{" "}
-              <span className="border p-1 font-mono">M</span> to open
-            </p>
-          </div>
-        )}
-        {!toggled && <ChevronRight />}
-      </button>
-      {/* {toggled && (
+  const [shouldHide, setShouldHide] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setShouldHide(true);
+    }, 3000);
+  });
 
-      )} */}
+  return (
+    <div className={`absolute top-1/2 left-60 h-full -translate-y-1/2`}>
+      <button onClick={() => toggler(!toggled)} className="border">
+        {!toggled && <ChevronRight />}
+        {toggled && (
+          <>
+            <ChevronLeft />
+            {!shouldHide && (
+              <div className="w-64 px-2 py-4">
+                <p>
+                  Click here or press{" "}
+                  <span className="border p-1 font-mono">M</span> to open nav
+                  controls
+                </p>
+              </div>
+            )}
+          </>
+        )}
+      </button>
     </div>
   );
 }
