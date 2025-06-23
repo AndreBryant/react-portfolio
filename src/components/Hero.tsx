@@ -7,18 +7,15 @@ export default function Hero() {
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch} />
 
-      <div className="flex h-full w-full items-center justify-center gap-16 rounded-lg border bg-white">
-        {/* Introductory message */}
+      <div className="flex h-full w-full items-center justify-center gap-16 rounded-lg border border-white/30 fill-transparent text-white backdrop-blur-xs">
         <div className="">
           <h1 className="text-4xl font-semibold">Hi! I'm Andre!</h1>
           <p className="text-xl">I'm a software developer.</p>
         </div>
 
-        {/* img */}
         <div className="">
-          <div className="flex aspect-square h-64 items-center justify-center rounded-lg border">
-            {/* <p className="text-3xl font-semibold">ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</p> */}
-            <p className="font-mono text-3xl font-semibold">T_,T</p>
+          <div className="flex aspect-square h-64 items-center justify-center rounded-lg border backdrop-blur-lg">
+            <p className="text-3xl font-semibold">ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</p>
           </div>
         </div>
       </div>
