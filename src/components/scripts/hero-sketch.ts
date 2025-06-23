@@ -9,8 +9,9 @@ export const heroSketch = (p5: P5CanvasInstance) => {
     x: number;
     y: number;
     z: number;
+    color: number[];
   }[] = [];
-  const count = 250;
+  const count = 100;
 
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, 2 * p5.windowHeight);
@@ -20,11 +21,23 @@ export const heroSketch = (p5: P5CanvasInstance) => {
     let yOff = 0;
 
     for (let i = 0; i < count; i++) {
+      const z = p5.noise(xOff, yOff) * thicknessConstant;
       const obj = {
         x: p5.random(p5.width * 1.5),
         y: p5.random(p5.height * 1.5),
-        z: p5.noise(xOff, yOff) * thicknessConstant,
+        z: z,
+        color: [
+          255 * p5.random((1 / z) * 4),
+          255 * p5.random((1 / z) * 4),
+          255 * p5.random((1 / z) * 4),
+        ],
       };
+      //   const color = [
+      //     255 * p5.random((1 / obj.z) * 2),
+      //     255 * p5.random((1 / obj.z) * 2),
+      //     255 * p5.random((1 / obj.z) * 2),
+      //   ];
+      //   obj.color = color;
       objects.push(obj);
       yOff += 0.01;
       xOff += 0.01;
@@ -36,17 +49,13 @@ export const heroSketch = (p5: P5CanvasInstance) => {
   };
 
   p5.draw = () => {
-    p5.background(0);
+    p5.background(10);
     for (const obj of objects) {
       const objX = wrap(obj.x - (followThisLol.x / obj.z) * 4, p5.width);
       const objY = wrap(obj.y - (followThisLol.y / obj.z) * 4, p5.height);
 
-      p5.strokeWeight(obj.z);
-      p5.stroke(
-        255 * ((1 / obj.z) * 2),
-        255 * ((1 / obj.z) * 2),
-        255 * ((1 / obj.z) * 2),
-      );
+      p5.strokeWeight(obj.z * 10);
+      p5.stroke(obj.color[0], obj.color[1], obj.color[2]);
       p5.point(objX, objY);
     }
     followThisLol.x += 5;
