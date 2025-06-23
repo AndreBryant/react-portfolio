@@ -77,7 +77,7 @@ export default function App() {
       {/* Footer: Contact Form */}
       <div className="h-screen w-full bg-amber-400"></div>
       {/* Instructions */}
-      <Instructions keystates={keyStates} />
+      {/* <Instructions keystates={keyStates} /> */}
     </div>
   );
 }
