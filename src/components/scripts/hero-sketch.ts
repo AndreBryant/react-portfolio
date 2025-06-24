@@ -3,6 +3,62 @@ import { createGlobalStyle } from "styled-components";
 
 const wrap = (n: number, max: number) => ((n % max) + max) % max;
 
+export const heroSketch2 = (p5: P5CanvasInstance) => {
+  const objects: {
+    x: number;
+    y: number;
+    z: number;
+    r: number;
+    color: number[];
+  }[] = [];
+
+  const count = 5;
+  let a = 0;
+  const axis = [1, 1, 0];
+
+  p5.setup = () => {
+    p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
+
+    const max = 200;
+    for (let i = 0; i < count; i++) {
+      const obj = {
+        x: p5.random(-max, max),
+        y: p5.random(-max, max),
+        z: p5.random(-max, max),
+        r: p5.random(200, 250),
+        color: [p5.random(0, 200), p5.random(0, 50), p5.random(0, 100)],
+      };
+
+      objects.push(obj);
+    }
+    p5.lights();
+    p5.angleMode(p5.DEGREES);
+  };
+
+  p5.draw = () => {
+    p5.background(0);
+
+    p5.push();
+    p5.rotateX(a);
+    p5.rotateY(a);
+    a += 0.05;
+
+    for (const obj of objects) {
+      p5.push();
+
+      p5.noStroke();
+      p5.fill(obj.color[0], obj.color[1], obj.color[2]);
+      p5.translate(obj.x, obj.y, obj.z);
+      p5.sphere(obj.r);
+
+      p5.pop();
+    }
+    p5.pop();
+  };
+
+  p5.windowResized = () => {};
+};
+
 export const heroSketch = (p5: P5CanvasInstance) => {
   const followThisLol = { x: 0, y: 0 }; // idk, object to follow for the background balls
   const objects: {

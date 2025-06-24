@@ -1,13 +1,13 @@
 import { ReactP5Wrapper } from "@p5-wrapper/react";
-import { heroSketch, GlobalWrapperStyle } from "./scripts/hero-sketch";
+import { heroSketch2, GlobalWrapperStyle } from "./scripts/hero-sketch";
 
 export default function Hero() {
   return (
     <section className="relative flex h-screen items-center justify-center">
       <GlobalWrapperStyle />
-      <ReactP5Wrapper sketch={heroSketch} />
+      <ReactP5Wrapper sketch={heroSketch2} />
 
-      <div className="flex h-full w-full items-center justify-center gap-16 bg-black/30 fill-transparent text-white backdrop-blur-xl">
+      <div className="flex h-full w-full items-center justify-center gap-16 bg-black/30 fill-transparent text-white backdrop-blur-3xl">
         <div className="">
           <h1 className="text-4xl font-semibold">Hi! I'm Andre!</h1>
           <p className="text-xl">I'm a software developer.</p>
