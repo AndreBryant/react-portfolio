@@ -44,10 +44,20 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 z-50 flex h-32 w-full items-center justify-between p-16 text-white backdrop-blur-xs select-none sm:px-24 xl:px-64">
       <div
-        className="cursor-default rounded-full border border-white/60 px-2 py-1 transition-transform hover:border-white/90 hover:font-semibold"
-        title="I dont know how to make logo or brand identity yet. Sorry"
+        className="group flex items-center gap-4"
+        onClick={() => document.getElementById("hero")?.scrollIntoView()}
       >
-        <span className="font-mono">T_,T</span>
+        <div
+          className="cursor-default rounded-full border border-white/20 px-2 py-1 transition-transform group-hover:border-white/90 group-hover:font-semibold"
+          title="I dont know how to make logo or brand identity yet. Sorry"
+        >
+          <span className="font-mono text-white/70">T_,T</span>
+        </div>
+
+        {/* <span className="-translate-x-full opacity-0 transition-opacity group-hover:block group-hover:translate-x-0 group-hover:opacity-100"> */}
+        <span className="hidden group-hover:text-lg group-hover:font-bold lg:block">
+          My Portfolio
+        </span>
       </div>
       <div>
         <ul className="flex gap-8">
@@ -55,7 +65,7 @@ export default function NavBar() {
             Home
           </NavLink>
           <NavLink elmntId="about" isActive={activeId === "about"}>
-            About Me
+            About
           </NavLink>
           <NavLink elmntId="projects" isActive={activeId === "projects"}>
             Projects
