@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const [activeId, setActiveId] = useState<string | null>("home");
+  const [activeId, setActiveId] = useState<string | null>("hero");
 
   useEffect(() => {
     const sections = ["hero", "about", "projects", "contact"];
