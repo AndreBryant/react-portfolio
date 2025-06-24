@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
-import Instructions from "./components/Instructions";
+import { ReactP5Wrapper } from "@p5-wrapper/react";
+import { heroSketch2, GlobalWrapperStyle } from "./components/scripts/p5-bgs";
+// import Instructions from "./components/Instructions";
 import type { KeyStates } from "./types";
 
 export default function App() {
@@ -70,6 +72,9 @@ export default function App() {
 
   return (
     <div className="relative w-screen">
+      <GlobalWrapperStyle />
+      <ReactP5Wrapper sketch={heroSketch2} />
+
       {/* HERO: Introduction */}
       <Hero />
       {/* Main Content: About Me (Education, Experience), Relevant Projects _(Academic Projects and Personal Projects) */}

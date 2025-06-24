@@ -14,7 +14,6 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 
   const count = 5;
   let a = 0;
-  const axis = [1, 1, 0];
 
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
@@ -41,7 +40,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
     p5.push();
     p5.rotateX(a);
     p5.rotateY(a);
-    a += 0.05;
+    a += 0.1;
 
     for (const obj of objects) {
       p5.push();
@@ -56,7 +55,11 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
     p5.pop();
   };
 
-  p5.windowResized = () => {};
+  p5.windowResized = () => {
+    p5.clear();
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    p5.redraw();
+  };
 };
 
 export const heroSketch = (p5: P5CanvasInstance) => {
@@ -126,7 +129,7 @@ export const heroSketch = (p5: P5CanvasInstance) => {
 
 export const GlobalWrapperStyle = createGlobalStyle`
   .${P5WrapperClassName} {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
