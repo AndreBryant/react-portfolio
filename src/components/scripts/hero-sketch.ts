@@ -25,9 +25,9 @@ export const heroSketch = (p5: P5CanvasInstance) => {
         y: p5.random(p5.height * 1.5),
         z: z,
         color: [
-          (255 * p5.random(0.1, (1 / z) * 4)) / 20,
-          10, // 255 * p5.random(0.1, (1 / z) * 4),
           255 * p5.random(0.1, (1 / z) * 4),
+          (255 * p5.random(0.1, (1 / z) * 4)) / 10,
+          255 * p5.random(0.1, (1 / z) * 4) * 1.5,
         ],
       };
       objects.push(obj);
@@ -41,16 +41,17 @@ export const heroSketch = (p5: P5CanvasInstance) => {
   p5.draw = () => {
     p5.background(10);
     for (const obj of objects) {
-      const objX = wrap(obj.x - (followThisLol.x / obj.z) * 4, p5.width);
+      // Parallax effect
+      const objX = wrap(obj.x - (followThisLol.x / obj.z) * 4, p5.width * 1.5);
       const objY = wrap(obj.y - (followThisLol.y / obj.z) * 4, p5.height);
 
       p5.push();
-
       p5.noStroke();
       p5.fill(obj.color[0], obj.color[1], obj.color[2], obj.z * 1000);
-      p5.ellipse(objX - obj.z * 2, objY, obj.z * 20);
+      p5.ellipse(objX - obj.z * 10, objY, obj.z * 20);
       p5.pop();
     }
+
     followThisLol.x += 1;
     followThisLol.y += p5.floor(p5.random(-0.5, 0.5));
   };

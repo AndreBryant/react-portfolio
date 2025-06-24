@@ -7,7 +7,7 @@ export default function Hero() {
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch} />
 
-      <div className="flex h-full w-full items-center justify-center gap-16 bg-black/30 fill-transparent text-white backdrop-blur-lg">
+      <div className="flex h-full w-full items-center justify-center gap-16 bg-black/30 fill-transparent text-white backdrop-blur-xl">
         <div className="">
           <h1 className="text-4xl font-semibold">Hi! I'm Andre!</h1>
           <p className="text-xl">I'm a software developer.</p>
