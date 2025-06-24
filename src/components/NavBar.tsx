@@ -51,16 +51,16 @@ export default function NavBar() {
       </div>
       <div>
         <ul className="flex gap-8">
-          <NavLink targetHref="/#hero" isActive={activeId === "hero"}>
+          <NavLink elmntId="hero" isActive={activeId === "hero"}>
             Home
           </NavLink>
-          <NavLink targetHref="/#about" isActive={activeId === "about"}>
+          <NavLink elmntId="about" isActive={activeId === "about"}>
             About Me
           </NavLink>
-          <NavLink targetHref="/#projects" isActive={activeId === "projects"}>
+          <NavLink elmntId="projects" isActive={activeId === "projects"}>
             Projects
           </NavLink>
-          <NavLink targetHref="/#contact" isActive={activeId === "contact"}>
+          <NavLink elmntId="contact" isActive={activeId === "contact"}>
             Contact
           </NavLink>
         </ul>
@@ -71,15 +71,17 @@ export default function NavBar() {
 
 function NavLink({
   children,
-  targetHref,
+  elmntId,
   isActive,
-}: Readonly<{ children: string; targetHref: string; isActive: boolean }>) {
+}: Readonly<{ children: string; elmntId: string; isActive: boolean }>) {
   return (
     // I wont use anchor tags because they show link at the bottom left when hovering.
     <span
       className={`cursor-pointer text-white/70 transition-all select-none hover:text-white/90 ${isActive ? "text-white/90 underline underline-offset-2" : "text-white/70"}`}
       onClick={() => {
-        window.location.href = targetHref;
+        document
+          .getElementById(elmntId)
+          ?.scrollIntoView({ behavior: "smooth" });
       }}
     >
       <li>{children}</li>
