@@ -9,6 +9,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
     y: number;
     z: number;
     r: number;
+    shape: string;
     color: number[];
   }[] = [];
 
@@ -17,7 +18,6 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
-
     const max = 200;
     for (let i = 0; i < count; i++) {
       const obj = {
@@ -25,6 +25,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
         y: p5.random(-max, max),
         z: p5.random(-max, max),
         r: p5.random(200, 250),
+        shape: p5.random(["sphere", "cone"]),
         color: [p5.random(0, 90), p5.random(0, 50), p5.random(0, 150)],
       };
 
@@ -48,7 +49,9 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
       p5.noStroke();
       p5.fill(obj.color[0], obj.color[1], obj.color[2]);
       p5.translate(obj.x, obj.y, obj.z);
-      p5.sphere(obj.r);
+
+      if (obj.shape === "cone") p5.cone(obj.r);
+      else if (obj.shape === "sphere") p5.sphere(obj.r);
 
       p5.pop();
     }
