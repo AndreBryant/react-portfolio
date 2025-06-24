@@ -27,7 +27,7 @@ export default function Contact() {
               <AnchorListItem
                 icon={<Facebook size={42} />}
                 text="Link to my Facebook"
-                link="https://www.facebook.com/andrebryant.bagalso/"
+                link="https://m.me/andrebryant.bagalso"
               />
             </ul>
             <p className="text-sm text-white/70">
