@@ -1,4 +1,5 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 
 export default function Hero() {
   const scrollWindow = () => {
@@ -17,9 +18,17 @@ export default function Hero() {
         >
           <ArrowDown />
         </button>
-        <span className="text-white/10 peer-hover:text-white/30">
-          Click to go to next section...
-        </span>
+        <div className="flex items-center gap-2 text-white/20 peer-hover:text-white/30">
+          Press
+          <span className="rounded-lg border border-white/15 bg-black/20 p-0.5">
+            <ArrowDown />
+          </span>
+          or{" "}
+          <span className="rounded-lg border border-white/15 bg-black/20 p-0.5">
+            <ArrowUp />
+          </span>
+          buttons to navigate or click button below...
+        </div>
       </div>
 
       <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-16 md:flex-row">

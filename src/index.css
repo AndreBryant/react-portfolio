@@ -26,6 +26,7 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: #ffffff50 #000000;
+  transition: 0.3s;
 }
 
 /* Works on Chrome, Edge, and Safari */
