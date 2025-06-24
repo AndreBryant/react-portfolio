@@ -5,6 +5,7 @@ import { heroSketch2, GlobalWrapperStyle } from "./components/scripts/p5-bgs";
 // import Instructions from "./components/Instructions";
 import type { KeyStates } from "./types";
 import About from "./components/About";
+import NavBar from "./components/NavBar";
 
 export default function App() {
   const [keyStates, setKeyStates] = useState<KeyStates>({
@@ -76,16 +77,14 @@ export default function App() {
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch2} />
 
+      <NavBar />
       <div className="bg-black/30 text-slate-50 backdrop-blur-3xl">
         {/* HERO: Introduction */}
         <Hero />
-        <hr /> {/*TODO: Remove these hr tags */}
         {/* Main Content: About Me (Education, Experience), Relevant Projects _(Academic Projects and Personal Projects) */}
         <About />
-        <hr /> {/*TODO: Remove these hr tags */}
         {/* Footer: Contact Form */}
         <div className="h-screen w-full bg-amber-400"></div>
-        <hr /> {/*TODO: Remove these hr tags */}
       </div>
       {/* Instructions */}
       {/* <Instructions keystates={keyStates} /> */}
