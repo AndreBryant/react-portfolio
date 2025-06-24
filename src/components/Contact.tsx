@@ -6,7 +6,7 @@ export default function Contact() {
     <section className="flex flex-col gap-8 py-32 lg:h-screen" id="contact">
       <h2 className="text-4xl">Contact Me</h2>
       <div className="flex flex-col gap-8 lg:flex-row">
-        <div className="flex flex-1/2 flex-col items-center gap-16 rounded-lg border border-white/20 bg-black/50 p-4 pt-16">
+        <div className="flex flex-1/2 flex-col items-center gap-16 rounded-lg border border-white/20 bg-black/50 p-4 py-16">
           <div>
             <p className="text-center text-3xl text-white/80">
               Thank you for taking the time to go over my portfolio!
@@ -116,7 +116,7 @@ function AnchorListItem({
         onClick={() => onclick(link)}
       >
         <span>{icon}</span>
-        <span className="group-hover:underline">{text}</span>
+        <span className="text-center group-hover:underline">{text}</span>
       </div>
     </li>
   );
