@@ -4,43 +4,33 @@ import { createGlobalStyle } from "styled-components";
 const wrap = (n: number, max: number) => ((n % max) + max) % max;
 
 export const heroSketch = (p5: P5CanvasInstance) => {
-  const followThisLol = { x: 0, y: 0 };
+  const followThisLol = { x: 0, y: 0 }; // idk, object to follow for the background balls
   const objects: {
     x: number;
     y: number;
     z: number;
     color: number[];
   }[] = [];
-  const count = 100;
+  const count = 50;
 
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, 2 * p5.windowHeight);
 
-    const thicknessConstant = 40;
-    let xOff = 0;
-    let yOff = 0;
+    const maxStrokeWidth = 40;
 
     for (let i = 0; i < count; i++) {
-      const z = p5.noise(xOff, yOff) * thicknessConstant;
+      const z = p5.random(0.2, 1) * maxStrokeWidth;
       const obj = {
         x: p5.random(p5.width * 1.5),
         y: p5.random(p5.height * 1.5),
         z: z,
         color: [
-          255 * p5.random((1 / z) * 4),
-          255 * p5.random((1 / z) * 4),
-          255 * p5.random((1 / z) * 4),
+          (255 * p5.random(0.1, (1 / z) * 4)) / 20,
+          10, // 255 * p5.random(0.1, (1 / z) * 4),
+          255 * p5.random(0.1, (1 / z) * 4),
         ],
       };
-      //   const color = [
-      //     255 * p5.random((1 / obj.z) * 2),
-      //     255 * p5.random((1 / obj.z) * 2),
-      //     255 * p5.random((1 / obj.z) * 2),
-      //   ];
-      //   obj.color = color;
       objects.push(obj);
-      yOff += 0.01;
-      xOff += 0.01;
     }
 
     window.addEventListener("scroll", () => {
@@ -54,16 +44,20 @@ export const heroSketch = (p5: P5CanvasInstance) => {
       const objX = wrap(obj.x - (followThisLol.x / obj.z) * 4, p5.width);
       const objY = wrap(obj.y - (followThisLol.y / obj.z) * 4, p5.height);
 
-      p5.strokeWeight(obj.z * 10);
-      p5.stroke(obj.color[0], obj.color[1], obj.color[2]);
-      p5.point(objX, objY);
+      p5.push();
+
+      p5.noStroke();
+      p5.fill(obj.color[0], obj.color[1], obj.color[2], obj.z * 1000);
+      p5.ellipse(objX - obj.z * 2, objY, obj.z * 20);
+      p5.pop();
     }
-    followThisLol.x += 5;
+    followThisLol.x += 1;
+    followThisLol.y += p5.floor(p5.random(-0.5, 0.5));
   };
 
-  p5.mouseWheel = (event) => {
+  p5.mouseWheel = (event: WheelEvent) => {
     if (window.scrollY <= 0) return;
-    followThisLol.y += event.delta;
+    followThisLol.y += event.deltaX;
   };
 
   p5.windowResized = () => {
