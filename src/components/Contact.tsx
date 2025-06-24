@@ -1,4 +1,5 @@
 import { Facebook, Github, Linkedin } from "lucide-react";
+import type { ReactNode } from "react";
 
 export default function Contact() {
   return (
@@ -102,7 +103,7 @@ function AnchorListItem({
   text,
   link,
 }: {
-  icon: unknown;
+  icon: ReactNode;
   text: string;
   link: string;
 }) {
