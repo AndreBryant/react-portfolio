@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <section className="relative flex flex-col">
+    <section className="relative flex h-screen flex-col">
       {/* Education */}
-      <div className="h-screen">
+      <div className="">
         <h2>Education</h2>
         <ul>
           <li>University of the Philippines - Baguio (2021 - 2025)</li>
@@ -11,21 +11,9 @@ export default function About() {
         </ul>
       </div>
 
-      {/* Experience */}
-
-      <div className="h-screen">
-        <h2>Experience</h2>
-        <ul>
-          <li>
-            Software Developer Intern at DOST (June - August 2024) - Under the
-            Project LODI
-          </li>
-        </ul>
-      </div>
-
-      {/* Organizations */}
-      <div className="h-screen">
-        <h2>Organizations</h2>
+      {/* Organizations and Experience*/}
+      <div className="">
+        <h2>Organizations / Experience</h2>
         <ul>
           <li>
             COMSCI@UP.BAG Research Committee Resident Member (2022 - 2025)
@@ -33,6 +21,10 @@ export default function About() {
           <li>
             AWS Learning Club UP baguio Skill Builder Lead Software/Webdev
             Officer (2024 - March 2025)
+          </li>
+          <li>
+            Software Developer Intern at DOST (June - August 2024) - Under the
+            Project LODI
           </li>
         </ul>
       </div>
