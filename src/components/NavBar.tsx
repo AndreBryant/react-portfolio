@@ -1,6 +1,48 @@
+import { useEffect, useState } from "react";
+
 export default function NavBar() {
+  const [activeId, setActiveId] = useState<string | null>("home");
+
+  useEffect(() => {
+    const sections = ["hero", "about", "projects", "contact"];
+    const sectionElements = sections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let mostVisible = null;
+
+        for (const entry of entries) {
+          if (entry.isIntersecting && sections.includes(entry.target.id)) {
+            if (
+              !mostVisible ||
+              entry.intersectionRatio > mostVisible.intersectionRatio
+            ) {
+              mostVisible = entry;
+            }
+          }
+        }
+
+        if (mostVisible) {
+          setActiveId(`${mostVisible.target.id}`);
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      },
+    );
+
+    sectionElements.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="fixed top-0 z-50 flex h-32 w-full items-center justify-between px-24 text-white backdrop-blur-xs xl:px-64">
+    <nav className="fixed top-0 z-50 flex h-32 w-full items-center justify-between p-16 text-white backdrop-blur-xs sm:px-24 xl:px-64">
       <div
         className="cursor-default rounded-full border border-white/60 bg-black/20 px-2 py-1 transition-transform hover:border-white/90 hover:font-semibold"
         title="I dont know how to make logo or brand identity yet. Sorry"
@@ -9,20 +51,24 @@ export default function NavBar() {
       </div>
       <div>
         <ul className="flex gap-8">
-          <NavLink targetHref="/#about" isActive={false}>
+          <NavLink targetHref="/#hero" isActive={activeId === "hero"}>
+            Home
+          </NavLink>
+          <NavLink targetHref="/#about" isActive={activeId === "about"}>
             About Me
           </NavLink>
-          <NavLink targetHref="/#projects" isActive={true}>
+          <NavLink targetHref="/#projects" isActive={activeId === "projects"}>
             Projects
           </NavLink>
-          <NavLink targetHref="/#contact" isActive={false}>
-            Contact Me
+          <NavLink targetHref="/#contact" isActive={activeId === "contact"}>
+            Contact
           </NavLink>
         </ul>
       </div>
     </nav>
   );
 }
+
 function NavLink({
   children,
   targetHref,
@@ -31,7 +77,7 @@ function NavLink({
   return (
     // I wont use anchor tags because they show link at the bottom left when hovering.
     <span
-      className={`cursor-pointer text-white/70 transition-opacity select-none hover:text-white/90 ${isActive ? "text-white/90 underline underline-offset-2" : "text-white/70"}`}
+      className={`cursor-pointer text-white/70 transition-all select-none hover:text-white/90 ${isActive ? "text-white/90 underline underline-offset-2" : "text-white/70"}`}
       onClick={() => {
         window.location.href = targetHref;
       }}

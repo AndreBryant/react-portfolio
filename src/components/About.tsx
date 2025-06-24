@@ -1,9 +1,10 @@
 export default function About() {
   return (
     <section className="relative flex h-screen flex-col py-32" id="about">
+      <h2>ABOUT</h2>
       {/* Education */}
       <div className="">
-        <h2>Education</h2>
+        <h2>Education</h2> {/**Change these to h3 */}
         <ul>
           <li>UPB (2021 - 2025)</li>
           <li>Calamba Science (2019 - 2021)</li>

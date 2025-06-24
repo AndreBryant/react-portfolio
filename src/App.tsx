@@ -81,13 +81,18 @@ export default function App() {
       <div className="bg-black/30 text-slate-50 backdrop-blur-3xl">
         {/* HERO: Introduction */}
         <Hero />
+
         {/* Main Content: About Me (Education, Experience), Relevant Projects _(Academic Projects and Personal Projects) */}
         <About />
+        <section className="h-screen" id="projects">
+          Projects
+        </section>
+
         {/* Footer: Contact Form */}
-        <div className="h-screen w-full bg-amber-400"></div>
+        <section className="h-screen" id="contact">
+          Contact
+        </section>
       </div>
-      {/* Instructions */}
-      {/* <Instructions keystates={keyStates} /> */}
     </div>
   );
 }
