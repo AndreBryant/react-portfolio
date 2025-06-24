@@ -44,7 +44,7 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 z-50 flex h-32 w-full items-center justify-between p-16 text-white backdrop-blur-xs sm:px-24 xl:px-64">
       <div
-        className="cursor-default rounded-full border border-white/60 bg-black/20 px-2 py-1 transition-transform hover:border-white/90 hover:font-semibold"
+        className="cursor-default rounded-full border border-white/60 bg-white/10 px-2 py-1 transition-transform hover:border-white/90 hover:font-semibold"
         title="I dont know how to make logo or brand identity yet. Sorry"
       >
         <span className="font-mono">T_,T</span>
