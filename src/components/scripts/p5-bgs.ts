@@ -25,7 +25,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
         y: p5.random(-max, max),
         z: p5.random(-max, max),
         r: p5.random(200, 250),
-        color: [p5.random(0, 100), p5.random(0, 50), p5.random(0, 150)],
+        color: [p5.random(0, 90), p5.random(0, 50), p5.random(0, 150)],
       };
 
       objects.push(obj);

@@ -32,7 +32,10 @@ export default function Hero() {
 
       <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-16 md:flex-row">
         <div className="cursor-default">
-          <h1 className="text-4xl font-semibold">Hi! I'm Andre!</h1>
+          <h1 className="text-4xl font-semibold">
+            Hi! I'm{" "}
+            <span className="text-cyan-600 hover:text-cyan-500">Andre</span>!
+          </h1>
           <p className="text-xl opacity-60 transition-opacity hover:opacity-90">
             I'm a software developer.
           </p>
