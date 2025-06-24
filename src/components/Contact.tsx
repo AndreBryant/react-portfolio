@@ -13,30 +13,21 @@ export default function Contact() {
           </div>
           <div className="flex flex-col gap-8">
             <ul className="flex items-center justify-center gap-8 text-sm lg:gap-16">
-              <li>
-                <div className="flex flex-col items-center">
-                  <span className="">
-                    <Linkedin size={42} />
-                  </span>
-                  <span>LinkedIn </span>
-                </div>
-              </li>
-              <li>
-                <div className="flex flex-col items-center">
-                  <span>
-                    <Github size={42} />
-                  </span>
-                  <span>Github</span>
-                </div>
-              </li>
-              <li>
-                <div className="flex flex-col items-center">
-                  <span>
-                    <Facebook size={42} />
-                  </span>
-                  <span>Facebook</span>
-                </div>
-              </li>
+              <AnchorListItem
+                icon={<Linkedin size={42} />}
+                text="Link to my LinkedIn"
+                link="https://www.linkedin.com/in/andrebagalso/"
+              />
+              <AnchorListItem
+                icon={<Github size={42} />}
+                text="Link to my Github"
+                link="https://www.github.com/andrebryant"
+              />
+              <AnchorListItem
+                icon={<Facebook size={42} />}
+                text="Link to my Facebook"
+                link="https://www.facebook.com/andrebryant.bagalso/"
+              />
             </ul>
             <p className="text-sm text-white/70">
               You can connect with me through the following links or by
@@ -95,7 +86,7 @@ export default function Contact() {
           <div>
             <button
               type="submit"
-              className="rounded-md border border-amber-200/20 bg-amber-900 px-2 py-1 text-white hover:bg-amber-800"
+              className="rounded-md border border-amber-200/20 bg-amber-800 px-4 py-2 text-white hover:bg-amber-900"
             >
               Submit
             </button>
@@ -103,5 +94,29 @@ export default function Contact() {
         </form>
       </div>
     </section>
+  );
+}
+
+function AnchorListItem({
+  icon,
+  text,
+  link,
+}: {
+  icon: unknown;
+  text: string;
+  link: string;
+}) {
+  const onclick = (link: string) => window.open(link, "_blank");
+
+  return (
+    <li>
+      <div
+        className="group flex flex-col items-center text-white/70 hover:cursor-pointer hover:text-white"
+        onClick={() => onclick(link)}
+      >
+        <span>{icon}</span>
+        <span className="group-hover:underline">{text}</span>
+      </div>
+    </li>
   );
 }
