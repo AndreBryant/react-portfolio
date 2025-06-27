@@ -33,7 +33,7 @@ export default function App() {
   });
 
   return (
-    <div className="relative w-screen">
+    <div className="relative w-screen overflow-y-auto">
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch2} />
 

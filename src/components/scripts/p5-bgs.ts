@@ -33,6 +33,10 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
     }
     p5.lights();
     p5.angleMode(p5.DEGREES);
+
+    console.log(
+      objects.forEach((o) => console.log("[" + o.color.toString() + "]")),
+    );
   };
 
   p5.draw = () => {
