@@ -43,17 +43,12 @@ export default function About() {
     <section className="relative flex h-screen flex-col gap-8 py-32" id="about">
       <h2 className="text-4xl">About me</h2>
 
-      <div className="flex flex-col gap-8 border px-8 py-4 lg:flex-row">
-        <div className="flex flex-1/2 flex-col gap-4">
-          <UnorderedList list={educationListContent} header="Education" />
-        </div>
-
-        <div className="flex flex-1/2 flex-col gap-4">
-          <UnorderedList
-            list={experienceListContent}
-            header="Organizations / Experience"
-          />
-        </div>
+      <div className="flex flex-col gap-8 lg:flex-row">
+        <UnorderedList list={educationListContent} header="Education" />
+        <UnorderedList
+          list={experienceListContent}
+          header="Organizations/Experience"
+        />
       </div>
     </section>
   );
@@ -62,13 +57,19 @@ export default function About() {
 function ListItem({ li }: { li: LI }) {
   return (
     <li>
-      <div>
-        <p>
-          {li.title} <span>({li.duration})</span>
-        </p>
+      <div className="flex flex-col">
+        <div className="flex gap-4 text-slate-50/90">
+          <span>{li.title}</span>
+          <span className="flex grow flex-col justify-center">
+            <hr className="text-white/30" />
+          </span>
+          <span>({li.duration})</span>
+        </div>
         <ul>
           {li.desc.map((desc, index) => (
-            <li key={index}>{desc}</li>
+            <li key={index} className="text-sm text-slate-50/50">
+              {desc}
+            </li>
           ))}
         </ul>
       </div>
@@ -78,13 +79,14 @@ function ListItem({ li }: { li: LI }) {
 
 function UnorderedList({ list, header }: { list: LI[]; header: string }) {
   return (
-    <>
+    <div className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/10 bg-black/10 px-8 py-6 backdrop-blur-md">
       <h3 className="text-xl">{header}</h3>
-      <ul>
+      <hr className="text-white/10" />
+      <ul className="space-y-4">
         {list.map((li, index) => (
           <ListItem key={index} li={li} />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
