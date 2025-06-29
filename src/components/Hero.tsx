@@ -21,14 +21,16 @@ export default function Hero() {
       </div>
 
       <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-16 md:flex-row">
-        <div className="cursor-default">
+        <div className="cursor-default md:flex-3/5">
           <h1 className="text-4xl font-semibold">Hi! I'm Andre.</h1>
-          <p className="text-xl opacity-60 transition-opacity hover:opacity-90">
-            I'm a software developer.
+          <p className="text-xl opacity-70 transition-opacity hover:opacity-90">
+            Welcome! I'm a software developer, and this is a{" "}
+            <strong>temporary</strong> version of my portfolio. A more complete
+            experience is on the way — stay tuned!
           </p>
         </div>
 
-        <div className="">
+        <div className="md:flex-2/5">
           <div className="group flex aspect-square h-64 items-center justify-center rounded-lg border border-white/20 bg-black/10 backdrop-blur-xs">
             <p className="text-3xl font-semibold opacity-70 transition-opacity group-hover:opacity-90">
               ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
