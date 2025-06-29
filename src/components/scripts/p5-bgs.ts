@@ -40,7 +40,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
         x: p5.random(-range, range),
         y: p5.random(-range, range),
         z: p5.random(-range, range),
-        r: p5.random(range, range * 2),
+        r: p5.random(range / 2, range * 2),
         shape: p5.random(["sphere", "cone"]),
         color: [colors[i][0], colors[i][1], colors[i][2]],
       };
