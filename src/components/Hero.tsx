@@ -20,7 +20,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-16 md:flex-row">
+      <div className="flex h-full w-full flex-col-reverse items-center justify-center gap-16 md:flex-row lg:px-32 xl:px-24">
         <div className="cursor-default md:flex-3/5">
           <h1 className="text-4xl font-semibold">Hi! I'm Andre.</h1>
           <p className="text-xl opacity-70 transition-opacity hover:opacity-90">
