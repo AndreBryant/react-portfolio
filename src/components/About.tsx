@@ -40,7 +40,10 @@ export default function About() {
   ];
 
   return (
-    <section className="relative flex h-screen flex-col gap-8 py-32" id="about">
+    <section
+      className="relative flex h-screen flex-col gap-8 py-32 sm:px-24 xl:px-64"
+      id="about"
+    >
       <h2 className="text-4xl">About me</h2>
 
       <div className="flex flex-col gap-8 lg:flex-row">

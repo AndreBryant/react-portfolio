@@ -3,7 +3,10 @@ import type { ReactNode } from "react";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-8 py-32 lg:h-screen" id="contact">
+    <section
+      className="flex flex-col gap-8 py-32 sm:px-24 lg:h-screen xl:px-64"
+      id="contact"
+    >
       <h2 className="text-4xl">Contact me</h2>
       <div className="flex flex-col gap-8 lg:flex-row">
         <div className="flex flex-1/2 flex-col items-center gap-16 rounded-lg border border-white/20 bg-black/50 p-4 py-16">
