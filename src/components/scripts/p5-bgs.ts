@@ -72,14 +72,14 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
       p5.pop();
     }
 
-    mouseObj.x += (mouseObj.targetX - mouseObj.x) * 0.01;
-    mouseObj.y += (mouseObj.targetY - mouseObj.y) * 0.01;
+    p5.pop();
+
+    mouseObj.x += (mouseObj.targetX - mouseObj.x) * 0.005;
+    mouseObj.y += (mouseObj.targetY - mouseObj.y) * 0.005;
     p5.push();
     p5.translate(mouseObj.x, mouseObj.y, mouseObj.z);
     p5.fill(255);
-    p5.sphere(mouseObj.r);
-    p5.pop();
-
+    p5.cone(mouseObj.r);
     p5.pop();
   };
 
