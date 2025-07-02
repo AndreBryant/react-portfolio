@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import Hero from "./components/Hero";
-import { ReactP5Wrapper } from "@p5-wrapper/react";
-import { heroSketch2, GlobalWrapperStyle } from "./components/scripts/p5-bgs";
 
 import About from "./components/About";
 import NavBar from "./components/NavBar";
@@ -34,11 +32,9 @@ export default function App() {
 
   return (
     <div className="relative w-screen overflow-y-auto">
-      <GlobalWrapperStyle />
-      <ReactP5Wrapper sketch={heroSketch2} />
-
       <NavBar />
-      <div className="bg-black/30 px-16 text-slate-50 backdrop-blur-3xl sm:px-24 xl:px-64">
+      {/* sm:px-24 xl:px-64 */}
+      <div className="bg-[#010101] text-slate-50">
         {/* HERO: Introduction */}
         <Hero />
 

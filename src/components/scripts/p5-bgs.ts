@@ -52,7 +52,7 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
   };
 
   p5.draw = () => {
-    p5.background(20);
+    p5.background(10);
 
     p5.push();
     p5.rotateX(a);
@@ -96,12 +96,12 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 };
 
 export const GlobalWrapperStyle = createGlobalStyle`
-  .${P5WrapperClassName} {
-      position: fixed;
+  .${P5WrapperClassName}>canvas {
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      // z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      filter: blur(70px)
       }
       `;
