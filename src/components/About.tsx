@@ -15,7 +15,7 @@ export default function About() {
             <p className="text-4xl font-semibold">◝(ᵔᗜᵔ)◜</p>
           </div>
         </div>
-        <div className="flex flex-2/3 flex-col gap-4 tracking-wide text-slate-50/60">
+        <div className="flex flex-2/3 flex-col gap-4 tracking-wide text-slate-50/50">
           <div className="flex-1/3">
             <h4 className="text-xl text-slate-50/90">Welcome!</h4>
           </div>
@@ -25,17 +25,25 @@ export default function About() {
               <span className="font-semibold text-slate-50/90">
                 Andre Bryant
               </span>
-              . I am a{" "}
+              , a{" "}
               <span className="font-semibold text-slate-50/90">
-                Computer Science Fresh Graduate
+                computer science fresh graduate{" "}
               </span>
-              and an{" "}
+              from the{" "}
               <span className="font-semibold text-slate-50/90">
-                aspiring professional software developer
+                University of the Philippines{" "}
+              </span>
+              and an aspiring professional{" "}
+              <span className="font-semibold text-slate-50/90">
+                software developer
               </span>
               . I enjoy manipulating the feelings of other people and using them
               to my advantage, making me a quialified project manager (---
-              remove this).
+              remove this haha). I was also a{" "}
+              <span className="font-semibold text-slate-50/90">
+                DOST-SEI JLSS scholar{" "}
+              </span>
+              from 2023 - 2025.
               <br />
               <br />I enjoy using modern web frameworks such as{" "}
               <span className="font-semibold text-slate-50/90">
