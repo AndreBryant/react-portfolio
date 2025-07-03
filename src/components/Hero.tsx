@@ -23,7 +23,7 @@ export default function Hero() {
             Andre
           </h1>
           <p className="text-right text-slate-50/60">
-            I am a software developer
+            aspiring software developer
           </p>
         </div>
       </div>

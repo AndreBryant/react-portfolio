@@ -1,17 +1,55 @@
 export default function About() {
   return (
     <section
-      className="relative flex flex-col gap-8 py-32 sm:px-24 xl:px-64"
+      className="relative flex flex-col gap-24 py-32 sm:px-24 xl:px-64"
       id="about"
     >
-      <div className="w-fit">
-        <h2 className="peer text-4xl">About me</h2>
-        <hr className="w-1/2 peer-hover:translate-x-full" />
+      <div className="w-fit cursor-default space-y-2">
+        <h2 className="text-4xl text-slate-100 uppercase">About me</h2>
+        <h3 className="text-slate-100/70">Get to know me</h3>
       </div>
 
-      <div className="flex flex-col justify-center gap-8 lg:flex-row">
-        <div className="border">img </div>
-        <div className="border">paragraphs here</div>
+      <div className="flex flex-col items-center justify-center gap-16 md:flex-row md:items-start">
+        <div className="flex flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
+          <div className="flex h-64 w-64 items-center justify-center rounded-full border border-amber-50/30 bg-amber-900/10">
+            <p className="text-4xl font-semibold">◝(ᵔᗜᵔ)◜</p>
+          </div>
+        </div>
+        <div className="flex flex-2/3 flex-col gap-4 tracking-wide text-slate-50/60">
+          <div className="flex-1/3">
+            <h4 className="text-xl text-slate-50/90">Welcome!</h4>
+          </div>
+          <div className="flex-1/3">
+            <p>
+              Hello, I am{" "}
+              <span className="font-semibold text-slate-50/90">
+                Andre Bryant
+              </span>
+              . I am a{" "}
+              <span className="font-semibold text-slate-50/90">
+                Computer Science Fresh Graduate
+              </span>
+              and an{" "}
+              <span className="font-semibold text-slate-50/90">
+                aspiring professional software developer
+              </span>
+              . I enjoy manipulating the feelings of other people and using them
+              to my advantage, making me a quialified project manager (---
+              remove this).
+              <br />
+              <br />I enjoy using modern web frameworks such as{" "}
+              <span className="font-semibold text-slate-50/90">
+                SvelteKit
+              </span>{" "}
+              &{" "}
+              <span className="font-semibold text-slate-50/90">SvelteKit</span>,
+              and libraries such as{" "}
+              <span className="font-semibold text-slate-50/90">p5.js</span> for
+              creative coding.
+            </p>
+          </div>
+        </div>
+        <div className="w-full flex-1/3 border border-slate-50/40"></div>
       </div>
     </section>
   );
