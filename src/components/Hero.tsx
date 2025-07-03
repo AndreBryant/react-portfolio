@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="z-10 flex h-full w-full items-center justify-center">
         <div className="uppercase">
           <p className="text-slate-50/70">Hello, I am</p>
-          <h1 className="animated-background bg-gradient-to-r from-slate-50 to-amber-300 bg-clip-text text-9xl font-bold tracking-tighter text-transparent">
+          <h1 className="animated-background bg-gradient-to-r from-slate-50 via-slate-100 to-slate-800 bg-clip-text text-9xl font-bold tracking-tighter text-transparent">
             Andre
           </h1>
           <p className="text-right text-slate-50/70">
