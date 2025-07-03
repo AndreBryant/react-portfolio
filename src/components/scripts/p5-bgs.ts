@@ -32,7 +32,6 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
   let a = 0;
 
   p5.setup = () => {
-    // TODO: Fixed shapes and dimensions for the 3d figures
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
     const range = 100;
     for (let i = 0; i < count; i++) {
@@ -52,7 +51,8 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
   };
 
   p5.draw = () => {
-    p5.background(10);
+    p5.clear();
+    // p5.background(10);
 
     p5.push();
     p5.rotateX(a);
