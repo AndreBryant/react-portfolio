@@ -5,51 +5,49 @@ export default function About() {
       id="about"
     >
       <div className="w-fit cursor-default space-y-2">
-        <h2 className="text-4xl text-slate-100 uppercase">About me</h2>
+        <h2 className="text-4xl text-slate-100 uppercase">Overview</h2>
         <h3 className="font-thin tracking-widest text-slate-100">
           Get to know me
         </h3>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
-        <div className="flex flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
-          <div className="flex h-64 w-64 items-center justify-center rounded-full border border-slate-50/30 bg-slate-900/10">
-            <p className="text-4xl font-semibold">◝(ᵔᗜᵔ)◜</p>
+        <div className="flex w-full flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
+          <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-purple-900 bg-purple-300">
+            <p className="text-4xl font-semibold text-purple-900">◝(ᵔᗜᵔ)◜</p>
           </div>
         </div>
         <div className="flex flex-2/3 flex-col items-center justify-center gap-6 font-thin tracking-widest text-slate-50">
-          <div className="">
-            <h4 className="text-2xl text-slate-50">Welcome!</h4>
+          <div className="space-y-4">
+            <h4 className="text-4xl font-normal">About me</h4>
+            <hr className="opacity-40" />
           </div>
           <div className="">
             <p>
               Hello, I am{" "}
               <span className="font-normal text-purple-300">Andre Bryant</span>,
-              a{" "}
-              <span className="text-purple-300">
-                computer science fresh graduate{" "}
-              </span>
-              from the{" "}
-              <span className="text-purple-300">
+              a computer science fresh graduate from the{" "}
+              <span className="font-normal text-purple-300">
                 University of the Philippines{" "}
               </span>
-              and an aspiring professional{" "}
-              <span className="text-purple-300">software developer</span>. I
-              enjoy manipulating the feelings of other people and using them to
-              my advantage, making me a quialified project manager (--- remove
-              this haha). I was also a{" "}
-              <span className="text-purple-300">DOST-SEI JLSS scholar </span>
+              and an aspiring professional software developer . I was also a{" "}
+              <span className="font-normal text-purple-300">
+                DOST-SEI JLSS scholar{" "}
+              </span>
               from 2023 - 2025.
               <br />
               <br />I enjoy using modern web frameworks such as{" "}
-              <span className="text-purple-300">SvelteKit</span> &{" "}
-              <span className="text-purple-300">NextJS</span>, and libraries
-              such as <span className="text-purple-300">p5.js</span> for
+              <span className="font-normal text-purple-300">
+                SvelteKit
+              </span> &{" "}
+              <span className="font-normal text-purple-300">NextJS</span>, and
+              libraries such as{" "}
+              <span className="font-normal text-purple-300">p5.js</span> for
               creative coding.
             </p>
           </div>
         </div>
-        <div className="w-full flex-1/3 border-t border-slate-50/40"></div>
+        <div className="w-full flex-1/3 border-t border-slate-50/40 lg:h-full"></div>
       </div>
     </section>
   );

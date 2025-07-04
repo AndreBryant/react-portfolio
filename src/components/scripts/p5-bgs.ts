@@ -104,5 +104,6 @@ export const GlobalWrapperStyle = createGlobalStyle`
       height: 100vh;
       // filter: blur(100px);
 
+
       }
       `;
