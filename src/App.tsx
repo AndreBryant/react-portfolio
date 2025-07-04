@@ -34,7 +34,7 @@ export default function App() {
     <div className="relative w-screen overflow-y-auto">
       <NavBar />
       {/* sm:px-24 xl:px-64 */}
-      <div className="bg-[#010101] text-slate-50">
+      <div className="bg-[#0a0a0a] text-slate-50">
         {/* HERO: Introduction */}
         <Hero />
 

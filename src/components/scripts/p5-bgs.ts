@@ -102,6 +102,7 @@ export const GlobalWrapperStyle = createGlobalStyle`
       left: 0;
       width: 100vw;
       height: 100vh;
-      filter: blur(70px)
+      // filter: blur(100px);
+
       }
       `;

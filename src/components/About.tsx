@@ -6,58 +6,50 @@ export default function About() {
     >
       <div className="w-fit cursor-default space-y-2">
         <h2 className="text-4xl text-slate-100 uppercase">About me</h2>
-        <h3 className="text-slate-100/70">Get to know me</h3>
+        <h3 className="font-thin tracking-widest text-slate-100">
+          Get to know me
+        </h3>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-16 md:flex-row md:items-start">
+      <div className="flex flex-col items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
         <div className="flex flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
-          <div className="flex h-64 w-64 items-center justify-center rounded-full border border-amber-50/30 bg-amber-900/10">
+          <div className="flex h-64 w-64 items-center justify-center rounded-full border border-slate-50/30 bg-slate-900/10">
             <p className="text-4xl font-semibold">◝(ᵔᗜᵔ)◜</p>
           </div>
         </div>
-        <div className="flex flex-2/3 flex-col gap-4 tracking-wide text-slate-50/50">
-          <div className="flex-1/3">
-            <h4 className="text-xl text-slate-50/90">Welcome!</h4>
+        <div className="flex flex-2/3 flex-col items-center justify-center gap-6 font-thin tracking-widest text-slate-50">
+          <div className="">
+            <h4 className="text-2xl text-slate-50">Welcome!</h4>
           </div>
-          <div className="flex-1/3">
+          <div className="">
             <p>
               Hello, I am{" "}
-              <span className="font-semibold text-slate-50/90">
-                Andre Bryant
-              </span>
-              , a{" "}
-              <span className="font-semibold text-slate-50/90">
+              <span className="font-normal text-purple-300">Andre Bryant</span>,
+              a{" "}
+              <span className="text-purple-300">
                 computer science fresh graduate{" "}
               </span>
               from the{" "}
-              <span className="font-semibold text-slate-50/90">
+              <span className="text-purple-300">
                 University of the Philippines{" "}
               </span>
               and an aspiring professional{" "}
-              <span className="font-semibold text-slate-50/90">
-                software developer
-              </span>
-              . I enjoy manipulating the feelings of other people and using them
-              to my advantage, making me a quialified project manager (---
-              remove this haha). I was also a{" "}
-              <span className="font-semibold text-slate-50/90">
-                DOST-SEI JLSS scholar{" "}
-              </span>
+              <span className="text-purple-300">software developer</span>. I
+              enjoy manipulating the feelings of other people and using them to
+              my advantage, making me a quialified project manager (--- remove
+              this haha). I was also a{" "}
+              <span className="text-purple-300">DOST-SEI JLSS scholar </span>
               from 2023 - 2025.
               <br />
               <br />I enjoy using modern web frameworks such as{" "}
-              <span className="font-semibold text-slate-50/90">
-                SvelteKit
-              </span>{" "}
-              &{" "}
-              <span className="font-semibold text-slate-50/90">SvelteKit</span>,
-              and libraries such as{" "}
-              <span className="font-semibold text-slate-50/90">p5.js</span> for
+              <span className="text-purple-300">SvelteKit</span> &{" "}
+              <span className="text-purple-300">NextJS</span>, and libraries
+              such as <span className="text-purple-300">p5.js</span> for
               creative coding.
             </p>
           </div>
         </div>
-        <div className="w-full flex-1/3 border border-slate-50/40"></div>
+        <div className="w-full flex-1/3 border-t border-slate-50/40"></div>
       </div>
     </section>
   );
