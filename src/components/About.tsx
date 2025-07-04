@@ -13,7 +13,7 @@ export default function About() {
 
       <div className="flex flex-col items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
         <div className="flex w-full flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
-          <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-purple-900 bg-purple-300">
+          <div className="about-me-img flex h-64 w-64 items-center justify-center border-8 border-purple-900 bg-purple-300">
             <p className="text-4xl font-semibold text-purple-900">◝(ᵔᗜᵔ)◜</p>
           </div>
         </div>
