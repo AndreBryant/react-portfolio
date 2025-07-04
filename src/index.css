@@ -65,3 +65,47 @@ body {
     background-position: 100% 0%;
   }
 }
+
+.hero-hello-animated,
+.hero-andre-animated,
+.hero-software-dev-animated {
+  -webkit-animation: fade-in 0.5s ease forwards;
+  -moz-animation: fade-in 0.5s ease forwards;
+  animation: fade-in 0.5s ease forwards;
+  opacity: 0;
+}
+
+.hero-hello-animated {
+  -webkit-animation: slide-left 0.5s ease forwards;
+  -moz-animation: slide-left 0.5s ease forwards;
+  animation: slide-left 0.5s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.hero-andre-animated {
+  animation-delay: 1s;
+}
+
+.hero-software-dev-animated {
+  animation-delay: 1.5s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
