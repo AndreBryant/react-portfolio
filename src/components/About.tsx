@@ -1,10 +1,7 @@
 export default function About() {
   return (
-    <section
-      className="relative flex flex-col gap-24 py-32 sm:px-24 xl:px-64"
-      id="about"
-    >
-      <div className="w-fit cursor-default space-y-2">
+    <section className="relative flex flex-col gap-8" id="about">
+      <div className="about-header-animated w-fit cursor-default space-y-2">
         <h2 className="text-4xl text-slate-100 uppercase">Overview</h2>
         <h3 className="font-thin tracking-widest text-slate-100">
           Get to know me
@@ -13,8 +10,9 @@ export default function About() {
 
       <div className="flex flex-col items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
         <div className="flex w-full flex-1/3 items-center justify-center border-b border-slate-50/40 py-8">
-          <div className="about-me-img flex h-64 w-64 items-center justify-center border-8 border-purple-900 bg-purple-300">
-            <p className="text-4xl font-semibold text-purple-900">◝(ᵔᗜᵔ)◜</p>
+          <div className="about-me-img flex h-64 w-64 flex-col items-center justify-center bg-purple-100/10">
+            <p className="text-4xl font-thin text-purple-50/20">◝(ᵔᗜᵔ)◜</p>
+            <p className="text-4xl font-thin text-purple-50/20">img here</p>
           </div>
         </div>
         <div className="flex flex-2/3 flex-col items-center justify-center gap-6 font-thin tracking-widest text-slate-50">

@@ -36,9 +36,9 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
     const range = 100;
     for (let i = 0; i < count; i++) {
       const obj = {
-        x: p5.random(-range, range),
-        y: p5.random(-range, range),
-        z: p5.random(-range, range),
+        x: p5.random(-2 * range, 2 * range),
+        y: p5.random(-2 * range, 2 * range),
+        z: p5.random(-2 * range, 2 * range),
         r: p5.random(range / 2, range * 2),
         shape: p5.random(["sphere", "cone"]),
         color: [colors[i][0], colors[i][1], colors[i][2]],
@@ -102,7 +102,7 @@ export const GlobalWrapperStyle = createGlobalStyle`
       left: 0;
       width: 100vw;
       height: 100vh;
-      // filter: blur(100px);
+      filter: blur(50px);
 
 
       }
