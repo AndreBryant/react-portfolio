@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import NavBar from "./components/NavBar";
 import Contact from "./components/Contact";
+import Projects from "./components/Projects";
 
 export default function App() {
   useEffect(() => {
@@ -34,16 +35,13 @@ export default function App() {
     <div className="relative w-screen overflow-y-auto">
       <NavBar />
       {/* sm:px-24 xl:px-64 */}
-      <div className="bg-[#0a0a0a] text-slate-50 [&>section]:px-4 [&>section]:py-32 [&>section]:sm:px-24 [&>section]:xl:px-64">
+      <div className="bg-[#131313] text-slate-50 [&>section]:px-4 [&>section]:py-32 [&>section]:sm:px-24 [&>section]:xl:px-64">
         {/* HERO: Introduction */}
         <Hero />
 
         {/* Main Content: About Me (Education, Experience), Relevant Projects _(Academic Projects and Personal Projects) */}
         <About />
-        <section className="h-screen py-32" id="projects">
-          Projects
-        </section>
-
+        <Projects />
         {/* Footer: Contact Form */}
         <Contact />
       </div>

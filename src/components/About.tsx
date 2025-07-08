@@ -22,26 +22,17 @@ export default function About() {
           </div>
           <div className="">
             <p>
-              Hello, I am{" "}
-              <span className="font-normal text-purple-300">Andre Bryant</span>,
-              a computer science fresh graduate from the{" "}
-              <span className="font-normal text-purple-300">
-                University of the Philippines{" "}
-              </span>
+              Hello, I am <span className="">Andre Bryant</span>, a computer
+              science fresh graduate from the{" "}
+              <span className="">University of the Philippines </span>
               and an aspiring professional software developer . I was also a{" "}
-              <span className="font-normal text-purple-300">
-                DOST-SEI JLSS scholar{" "}
-              </span>
+              <span className="">DOST-SEI JLSS scholar </span>
               from 2023 - 2025.
               <br />
               <br />I enjoy using modern web frameworks such as{" "}
-              <span className="font-normal text-purple-300">
-                SvelteKit
-              </span> &{" "}
-              <span className="font-normal text-purple-300">NextJS</span>, and
-              libraries such as{" "}
-              <span className="font-normal text-purple-300">p5.js</span> for
-              creative coding.
+              <span className="">SvelteKit</span> &{" "}
+              <span className="">NextJS</span>, and libraries such as{" "}
+              <span className="">p5.js</span> for creative coding.
             </p>
           </div>
         </div>
@@ -114,7 +105,7 @@ export default function About() {
 //   return (
 //     <li>
 //       <div className="flex flex-col">
-//         <div className="flex gap-4 text-slate-50/90">
+//         <div className=/90">
 //           <span>{li.title}</span>
 //           <span className="flex grow flex-col justify-center">
 //             <hr className="text-white/30" />

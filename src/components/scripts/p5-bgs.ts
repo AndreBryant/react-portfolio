@@ -101,9 +101,9 @@ export const GlobalWrapperStyle = createGlobalStyle`
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
-      filter: blur(50px);
-
+      height: 110vh;
+      filter: blur(55px);
+      background-image: linear-gradient(black, #4343e910);
 
       }
       `;
