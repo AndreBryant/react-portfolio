@@ -40,7 +40,7 @@ export default function App() {
         <Hero />
 
         {/* Main Content: About Me (Education, Experience), Relevant Projects _(Academic Projects and Personal Projects) */}
-        <About />
+        {/* <About /> */}
         <Projects />
         {/* Footer: Contact Form */}
         <Contact />

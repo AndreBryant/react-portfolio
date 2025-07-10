@@ -95,6 +95,20 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
   };
 };
 
+export const heroSketch3 = (p5: P5CanvasInstance) => {
+  p5.setup = () => {
+    p5.createCanvas(window.innerWidth, window.innerHeight);
+  };
+
+  p5.draw = () => {};
+
+  p5.windowResized = () => {
+    p5.resizeCanvas(window.innerWidth, window.innerHeight);
+  };
+
+  p5.mouseMoved = () => {};
+};
+
 export const GlobalWrapperStyle = createGlobalStyle`
   .${P5WrapperClassName}>canvas {
       position: absolute;
