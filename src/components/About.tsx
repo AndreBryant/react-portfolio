@@ -1,3 +1,5 @@
+// CHange this to skills
+
 export default function About() {
   return (
     <section className="relative flex flex-col gap-8" id="about">

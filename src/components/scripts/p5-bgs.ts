@@ -22,13 +22,13 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 
   const colors = [
     [33, 9, 78],
-    [33, 9, 78],
+    [85, 45, 43],
     [61, 18, 109],
+    [33, 9, 78],
     [80, 51, 73],
-    [105, 65, 63],
   ];
 
-  const count = 5;
+  const count = 3;
   let a = 0;
 
   p5.setup = () => {
