@@ -111,6 +111,41 @@ body {
   }
 }
 
+.hero-subtext-animated {
+  -webkit-animation: open-to-left 0.5s ease forwards;
+  -moz-animation: open-to-left 0.5s ease forwards;
+  animation: open-to-left 0.5s ease forwards;
+  animation-delay: 1s;
+
+  width: 0%;
+  & > p {
+    display: none;
+
+    -webkit-animation: none-to-block 0.5s ease forwards;
+    -moz-animation: none-to-block 0.5s ease forwards;
+    animation: none-to-block 0.5s ease forwards;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes none-to-block {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes open-to-left {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 /* ABOUT */
 
 .about-me-img {

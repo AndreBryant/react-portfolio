@@ -28,7 +28,7 @@ export default function Hero() {
               aspiring software developer
             </p>
           </div>
-          <div className="border-l-4 border-purple-800 bg-slate-800/10 py-4 pr-4 pl-8">
+          <div className="hero-subtext-animated border-l-4 border-purple-800 bg-slate-800/10 py-4 pr-4 pl-8">
             <p className="text-sm font-thin text-slate-50/60 text-shadow-2xs text-shadow-slate-50/40">
               I am a computer science fresh graduate from the University of the
               Philippines and a DOST-SEI JLSS scholar from 2023 - 2025.
