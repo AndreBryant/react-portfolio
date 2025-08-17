@@ -147,7 +147,7 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-skills 20s infinite linear;
+  animation: marquee-skills 15s infinite linear;
 
   &:hover {
     animation-play-state: paused;

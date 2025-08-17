@@ -16,8 +16,8 @@ export default function Hero() {
       <div className="flex w-full flex-col tracking-widest text-slate-50 md:flex-row lg:w-2/3">
         <div className="flex w-full flex-col items-center gap-16">
           <div className="w-2/3 uppercase">
-            <p className="-rotate-1 text-xl">{HERO_CONTENT.heading}</p>
-            <p className="hero-andre-animated rotate-3 bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-8xl tracking-tight text-transparent lg:text-9xl">
+            <p className="-rotate-2 text-xl">{HERO_CONTENT.heading}</p>
+            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-8xl tracking-tight text-transparent lg:text-9xl">
               {HERO_CONTENT.name}
             </p>
             <p className="-rotate-2 text-right text-xl">{HERO_CONTENT.job}</p>

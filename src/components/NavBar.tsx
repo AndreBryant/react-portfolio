@@ -43,6 +43,7 @@ export default function NavBar() {
 
   const sections: Record<string, string>[] = [
     { label: "home", id: "hero" },
+    { label: "education", id: "education" },
     { label: "projects", id: "projects" },
     { label: "contact", id: "contact" },
   ];
