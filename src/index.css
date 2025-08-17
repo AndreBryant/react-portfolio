@@ -147,7 +147,11 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-skills 50s linear infinite;
+  animation: marquee-skills 20s infinite linear;
+
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes marquee-skills {
@@ -155,7 +159,7 @@ body {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
 

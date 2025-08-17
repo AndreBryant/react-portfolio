@@ -49,7 +49,7 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-8 z-50 block w-full px-4 sm:px-24 xl:px-64">
-      <div className="mx-auto flex items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
+      <div className="mx-auto flex rotate-2 items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
         <div
           className="group flex items-center gap-4"
           onClick={() => document.getElementById("hero")?.scrollIntoView()}
