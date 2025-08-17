@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
-import { ReactP5Wrapper } from "@p5-wrapper/react";
-import { heroSketch3, GlobalWrapperStyle } from "./scripts/p5-bgs";
+// import { ReactP5Wrapper } from "@p5-wrapper/react";
+// import { heroSketch3, GlobalWrapperStyle } from "./scripts/p5-bgs";
 
 export default function Hero() {
   return (
@@ -8,8 +8,8 @@ export default function Hero() {
       className="relative flex h-screen w-screen items-center justify-center bg-black/40 select-none"
       id="hero"
     >
-      <GlobalWrapperStyle />
-      <ReactP5Wrapper sketch={heroSketch3} />
+      {/* <GlobalWrapperStyle /> */}
+      {/* <ReactP5Wrapper sketch={heroSketch3} /> */}
       <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8 pb-16">
         <div className="flex animate-bounce items-center gap-2 text-white/20 peer-hover:text-white/30">
           <ChevronDown />

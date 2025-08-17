@@ -4,7 +4,7 @@ export default function NavBar() {
   const [activeId, setActiveId] = useState<string | null>("hero");
 
   useEffect(() => {
-    const sections = ["hero", "about", "projects", "contact"];
+    const sections = ["hero", "projects", "contact"];
     const sectionElements = sections
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -42,38 +42,37 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 z-50 flex h-32 w-full items-center justify-between p-16 text-white backdrop-blur-xs select-none sm:px-24 xl:px-64">
-      <div
-        className="group flex items-center gap-4"
-        onClick={() => document.getElementById("hero")?.scrollIntoView()}
-      >
+    <nav className="fixed top-8 z-50 block w-full px-4 sm:px-24 xl:px-64">
+      <div className="mx-auto flex items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
         <div
-          className="cursor-default rounded-full border border-white/20 px-2 py-1 transition-transform group-hover:border-white/90 group-hover:font-semibold"
-          title="I dont know how to make logo or brand identity yet. Sorry"
+          className="group flex items-center gap-4"
+          onClick={() => document.getElementById("hero")?.scrollIntoView()}
         >
-          <span className="text-md font-mono text-white/70">T_,T</span>
-        </div>
+          <div
+            className="cursor-default font-mono font-thin text-purple-50"
+            title="I dont know how to make logo or brand identity yet. Sorry"
+          >
+            &gt; Andre
+          </div>
 
-        {/* <span className="-translate-x-full opacity-0 transition-opacity group-hover:block group-hover:translate-x-0 group-hover:opacity-100"> */}
-        {/* <span className="hidden group-hover:text-lg group-hover:font-bold lg:block">
+          {/* <span className="-translate-x-full opacity-0 transition-opacity group-hover:block group-hover:translate-x-0 group-hover:opacity-100"> */}
+          {/* <span className="hidden group-hover:text-lg group-hover:font-bold lg:block">
           My Portfolio
-        </span> */}
-      </div>
-      <div>
-        <ul className="flex gap-8">
-          <NavLink elmntId="hero" isActive={activeId === "hero"}>
-            Home
-          </NavLink>
-          <NavLink elmntId="about" isActive={activeId === "about"}>
-            About
-          </NavLink>
-          <NavLink elmntId="projects" isActive={activeId === "projects"}>
-            Projects
-          </NavLink>
-          <NavLink elmntId="contact" isActive={activeId === "contact"}>
-            Contact
-          </NavLink>
-        </ul>
+          </span> */}
+        </div>
+        <div className="grow">
+          <ul className="flex justify-end gap-8 font-mono">
+            <NavLink elmntId="hero" isActive={activeId === "hero"}>
+              {activeId === "hero" ? "home" : "cd home"}
+            </NavLink>
+            <NavLink elmntId="projects" isActive={activeId === "projects"}>
+              {activeId === "projects" ? "projects" : "cd projects"}
+            </NavLink>
+            <NavLink elmntId="contact" isActive={activeId === "contact"}>
+              {activeId === "contact" ? "contact" : "cd contact"}
+            </NavLink>
+          </ul>
+        </div>
       </div>
     </nav>
   );

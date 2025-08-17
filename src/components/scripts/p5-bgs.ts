@@ -96,11 +96,30 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 };
 
 export const heroSketch3 = (p5: P5CanvasInstance) => {
+  const stars: Record<string, number>[] = [];
+  const count = 200;
+
   p5.setup = () => {
     p5.createCanvas(window.innerWidth, window.innerHeight);
+    for (let i = 0; i < count; i++) {
+      const star = {
+        x: p5.random(p5.width),
+        y: p5.random(p5.height),
+        z: p5.random(100),
+      };
+      stars.push(star);
+    }
+    p5.color(200);
   };
 
-  p5.draw = () => {};
+  p5.draw = () => {
+    for (const star of stars) {
+      p5.push();
+      p5.strokeWidth(star.z);
+      p5.point(star.x, star.y);
+      p5.pop();
+    }
+  };
 
   p5.windowResized = () => {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
