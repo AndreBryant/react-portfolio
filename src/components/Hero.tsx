@@ -1,44 +1,56 @@
 import { ChevronDown } from "lucide-react";
-// import { ReactP5Wrapper } from "@p5-wrapper/react";
-// import { heroSketch3, GlobalWrapperStyle } from "./scripts/p5-bgs";
+import { HERO_CONTENT, SKILLS } from "../content";
 
 export default function Hero() {
+  const colors: string[] = ["rose", "red", "orange", "cyan"];
   return (
     <section
-      className="relative flex h-screen w-screen items-center justify-center bg-black/40 select-none"
+      className="relative flex h-screen w-screen items-center justify-center bg-black/40 font-mono tracking-wider select-none"
       id="hero"
     >
-      {/* <GlobalWrapperStyle /> */}
-      {/* <ReactP5Wrapper sketch={heroSketch3} /> */}
-      <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8 pb-16">
+      <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8">
         <div className="flex animate-bounce items-center gap-2 text-white/20 peer-hover:text-white/30">
           <ChevronDown />
         </div>
       </div>
-      <div className="mt-32 flex basis-0 flex-col items-center gap-16 md:mt-0 md:flex-row">
-        <div className="z-10 flex flex-col items-center justify-center gap-4">
-          <div className="uppercase">
-            <p className="hero-hello-animated text-slate-50/60 text-shadow-slate-50 text-shadow-xs">
-              Hello, I am
-            </p>
-            <h1 className="hero-andre-animated bg-gradient-to-r from-purple-50 via-purple-600 to-purple-300 bg-clip-text text-8xl font-bold tracking-tight text-transparent lg:text-9xl">
-              Andre
-            </h1>
-            <p className="hero-software-dev-animated text-right text-slate-50/60 text-shadow-slate-50 text-shadow-xs">
-              aspiring software developer
-            </p>
-          </div>
-          <div className="hero-subtext-animatedxxx border-l-4 border-purple-800 bg-slate-800/10 py-4 pr-4 pl-8">
-            <p className="text-sm tracking-wide text-slate-50/75">
-              I am a computer science fresh graduate from the University of the
-              Philippines and a DOST-SEI JLSS scholar.
-            </p>
-          </div>
-        </div>
-        <div className="flex w-full flex-1/3 items-center justify-center">
+      <div className="flex w-full flex-col tracking-widest text-slate-50 md:flex-row lg:w-2/3">
+        {/* <div className="flex w-full flex-1/3 items-center justify-center">
           <div className="flex h-96 w-72 flex-col items-center justify-center bg-purple-100/10">
             <p className="text-4xl font-thin text-purple-50/20">◝(ᵔᗜᵔ)◜</p>
             <p className="text-4xl font-thin text-purple-50/20">img here</p>
+          </div>
+        </div> */}
+
+        <div className="flex w-full flex-col items-center gap-8">
+          <div className="w-2/3 uppercase">
+            <p className="text-xl">{HERO_CONTENT.heading}</p>
+            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-8xl tracking-tight text-transparent lg:text-9xl">
+              {HERO_CONTENT.name}
+            </p>
+            <p className="text-right text-xl">{HERO_CONTENT.job}</p>
+          </div>
+          <div className="rounded-lg bg-slate-500/10 px-4 py-2 backdrop-blur-lg">
+            <p className="w-full text-sm wrap-break-word text-purple-50/90">
+              {SKILLS.map((s, i) => (
+                <span
+                  key={i}
+                  className={
+                    colors[Math.floor(Math.random() * colors.length)] ===
+                    "purple"
+                      ? "text-purple-300"
+                      : colors[Math.floor(Math.random() * colors.length)] ===
+                          "red"
+                        ? "text-red-300"
+                        : colors[Math.floor(Math.random() * colors.length)] ===
+                            "orange"
+                          ? "text-orange-300"
+                          : "text-cyan-300"
+                  }
+                >
+                  •{s}{" "}
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </div>
