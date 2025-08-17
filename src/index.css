@@ -146,6 +146,19 @@ body {
   }
 }
 
+.animate-marquee {
+  animation: marquee-skills 50s linear infinite;
+}
+
+@keyframes marquee-skills {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* ABOUT */
 
 .about-me-img {

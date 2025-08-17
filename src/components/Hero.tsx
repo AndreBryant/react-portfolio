@@ -2,10 +2,19 @@ import { ChevronDown } from "lucide-react";
 import { HERO_CONTENT, SKILLS } from "../content";
 
 export default function Hero() {
-  const colors: string[] = ["rose", "red", "orange", "cyan"];
+  const colors: string[] = [
+    "text-rose-300",
+    "text-red-300",
+    "text-orange-300",
+    "text-cyan-300",
+    "text-slate-300",
+    "text-green-300",
+    "text-emerald-300",
+  ];
+
   return (
     <section
-      className="relative flex h-screen w-screen items-center justify-center bg-black/40 font-mono tracking-wider select-none"
+      className="relative flex h-screen w-screen items-center justify-center bg-black/0 font-mono tracking-wider select-none"
       id="hero"
     >
       <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8">
@@ -29,27 +38,17 @@ export default function Hero() {
             </p>
             <p className="text-right text-xl">{HERO_CONTENT.job}</p>
           </div>
-          <div className="rounded-lg bg-slate-500/10 px-4 py-2 backdrop-blur-lg">
-            <p className="w-full text-sm wrap-break-word text-purple-50/90">
-              {SKILLS.map((s, i) => (
-                <span
-                  key={i}
-                  className={
-                    colors[Math.floor(Math.random() * colors.length)] ===
-                    "purple"
-                      ? "text-purple-300"
-                      : colors[Math.floor(Math.random() * colors.length)] ===
-                          "red"
-                        ? "text-red-300"
-                        : colors[Math.floor(Math.random() * colors.length)] ===
-                            "orange"
-                          ? "text-orange-300"
-                          : "text-cyan-300"
-                  }
-                >
-                  •{s}{" "}
-                </span>
-              ))}
+          <div className="overflow-hidden rounded-lg bg-slate-500/10 px-4 py-2 backdrop-blur-lg">
+            <p className="animate-marquee text-sm text-purple-50/90">
+              {SKILLS.map((s, i) => {
+                const colorClass =
+                  colors[Math.floor(Math.random() * colors.length)];
+                return (
+                  <span key={i} className={`${colorClass} mr-4`}>
+                    •{s}
+                  </span>
+                );
+              })}
             </p>
           </div>
         </div>

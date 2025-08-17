@@ -62,9 +62,14 @@ export default function NavBar() {
           </div>
         </div>
         <div className="grow">
-          <ul className="flex justify-end gap-8 font-mono">
+          <ul className="flex justify-end font-mono [&>span]:px-4">
             {sections.map((s, i) => (
-              <NavLink elmntId={s.id} isActive={activeId === s.id} key={i}>
+              <NavLink
+                elmntId={s.id}
+                isActive={activeId === s.id}
+                key={i}
+                isLast={i === sections.length - 1}
+              >
                 {s.label}
               </NavLink>
             ))}
@@ -79,19 +84,33 @@ function NavLink({
   children,
   elmntId,
   isActive,
-}: Readonly<{ children: string; elmntId: string; isActive: boolean }>) {
+  isLast,
+}: Readonly<{
+  children: string;
+  elmntId: string;
+  isActive: boolean;
+  isLast: boolean;
+}>) {
   return (
     // I wont use anchor tags because they show link at the bottom left when hovering.
     <span
-      className={`cursor-pointer text-purple-50 transition-all select-none hover:text-white/90 ${isActive ? "text-white/90 underline underline-offset-2" : "text-white/70"}`}
+      className={`cursor-pointer text-purple-50 transition-all select-none hover:text-white/90 ${isActive ? "font-bold" : "text-purple-200"} ${!isLast ? "border-r border-slate-50/10" : ""}`}
       onClick={() => {
         document.getElementById(elmntId)?.scrollIntoView();
         // ?.scrollIntoView({ behavior: "smooth" });
       }}
     >
       <li>
-        <span className="text-rose-400">{isActive ? "" : "cd "}</span>
-        <span className="text-purple-200">{children}</span>
+        {isActive ? (
+          <span className="text-emerald-600">./</span>
+        ) : (
+          <span className="text-rose-400">cd </span>
+        )}
+        <span
+          className={`${isActive ? "text-emerald-600" : "text-purple-200"}`}
+        >
+          {children}
+        </span>
       </li>
     </span>
   );
