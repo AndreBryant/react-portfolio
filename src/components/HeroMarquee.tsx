@@ -11,7 +11,7 @@ export default function HeroMarquee() {
   ];
 
   return (
-    <div className="z-40 w-2/3 -rotate-4 overflow-hidden rounded-lg bg-slate-500/10 backdrop-blur-lg">
+    <div className="z-40 w-2/3 overflow-hidden rounded-lg bg-slate-500/10 backdrop-blur-lg">
       <div className="animate-marquee flex w-fit py-4 whitespace-nowrap">
         {[...Array(2)].map((_, copyIdx) => (
           <div key={copyIdx} className="flex shrink-0">
@@ -20,7 +20,7 @@ export default function HeroMarquee() {
               return (
                 <span
                   key={`${copyIdx}-${i}`}
-                  className={`${colorClass} mr-4 hover:!text-rose-300`}
+                  className={`${colorClass} rounded-lg px-2 hover:bg-slate-600/40 hover:!text-slate-50`}
                 >
                   •{s}
                 </span>
