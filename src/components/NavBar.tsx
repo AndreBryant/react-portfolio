@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const [activeId, setActiveId] = useState<string | null>("hero");
+  const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
+  const toggleExpandedMenu = () => setExpandedMenu(!expandedMenu);
 
   useEffect(() => {
     const sections = ["hero", "projects", "contact"];
@@ -43,27 +45,26 @@ export default function NavBar() {
 
   const sections: Record<string, string>[] = [
     { label: "home", id: "hero" },
-    { label: "education", id: "education" },
     { label: "projects", id: "projects" },
     { label: "contact", id: "contact" },
   ];
 
   return (
-    <nav className="fixed top-8 z-50 block w-full px-4 sm:px-24 xl:px-64">
-      <div className="mx-auto flex rotate-2 items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
+    <nav className="fixed top-8 z-50 block w-full px-4 font-mono select-none sm:px-24 xl:px-64">
+      <div className="relative mx-auto flex items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
+        {/* Left logo */}
         <div
           className="group flex items-center gap-4"
           onClick={() => document.getElementById("hero")?.scrollIntoView()}
         >
-          <div
-            className="cursor-default font-mono font-thin text-purple-50 hover:text-purple-400"
-            title="I dont know how to make logo or brand identity yet. Sorry"
-          >
+          <div className="cursor-default border-r border-slate-50/20 pr-4 text-purple-50 hover:text-purple-400">
             &gt; Andre
           </div>
         </div>
+
+        {/* Right nav */}
         <div className="grow">
-          <ul className="flex justify-end font-mono [&>span]:px-4">
+          <ul className="hidden justify-end lg:flex [&>span]:px-4">
             {sections.map((s, i) => (
               <NavLink
                 elmntId={s.id}
@@ -75,8 +76,39 @@ export default function NavBar() {
               </NavLink>
             ))}
           </ul>
+
+          {/* Mobile trigger */}
+          <div className="flex justify-end lg:hidden">
+            <span
+              className="cursor-pointer rounded-lg border border-slate-800/5 bg-slate-200/10 px-2 text-rose-400 hover:bg-slate-200/20 hover:text-rose-500"
+              onClick={toggleExpandedMenu}
+            >
+              cd
+            </span>
+          </div>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {expandedMenu && (
+        <div className="absolute top-16 right-4 z-50 w-36 rounded-lg bg-slate-500/10 px-4 py-2 text-slate-50 backdrop-blur-lg sm:right-24 lg:hidden xl:right-64">
+          <ul className="flex flex-col justify-end gap-1">
+            {/* <li className="border-b border-slate-50/20 pb-2 text-slate-50/60">
+              <span>change dir</span>
+            </li> */}
+            {sections.map((s, i) => (
+              <NavLink
+                elmntId={s.id}
+                isActive={activeId === s.id}
+                key={i}
+                isLast={true}
+              >
+                {s.label}
+              </NavLink>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
