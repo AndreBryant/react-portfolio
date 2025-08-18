@@ -2,6 +2,7 @@ export const HERO_CONTENT: Record<string, string> = {
   heading: "Hello I'm",
   name: "Andre",
   job: "aspiring software developer",
+  // job: "please give me job",
 };
 export const SKILLS = [
   "HTML5",
