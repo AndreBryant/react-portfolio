@@ -11,8 +11,8 @@ export default function HeroMarquee() {
   ];
 
   return (
-    <div className="z-40 w-2/3 overflow-hidden rounded-lg bg-slate-500/10 backdrop-blur-lg">
-      <div className="animate-marquee flex w-fit py-4 whitespace-nowrap">
+    <div className="z-40 w-2/3 overflow-hidden rounded-lg bg-slate-500/10 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] py-4 whitespace-nowrap backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      <div className="animate-marquee flex w-fit">
         {[...Array(2)].map((_, copyIdx) => (
           <div key={copyIdx} className="flex shrink-0">
             {SKILLS.map((s, i) => {

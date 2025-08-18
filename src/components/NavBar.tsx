@@ -93,9 +93,6 @@ export default function NavBar() {
       {expandedMenu && (
         <div className="absolute top-16 right-4 z-50 w-36 rounded-lg bg-slate-500/10 px-4 py-2 text-slate-50 backdrop-blur-lg sm:right-24 lg:hidden xl:right-64">
           <ul className="flex flex-col justify-end gap-1">
-            {/* <li className="border-b border-slate-50/20 pb-2 text-slate-50/60">
-              <span>change dir</span>
-            </li> */}
             {sections.map((s, i) => (
               <NavLink
                 elmntId={s.id}
