@@ -1,5 +1,9 @@
 import { Github } from "lucide-react";
-import { PROJECTS as P, PROJECT_TECHSTACK as PT } from "../content";
+import {
+  PROJECTS as P,
+  PROJECT_TECHSTACK as PT,
+  PROJECT_IMG_PATHS as PIP,
+} from "../content";
 
 export default function Projects() {
   return (
@@ -16,6 +20,7 @@ export default function Projects() {
           title={proj.name}
           desc={proj.desc}
           role={proj.role}
+          imgs={PIP[i]}
           techStack={PT[i]}
           link={proj.link}
           toLeft={i % 2 === 0}
@@ -65,6 +70,7 @@ function ProjectItem({
   title,
   desc,
   role,
+  imgs,
   techStack,
   link,
   toLeft,
@@ -72,6 +78,7 @@ function ProjectItem({
   title: string;
   desc: string;
   role: string;
+  imgs: string[];
   techStack: string[];
   link: string;
   toLeft: boolean;
@@ -96,7 +103,11 @@ function ProjectItem({
           <RepoButton link={link} />
         </div>
       </div>
-      <div className="w-full flex-1/2 border border-white/10 lg:h-max"></div>
+      <div className="flex w-full flex-1/2 items-center rounded-lg border border-white/10 lg:h-max">
+        <div>
+          <img src={imgs[0]} alt="" className="rounded-lg" />
+        </div>
+      </div>
     </div>
   );
 }

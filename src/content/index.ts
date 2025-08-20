@@ -84,6 +84,16 @@ export const PROJECT_TECHSTACK: string[][] = [
 
 export const PROJECT_IMG_PATHS: string[][] = [
   [
+    "./assets/subaybay/subaybay-1.png",
+    "./assets/subaybay/subaybay-2.png",
+    "./assets/subaybay/subaybay-3.png",
+    "./assets/subaybay/subaybay-4.png",
+    "./assets/subaybay/subaybay-5.png",
+    "./assets/subaybay/subaybay-6.png",
+    "./assets/subaybay/subaybay-docs-1.png",
+    "./assets/subaybay/subaybay-docs-2.png",
+  ],
+  [
     "./assets/deer/deer-1.png",
     "./assets/deer/deer-2.png",
     "./assets/deer/deer-3.png",
@@ -103,15 +113,5 @@ export const PROJECT_IMG_PATHS: string[][] = [
     "./assets/emblaze/emblaze-4.png",
     "./assets/emblaze/emblaze-5.png",
     "./assets/emblaze/emblaze-6.png",
-  ],
-  [
-    "./assets/subaybay/subaybay-1.png",
-    "./assets/subaybay/subaybay-2.png",
-    "./assets/subaybay/subaybay-3.png",
-    "./assets/subaybay/subaybay-4.png",
-    "./assets/subaybay/subaybay-5.png",
-    "./assets/subaybay/subaybay-6.png",
-    "./assets/subaybay/subaybay-docs-1.png",
-    "./assets/subaybay/subaybay-docs-2.png",
   ],
 ];
