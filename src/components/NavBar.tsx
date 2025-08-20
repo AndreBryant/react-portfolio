@@ -99,6 +99,7 @@ export default function NavBar() {
                 isActive={activeId === s.id}
                 key={i}
                 isLast={true}
+                onClick={() => setExpandedMenu(false)}
               >
                 {s.label}
               </NavLink>
@@ -115,19 +116,23 @@ function NavLink({
   elmntId,
   isActive,
   isLast,
+  onClick,
 }: Readonly<{
   children: string;
   elmntId: string;
   isActive: boolean;
   isLast: boolean;
+  onClick: VoidFunction | null;
 }>) {
   return (
     // I wont use anchor tags because they show link at the bottom left when hovering.
     <span
       className={`cursor-pointer text-purple-50 transition-all select-none hover:text-white/90 ${isActive ? "font-bold" : "text-purple-200"} ${!isLast ? "border-r border-slate-50/10" : ""}`}
       onClick={() => {
-        document.getElementById(elmntId)?.scrollIntoView();
-        // ?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(elmntId)
+          ?.scrollIntoView({ behavior: "smooth" });
+        onClick?.();
       }}
     >
       <li>
