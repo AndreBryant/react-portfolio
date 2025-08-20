@@ -1,8 +1,9 @@
 import { Github } from "lucide-react";
+import { PROJECTS as P, PROJECT_TECHSTACK as PT } from "../content";
 
 export default function Projects() {
   return (
-    <section className="flex flex-col gap-8" id="projects">
+    <section className="font-monoxxx flex flex-col gap-8" id="projects">
       <div className="about-header-animated w-fit cursor-default space-y-2">
         <h2 className="text-4xl text-slate-100 uppercase">Selected Projects</h2>
         <h3 className="font-thin tracking-widest text-slate-100">
@@ -10,11 +11,16 @@ export default function Projects() {
         </h3>
       </div>
 
-      <ProjectItem
-        title="UPB Subaybay"
-        techStack={["SvelteKit", "TailwindCSS", "Shadcn-svelte", "MongoDB"]}
-        link="https://google.com"
-      />
+      {P.map((proj, i) => (
+        <ProjectItem
+          title={proj.name}
+          desc={proj.desc}
+          role={proj.role}
+          techStack={PT[i]}
+          link={proj.link}
+          toLeft={i % 2 === 0}
+        />
+      ))}
     </section>
   );
 }
@@ -30,7 +36,7 @@ function RepoButton({ link }: Readonly<{ link: string }>) {
         onClick={() => {
           goTo(link);
         }}
-        className="flex w-max gap-4 rounded-full border border-slate-50/20 bg-slate-50/5 px-4 py-2 hover:cursor-pointer hover:border-slate-50/30 hover:bg-slate-50/10"
+        className="flex w-max gap-4 rounded-lg bg-slate-50/5 px-4 py-2 hover:cursor-pointer hover:border-slate-50/30 hover:bg-slate-50/10"
       >
         <Github /> Visit repository
       </span>
@@ -39,7 +45,11 @@ function RepoButton({ link }: Readonly<{ link: string }>) {
 }
 
 function TechBadge({ tool }: Readonly<{ tool: string }>) {
-  return <span className="w-max px-1 py-1">{tool}</span>;
+  return (
+    <span className="w-max cursor-default rounded-lg px-1 py-1 hover:bg-slate-400/20">
+      {tool}
+    </span>
+  );
 }
 
 function ProjectTitle({ title }: Readonly<{ title: string }>) {
@@ -53,21 +63,32 @@ function ProjectTitle({ title }: Readonly<{ title: string }>) {
 
 function ProjectItem({
   title,
+  desc,
+  role,
   techStack,
   link,
-}: Readonly<{ title: string; techStack: string[]; link: string }>) {
+  toLeft,
+}: Readonly<{
+  title: string;
+  desc: string;
+  role: string;
+  techStack: string[];
+  link: string;
+  toLeft: boolean;
+}>) {
   return (
-    <div className="flex flex-col-reverse items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
+    <div
+      className={`flex flex-col-reverse items-center justify-center gap-16 lg:h-96 ${toLeft ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
+    >
       <div className="flex flex-1/2 flex-col justify-center gap-4">
         <ProjectTitle title={title} />
         <div className="space-y-8">
+          <p className="font-thin tracking-widest text-slate-100">{desc}</p>
           <p className="font-thin tracking-widest text-slate-100">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            nemo maxime ipsum pariatur possimus architecto cumque sed qui
-            assumenda. Laboriosam officia possimus, sapiente corporis veritatis
-            eius illo enim cum soluta.
+            <span className="font-semibold text-slate-100">Role: </span>
+            {role}
           </p>
-          <div className="inline-flex gap-2">
+          <div className="inline-flex flex-wrap gap-2">
             {techStack.map((s: string) => (
               <TechBadge tool={s} />
             ))}
@@ -75,7 +96,7 @@ function ProjectItem({
           <RepoButton link={link} />
         </div>
       </div>
-      <div className="h-max w-full flex-1/2 border border-white/10"></div>
+      <div className="w-full flex-1/2 border border-white/10 lg:h-max"></div>
     </div>
   );
 }

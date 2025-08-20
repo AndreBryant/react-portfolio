@@ -33,14 +33,14 @@ export const EDUCATION: Record<string, string>[] = [
 ];
 
 export const PROJECTS: Record<string, string>[] = [
-  {
-    name: "Internal Audit Management System (under DOST Internship)",
-    duration: "June 2024 - August 2024",
-    desc: "A Management system being developed during my stay as a Software Developer Intern at DOST under the PROJECT LODI.",
-    role: "Developer (frontend and backend)",
-    type: "Internship",
-    link: "Unavailable",
-  },
+  // {
+  //   name: "Internal Audit Management System (under DOST Internship)",
+  //   duration: "June 2024 - August 2024",
+  //   desc: "A Management system being developed during my stay as a Software Developer Intern at DOST under the PROJECT LODI.",
+  //   role: "Developer (frontend and backend)",
+  //   type: "Internship",
+  //   link: "Unavailable",
+  // },
   {
     name: "UPB SUBAYBAY",
     duration: "February 2024 - May 2025",
@@ -68,7 +68,7 @@ export const PROJECTS: Record<string, string>[] = [
 ];
 
 export const PROJECT_TECHSTACK: string[][] = [
-  ["HTML5", "CSS", "JavaScript", "jQuery", "Laravel", "Bootstrap", "MySQL"],
+  // ["HTML5", "CSS", "JavaScript", "jQuery", "Laravel", "Bootstrap", "MySQL"],
   [
     "HTML5",
     "TypeScript",
@@ -83,8 +83,35 @@ export const PROJECT_TECHSTACK: string[][] = [
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
-  ["./iams1.png", "iams2.png"],
-  ["./subaybay1.png", "./subaybay2.png"],
-  ["./deer1.png", "./deer2.png"],
-  ["./emblaze1.png", "emblaze2.png"],
+  [
+    "./assets/deer/deer-1.png",
+    "./assets/deer/deer-2.png",
+    "./assets/deer/deer-3.png",
+    "./assets/deer/deer-4.png",
+    "./assets/deer/deer-5.png",
+    "./assets/deer/deer-6.png",
+    "./assets/deer/deer-7.png",
+    "./assets/deer/deer-8.png",
+    "./assets/deer/deer-9.png",
+    "./assets/deer/deer-10.png",
+    "./assets/deer/deer-11.png",
+  ],
+  [
+    "./assets/emblaze/emblaze-1.png",
+    "./assets/emblaze/emblaze-2.png",
+    "./assets/emblaze/emblaze-3.png",
+    "./assets/emblaze/emblaze-4.png",
+    "./assets/emblaze/emblaze-5.png",
+    "./assets/emblaze/emblaze-6.png",
+  ],
+  [
+    "./assets/subaybay/subaybay-1.png",
+    "./assets/subaybay/subaybay-2.png",
+    "./assets/subaybay/subaybay-3.png",
+    "./assets/subaybay/subaybay-4.png",
+    "./assets/subaybay/subaybay-5.png",
+    "./assets/subaybay/subaybay-6.png",
+    "./assets/subaybay/subaybay-docs-1.png",
+    "./assets/subaybay/subaybay-docs-2.png",
+  ],
 ];

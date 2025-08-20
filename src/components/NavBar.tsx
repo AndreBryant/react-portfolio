@@ -55,7 +55,11 @@ export default function NavBar() {
         {/* Left logo */}
         <div
           className="group flex items-center gap-4"
-          onClick={() => document.getElementById("hero")?.scrollIntoView()}
+          onClick={() =>
+            document
+              .getElementById("hero")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
         >
           <div className="cursor-pointer border-r border-slate-50/20 pr-4 text-purple-50 hover:text-purple-400">
             &gt; Andre

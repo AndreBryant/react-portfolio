@@ -5,7 +5,7 @@ import HeroMarquee from "./HeroMarquee";
 export default function Hero() {
   return (
     <section
-      className="relative flex h-screen w-screen items-center justify-center bg-black/0 font-mono tracking-wider select-none"
+      className="relative flex min-h-screen w-screen items-center justify-center bg-black/0 font-mono tracking-wider select-none"
       id="hero"
     >
       <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8">
