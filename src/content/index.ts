@@ -47,7 +47,7 @@ export const PROJECTS: Record<string, string>[] = [
     desc: "Internal Request Tracker for the Office of the University Registrar of the University of the Philippines Baguio",
     role: "Project Manager and Developer",
     type: "Academic Project",
-    link: "",
+    link: "https://github.com/brymer-meneses/Subaybay",
   },
   {
     name: "Deer Game",
@@ -55,7 +55,7 @@ export const PROJECTS: Record<string, string>[] = [
     desc: "A semestral project in CMSC 135 demonstrating networking concepts such as using WebSocket.",
     role: "Developer (frontend and backend)",
     type: "Academic Project",
-    link: "",
+    link: "https://github.com/AndreBryant/deer-game",
   },
   {
     name: "Emblaze App",
@@ -63,7 +63,7 @@ export const PROJECTS: Record<string, string>[] = [
     desc: "A browser based MIDI renderer made with Sveltekit, TailwindCSS, and PIXIJS.",
     role: "Developer",
     type: "Personal Project",
-    link: "",
+    link: "https://github.com/AndreBryant/emblaze-app",
   },
 ];
 
