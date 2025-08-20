@@ -57,7 +57,7 @@ export default function NavBar() {
           className="group flex items-center gap-4"
           onClick={() => document.getElementById("hero")?.scrollIntoView()}
         >
-          <div className="cursor-default border-r border-slate-50/20 pr-4 text-purple-50 hover:text-purple-400">
+          <div className="cursor-pointer border-r border-slate-50/20 pr-4 text-purple-50 hover:text-purple-400">
             &gt; Andre
           </div>
         </div>
@@ -71,6 +71,7 @@ export default function NavBar() {
                 isActive={activeId === s.id}
                 key={i}
                 isLast={i === sections.length - 1}
+                onClick={null}
               >
                 {s.label}
               </NavLink>
