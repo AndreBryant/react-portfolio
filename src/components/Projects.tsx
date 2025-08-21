@@ -18,6 +18,7 @@ export default function Projects() {
       {P.map((proj, i) => (
         <ProjectItem
           title={proj.name}
+          duration={proj.duration}
           desc={proj.desc}
           role={proj.role}
           imgs={PIP[i]}
@@ -57,10 +58,16 @@ function TechBadge({ tool }: Readonly<{ tool: string }>) {
   );
 }
 
-function ProjectTitle({ title }: Readonly<{ title: string }>) {
+function ProjectTitle({
+  title,
+  duration,
+}: Readonly<{ title: string; duration: string }>) {
   return (
     <div className="space-y-2">
-      <h4 className="text-2xl font-normal">{title}</h4>
+      <div className="flex items-end justify-between">
+        <h4 className="text-2xl font-normal">{title}</h4>{" "}
+        <span className="font-thin">{duration}</span>
+      </div>
       <hr className="opacity-40" />
     </div>
   );
@@ -68,6 +75,7 @@ function ProjectTitle({ title }: Readonly<{ title: string }>) {
 
 function ProjectItem({
   title,
+  duration,
   desc,
   role,
   imgs,
@@ -76,6 +84,7 @@ function ProjectItem({
   toLeft,
 }: Readonly<{
   title: string;
+  duration: string;
   desc: string;
   role: string;
   imgs: string[];
@@ -85,10 +94,10 @@ function ProjectItem({
 }>) {
   return (
     <div
-      className={`flex flex-col-reverse items-center justify-center gap-16 lg:h-96 ${toLeft ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
+      className={`flex flex-col items-center justify-center gap-16 pb-16 lg:h-96 ${toLeft ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
     >
       <div className="flex flex-1/2 flex-col justify-center gap-4">
-        <ProjectTitle title={title} />
+        <ProjectTitle title={title} duration={duration} />
         <div className="space-y-8">
           <p className="font-thin tracking-widest text-slate-100">{desc}</p>
           <p className="font-thin tracking-widest text-slate-100">

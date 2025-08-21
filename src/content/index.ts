@@ -79,7 +79,7 @@ export const PROJECT_TECHSTACK: string[][] = [
     "Docker",
   ],
   ["HTML5", "TailwindCSS", "P5.js", "WebSocket", "SvelteKit"],
-  ["HTML5", "TailwindCSS", "PIXIJS", "CCaptureJS"],
+  ["HTML5", "TailwindCSS", "PixiJS", "CCaptureJS"],
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
