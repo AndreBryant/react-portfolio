@@ -41,15 +41,16 @@ export const PROJECTS: Record<string, string>[] = [
   //   type: "Internship",
   //   link: "Unavailable",
   // },
+
   {
-    name: "UPB SUBAYBAY",
-    duration: "February 2024 - May 2025",
-    desc: "Internal Request Tracker for the Office of the University Registrar of the University of the Philippines Baguio",
-    role: "Project Manager and Developer",
-    type: "Academic Project",
-    link: "https://github.com/brymer-meneses/Subaybay",
-    isDeployed: "false",
-    deploymentLink: "",
+    name: "Emblaze App",
+    duration: "2025 (ongoing)",
+    desc: "A browser based MIDI renderer made with Sveltekit, TailwindCSS, and PixiJS.",
+    role: "Developer",
+    type: "Personal Project",
+    link: "https://github.com/AndreBryant/emblaze-app",
+    isDeployed: "true",
+    deploymentLink: "https://emblaze-midi.vercel.app",
   },
   {
     name: "Deer Game",
@@ -62,19 +63,22 @@ export const PROJECTS: Record<string, string>[] = [
     deploymentLink: "",
   },
   {
-    name: "Emblaze App",
-    duration: "2025 (ongoing)",
-    desc: "A browser based MIDI renderer made with Sveltekit, TailwindCSS, and PIXIJS.",
-    role: "Developer",
-    type: "Personal Project",
-    link: "https://github.com/AndreBryant/emblaze-app",
-    isDeployed: "true",
-    deploymentLink: "https://emblaze-midi.vercel.app",
+    name: "UPB SUBAYBAY",
+    duration: "February 2024 - May 2025",
+    desc: "Internal Request Tracker for the Office of the University Registrar of the University of the Philippines Baguio",
+    role: "Project Manager and Developer",
+    type: "Academic Project",
+    link: "https://github.com/brymer-meneses/Subaybay",
+    isDeployed: "false",
+    deploymentLink: "",
   },
 ];
 
 export const PROJECT_TECHSTACK: string[][] = [
   // ["HTML5", "CSS", "JavaScript", "jQuery", "Laravel", "Bootstrap", "MySQL"],
+  ["HTML5", "TailwindCSS", "PixiJS", "CCaptureJS"],
+
+  ["HTML5", "TailwindCSS", "P5.js", "WebSocket", "SvelteKit"],
   [
     "HTML5",
     "TypeScript",
@@ -84,20 +88,16 @@ export const PROJECT_TECHSTACK: string[][] = [
     "MongoDB",
     "Docker",
   ],
-  ["HTML5", "TailwindCSS", "P5.js", "WebSocket", "SvelteKit"],
-  ["HTML5", "TailwindCSS", "PixiJS", "CCaptureJS"],
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
   [
-    "./assets/subaybay/subaybay-1.png",
-    "./assets/subaybay/subaybay-2.png",
-    "./assets/subaybay/subaybay-3.png",
-    "./assets/subaybay/subaybay-4.png",
-    "./assets/subaybay/subaybay-5.png",
-    "./assets/subaybay/subaybay-6.png",
-    "./assets/subaybay/subaybay-docs-1.png",
-    "./assets/subaybay/subaybay-docs-2.png",
+    "./assets/emblaze/emblaze-1.png",
+    "./assets/emblaze/emblaze-2.png",
+    "./assets/emblaze/emblaze-3.png",
+    "./assets/emblaze/emblaze-4.png",
+    "./assets/emblaze/emblaze-5.png",
+    "./assets/emblaze/emblaze-6.png",
   ],
   [
     "./assets/deer/deer-1.png",
@@ -113,11 +113,13 @@ export const PROJECT_IMG_PATHS: string[][] = [
     "./assets/deer/deer-11.png",
   ],
   [
-    "./assets/emblaze/emblaze-1.png",
-    "./assets/emblaze/emblaze-2.png",
-    "./assets/emblaze/emblaze-3.png",
-    "./assets/emblaze/emblaze-4.png",
-    "./assets/emblaze/emblaze-5.png",
-    "./assets/emblaze/emblaze-6.png",
+    "./assets/subaybay/subaybay-1.png",
+    "./assets/subaybay/subaybay-2.png",
+    "./assets/subaybay/subaybay-3.png",
+    "./assets/subaybay/subaybay-4.png",
+    "./assets/subaybay/subaybay-5.png",
+    "./assets/subaybay/subaybay-6.png",
+    "./assets/subaybay/subaybay-docs-1.png",
+    "./assets/subaybay/subaybay-docs-2.png",
   ],
 ];
