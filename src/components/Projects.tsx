@@ -7,7 +7,7 @@ import {
 
 export default function Projects() {
   return (
-    <section className="font-monoxxx flex flex-col gap-8" id="projects">
+    <section className="font-monoxxx flex flex-col gap-24" id="projects">
       <div className="about-header-animated w-fit cursor-default space-y-2">
         <h2 className="text-4xl text-slate-100 uppercase">Selected Projects</h2>
         <h3 className="font-thin tracking-widest text-slate-100">
@@ -15,20 +15,22 @@ export default function Projects() {
         </h3>
       </div>
 
-      {P.map((proj, i) => (
-        <ProjectItem
-          title={proj.name}
-          duration={proj.duration}
-          desc={proj.desc}
-          role={proj.role}
-          imgs={PIP[i]}
-          techStack={PT[i]}
-          link={proj.link}
-          reversed={i % 2 === 0}
-          isDeployed={JSON.parse(proj.isDeployed)}
-          deploymentLink={proj.deploymentLink}
-        />
-      ))}
+      <div className="flex flex-col gap-16">
+        {P.map((proj, i) => (
+          <ProjectItem
+            title={proj.name}
+            duration={proj.duration}
+            desc={proj.desc}
+            role={proj.role}
+            imgs={PIP[i]}
+            techStack={PT[i]}
+            link={proj.link}
+            reversed={i % 2 === 0}
+            isDeployed={JSON.parse(proj.isDeployed)}
+            deploymentLink={proj.deploymentLink}
+          />
+        ))}
+      </div>
     </section>
   );
 }
@@ -114,7 +116,7 @@ function ProjectItem({
 }>) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-16 pb-16 lg:h-96 ${reversed ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
+      className={`flex flex-col items-center justify-center gap-16 pb-32 lg:h-96 ${reversed ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
     >
       <div className="flex flex-1/2 flex-col justify-center gap-4">
         <ProjectTitle title={title} duration={duration} />
@@ -145,9 +147,10 @@ function ProjectItem({
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-1/2 items-center rounded-lg border border-white/10 lg:h-max">
-        <div>
-          <img src={imgs[0]} alt="" className="rounded-lg" />
+      <div className="flex w-full flex-1/2 items-center lg:h-max">
+        <div className="relative overflow-hidden rounded-lg border border-white/10">
+          <img src={imgs[0]} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none" />
         </div>
       </div>
     </div>
