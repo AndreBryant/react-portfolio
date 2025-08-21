@@ -1,9 +1,15 @@
-import { Github, ExternalLinkIcon } from "lucide-react";
+import {
+  Github,
+  ExternalLinkIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import {
   PROJECTS as P,
   PROJECT_TECHSTACK as PT,
   PROJECT_IMG_PATHS as PIP,
 } from "../content";
+import { useState } from "react";
 
 export default function Projects() {
   return (
@@ -93,10 +99,7 @@ function ProjectItem({
         </div>
       </div>
       <div className="flex h-full w-full items-center lg:w-auto lg:flex-1/2">
-        <div className="relative h-full w-full overflow-hidden rounded-lg border border-slate-50/10">
-          <img src={imgs[0]} alt="" className="h-full object-contain" />
-          <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
-        </div>
+        <ImgGallery imgs={imgs} />
       </div>
     </div>
   );
@@ -154,6 +157,41 @@ function ProjectTitle({
         <span className="font-thin">{duration}</span>
       </div>
       <hr className="opacity-40" />
+    </div>
+  );
+}
+
+function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
+  const [index, setIndex] = useState(0);
+
+  function updateIndex(change: 1 | -1) {
+    const newIndex = index + change;
+    if (newIndex > imgs.length - 1) return;
+    if (newIndex < 0) return;
+
+    setIndex(newIndex);
+  }
+  return (
+    <div className="group relative h-full w-full overflow-hidden rounded-lg border border-slate-50/10">
+      <img src={imgs[index]} alt="" className="m-auto h-full object-contain" />
+      <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
+      {/* buttons */}
+      <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
+        <button
+          className="rounded-lg text-slate-50 hover:bg-slate-50/10"
+          onClick={() => updateIndex(-1)}
+        >
+          <ChevronLeft />
+        </button>
+      </div>
+      <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
+        <button
+          className="rounded-lg text-slate-50 hover:bg-slate-50/10"
+          onClick={() => updateIndex(1)}
+        >
+          <ChevronRight />
+        </button>
+      </div>
     </div>
   );
 }
