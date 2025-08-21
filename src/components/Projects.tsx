@@ -61,7 +61,7 @@ function ProjectItem({
 }>) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-8 lg:h-96 ${reversed ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+      className={`flex flex-col items-center justify-center gap-24 rounded-lg bg-slate-300/5 px-8 py-8 lg:h-96 lg:gap-8 lg:px-0 lg:py-0 ${reversed ? "lg:flex-row lg:pl-16" : "lg:flex-row-reverse lg:pr-16"}`}
     >
       <div className="flex w-full flex-col justify-center gap-4 lg:h-full lg:w-auto lg:flex-1/2">
         <ProjectTitle title={title} duration={duration} />
@@ -94,7 +94,7 @@ function ProjectItem({
       </div>
       <div className="flex h-64 w-full items-center lg:w-auto lg:flex-1/2">
         <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img src={imgs[0]} alt="" className="h-full object-cover" />
+          <img src={imgs[0]} alt="" className="object-cover" />
           <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
         </div>
       </div>
