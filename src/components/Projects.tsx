@@ -178,7 +178,7 @@ function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
       {/* buttons */}
       <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
         <button
-          className="rounded-lg text-slate-50 hover:bg-slate-50/10"
+          className="rounded-lg text-slate-50 transition hover:bg-slate-50/10"
           onClick={() => updateIndex(-1)}
         >
           <ChevronLeft />
@@ -186,7 +186,7 @@ function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
       </div>
       <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
         <button
-          className="rounded-lg text-slate-50 hover:bg-slate-50/10"
+          className="rounded-lg text-slate-50 transition hover:bg-slate-50/10"
           onClick={() => updateIndex(1)}
         >
           <ChevronRight />
