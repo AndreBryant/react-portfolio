@@ -163,6 +163,8 @@ function ProjectTitle({
 
 function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
   const [index, setIndex] = useState(0);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
 
   function updateIndex(change: 1 | -1) {
     const newIndex = index + change;
@@ -170,15 +172,19 @@ function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
     if (newIndex < 0) return;
 
     setIndex(newIndex);
+
+    setAtStart(newIndex === 0);
+    setAtEnd(newIndex === imgs.length - 1);
   }
   return (
-    <div className="group relative h-full w-full overflow-hidden rounded-lg border border-slate-50/10">
+    <div className="group relative h-96 w-full overflow-hidden rounded-lg border border-slate-50/10 lg:h-full">
       <img src={imgs[index]} alt="" className="m-auto h-full object-contain" />
       <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
       {/* buttons */}
       <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
         <button
-          className="rounded-lg text-slate-50 transition hover:bg-slate-50/10"
+          disabled={atStart}
+          className={`rounded-lg transition ${atStart ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
           onClick={() => updateIndex(-1)}
         >
           <ChevronLeft />
@@ -186,7 +192,8 @@ function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
       </div>
       <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
         <button
-          className="rounded-lg text-slate-50 transition hover:bg-slate-50/10"
+          disabled={atEnd}
+          className={`rounded-lg transition ${atEnd ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
           onClick={() => updateIndex(1)}
         >
           <ChevronRight />
