@@ -48,6 +48,8 @@ export const PROJECTS: Record<string, string>[] = [
     role: "Project Manager and Developer",
     type: "Academic Project",
     link: "https://github.com/brymer-meneses/Subaybay",
+    isDeployed: "false",
+    deploymentLink: "",
   },
   {
     name: "Deer Game",
@@ -56,6 +58,8 @@ export const PROJECTS: Record<string, string>[] = [
     role: "Developer (frontend and backend)",
     type: "Academic Project",
     link: "https://github.com/AndreBryant/deer-game",
+    isDeployed: "false",
+    deploymentLink: "",
   },
   {
     name: "Emblaze App",
@@ -64,6 +68,8 @@ export const PROJECTS: Record<string, string>[] = [
     role: "Developer",
     type: "Personal Project",
     link: "https://github.com/AndreBryant/emblaze-app",
+    isDeployed: "true",
+    deploymentLink: "https://emblaze-midi.vercel.app",
   },
 ];
 

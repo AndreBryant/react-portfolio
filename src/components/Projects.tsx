@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github, ExternalLinkIcon } from "lucide-react";
 import {
   PROJECTS as P,
   PROJECT_TECHSTACK as PT,
@@ -24,16 +24,22 @@ export default function Projects() {
           imgs={PIP[i]}
           techStack={PT[i]}
           link={proj.link}
-          toLeft={i % 2 === 0}
+          reversed={i % 2 === 0}
+          isDeployed={JSON.parse(proj.isDeployed)}
+          deploymentLink={proj.deploymentLink}
         />
       ))}
     </section>
   );
 }
 
-function RepoButton({ link }: Readonly<{ link: string }>) {
+function RepoButton({
+  link,
+  isDeployment,
+  deploymentLink,
+}: Readonly<{ link: string; isDeployment: boolean; deploymentLink?: string }>) {
   const goTo = (link: string) => {
-    window.open(link, "_blank");
+    window.open(isDeployment ? deploymentLink : link, "_blank");
   };
 
   return (
@@ -44,7 +50,17 @@ function RepoButton({ link }: Readonly<{ link: string }>) {
         }}
         className="flex w-max gap-4 rounded-lg bg-slate-50/5 px-4 py-2 hover:cursor-pointer hover:border-slate-50/30 hover:bg-slate-50/10"
       >
-        <Github /> Visit repository
+        {!isDeployment && (
+          <>
+            <Github /> Visit repository
+          </>
+        )}
+        {isDeployment && (
+          <>
+            <ExternalLinkIcon />
+            View Deployment
+          </>
+        )}
       </span>
     </div>
   );
@@ -81,7 +97,9 @@ function ProjectItem({
   imgs,
   techStack,
   link,
-  toLeft,
+  reversed,
+  isDeployed,
+  deploymentLink,
 }: Readonly<{
   title: string;
   duration: string;
@@ -90,11 +108,13 @@ function ProjectItem({
   imgs: string[];
   techStack: string[];
   link: string;
-  toLeft: boolean;
+  reversed: boolean;
+  isDeployed: boolean;
+  deploymentLink?: string;
 }>) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-16 pb-16 lg:h-96 ${toLeft ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
+      className={`flex flex-col items-center justify-center gap-16 pb-16 lg:h-96 ${reversed ? "lg:flex-row" : "lg:flex-row-reverse"} lg:items-start lg:[&>div]:h-full`}
     >
       <div className="flex flex-1/2 flex-col justify-center gap-4">
         <ProjectTitle title={title} duration={duration} />
@@ -109,7 +129,20 @@ function ProjectItem({
               <TechBadge tool={s} />
             ))}
           </div>
-          <RepoButton link={link} />
+          <div className="flex gap-4">
+            <div>
+              <RepoButton link={link} isDeployment={false} />
+            </div>
+            {isDeployed && (
+              <div>
+                <RepoButton
+                  link={link}
+                  isDeployment={isDeployed}
+                  deploymentLink={deploymentLink}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className="flex w-full flex-1/2 items-center rounded-lg border border-white/10 lg:h-max">
