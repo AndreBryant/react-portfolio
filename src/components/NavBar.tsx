@@ -51,7 +51,7 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-8 z-50 block w-full px-4 font-mono select-none sm:px-24 xl:px-64">
-      <div className="relative mx-auto flex items-center justify-between rounded-xl bg-slate-500/10 px-8 py-4 backdrop-blur-lg">
+      <div className="relative mx-auto flex items-center justify-between rounded-xl bg-slate-500/20 px-8 py-4 backdrop-blur-lg">
         {/* Left logo */}
         <div
           className="group flex items-center gap-4"

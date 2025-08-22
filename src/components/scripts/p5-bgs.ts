@@ -96,8 +96,6 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 };
 
 export const heroSketch3 = (p5: P5CanvasInstance) => {
-  // const stars: Record<string, number>[] = [];
-  // const count = 200;
   let squares: Record<string, number>[] = [];
   let dim = 50;
   p5.setup = () => {
@@ -116,7 +114,7 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
       }
     }
     p5.noFill();
-    p5.stroke(3);
+    p5.stroke(128, 25);
     squares.forEach((s) => {
       p5.rect(s.x, s.y, dim);
     });

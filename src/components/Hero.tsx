@@ -24,7 +24,7 @@ export default function Hero() {
           </div> */}
           <div className="w-2/3 uppercase">
             <p className="text-xl">{HERO_CONTENT.heading}</p>
-            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-8xl tracking-tight text-transparent lg:text-9xl">
+            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-8xl tracking-tight text-transparent text-shadow-slate-50/10 text-shadow-sm lg:text-9xl">
               {HERO_CONTENT.name}
             </p>
             <p className="text-right text-xl">{HERO_CONTENT.job}</p>
