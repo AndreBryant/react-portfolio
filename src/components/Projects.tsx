@@ -82,7 +82,7 @@ function ProjectItem({
               <TechBadge tool={s} />
             ))}
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <div>
               <RepoButton link={link} isDeployment={false} />
             </div>
@@ -124,13 +124,14 @@ function RepoButton({
       >
         {!isDeployment && (
           <>
-            <Github /> Visit repository
+            <Github />{" "}
+            <span className="hidden lg:inline">Visit repository</span>
           </>
         )}
         {isDeployment && (
           <>
             <ExternalLinkIcon />
-            View Deployment
+            <span className="hidden lg:inline">View Deployment</span>
           </>
         )}
       </span>
