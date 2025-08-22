@@ -96,33 +96,55 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 };
 
 export const heroSketch3 = (p5: P5CanvasInstance) => {
-  const stars: Record<string, number>[] = [];
-  const count = 200;
-
+  // const stars: Record<string, number>[] = [];
+  // const count = 200;
+  let squares: Record<string, number>[] = [];
+  let dim = 50;
   p5.setup = () => {
     p5.createCanvas(window.innerWidth, window.innerHeight);
-    for (let i = 0; i < count; i++) {
-      const star = {
-        x: p5.random(p5.width),
-        y: p5.random(p5.height),
-        z: p5.random(100),
-      };
-      stars.push(star);
+    dim = p5.width / 20;
+    const rows = p5.height / dim;
+    const cols = p5.width / dim;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const square = {
+          x: x * dim,
+          y: y * dim,
+        };
+        squares.push(square);
+      }
     }
-    p5.color(200);
+    p5.noFill();
+    p5.stroke(3);
+    squares.forEach((s) => {
+      p5.rect(s.x, s.y, dim);
+    });
   };
 
-  p5.draw = () => {
-    for (const star of stars) {
-      p5.push();
-      p5.strokeWidth(star.z);
-      p5.point(star.x, star.y);
-      p5.pop();
-    }
-  };
+  p5.draw = () => {};
 
   p5.windowResized = () => {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
+
+    squares = [];
+    const rows = p5.height / dim;
+    const cols = p5.width / dim;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const square = {
+          x: x * dim,
+          y: y * dim,
+        };
+        squares.push(square);
+      }
+    }
+    p5.noFill();
+    p5.stroke(3);
+    squares.forEach((s) => {
+      p5.rect(s.x, s.y, dim);
+    });
   };
 
   p5.mouseMoved = () => {};
@@ -135,8 +157,8 @@ export const GlobalWrapperStyle = createGlobalStyle`
       left: 0;
       width: 100vw;
       height: 110vh;
-      filter: blur(55px);
-      background-image: linear-gradient(black, #4343e910);
+      filter: blur(1px);
+      background-image: linear-gradient(#050505, #54a7e920);
 
       }
       `;
