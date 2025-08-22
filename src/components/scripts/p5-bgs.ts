@@ -97,10 +97,9 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 
 export const heroSketch3 = (p5: P5CanvasInstance) => {
   let squares: Record<string, number>[] = [];
-  let dim = 50;
+  const dim = 93;
   p5.setup = () => {
     p5.createCanvas(window.innerWidth, window.innerHeight);
-    dim = p5.width / 20;
     const rows = p5.height / dim;
     const cols = p5.width / dim;
 
@@ -139,7 +138,7 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
       }
     }
     p5.noFill();
-    p5.stroke(3);
+    p5.stroke(128, 25);
     squares.forEach((s) => {
       p5.rect(s.x, s.y, dim);
     });
