@@ -98,8 +98,14 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 export const heroSketch3 = (p5: P5CanvasInstance) => {
   let squares: Record<string, number>[] = [];
   const dim = 93;
+  let currentGlowing: number[] = [];
+  const glowCount = 10;
+
   p5.setup = () => {
     p5.createCanvas(window.innerWidth, window.innerHeight);
+    currentGlowing = Array.from({ length: glowCount }, () =>
+      Math.floor(p5.random(squares.length)),
+    );
     const rows = p5.height / dim;
     const cols = p5.width / dim;
 
@@ -114,12 +120,34 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
     }
     p5.noFill();
     p5.stroke(128, 25);
-    squares.forEach((s) => {
+    squares.forEach((s, i) => {
+      p5.push();
+      if (currentGlowing.includes(i)) {
+        p5.stroke(128, 100);
+        p5.fill(125, 5);
+      }
       p5.rect(s.x, s.y, dim);
+      p5.pop();
     });
   };
 
-  p5.draw = () => {};
+  p5.draw = () => {
+    p5.clear();
+    squares.forEach((s, i) => {
+      p5.push();
+      if (currentGlowing.includes(i)) {
+        p5.stroke(128, 100);
+        p5.fill(125, 5);
+      }
+      p5.rect(s.x, s.y, dim);
+      p5.pop();
+    });
+    if (p5.frameCount % 30 === 0) {
+      currentGlowing = Array.from({ length: glowCount }, () =>
+        Math.floor(p5.random(squares.length)),
+      );
+    }
+  };
 
   p5.windowResized = () => {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
