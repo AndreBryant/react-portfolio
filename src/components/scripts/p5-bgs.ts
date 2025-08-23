@@ -120,20 +120,18 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
         const square = {
           x: x * dim,
           y: y * dim,
-          alphaFill: p5.map(p5.noise(x, y), 0, 1, 0, 0),
         };
         squares.push(square);
       }
     }
 
     p5.noFill();
-    p5.stroke(128, 25);
+    p5.stroke(128, 15);
 
     squares.forEach((s, i) => {
       p5.push();
-      p5.fill(100, s.alphaFill);
       if (currentGlowing.includes(i)) {
-        p5.stroke(128, 100);
+        p5.stroke(128, 50);
         p5.fill(125, 5);
       }
       p5.rect(s.x, s.y, dim);
@@ -146,9 +144,8 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
 
     squares.forEach((s, i) => {
       p5.push();
-      p5.fill(100, s.alphaFill);
       if (currentGlowing.includes(i)) {
-        p5.stroke(128, 100);
+        p5.stroke(128, 50);
         p5.fill(125, 5);
       }
 
@@ -194,18 +191,16 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
         const square = {
           x: x * dim,
           y: y * dim,
-          alphaFill: p5.map(p5.noise(x, y), 0, 1, 0, 5),
         };
         squares.push(square);
       }
     }
 
     p5.noFill();
-    p5.stroke(128, 25);
+    p5.stroke(128, 15);
 
     squares.forEach((s, i) => {
       p5.push();
-      p5.fill(100, s.alphaFill);
       if (currentGlowing.includes(i)) {
         p5.stroke(128, 100);
         p5.fill(125, 5);
@@ -218,7 +213,7 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
 
 export const GlobalWrapperStyle = createGlobalStyle`
   .${P5WrapperClassName}>canvas {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;

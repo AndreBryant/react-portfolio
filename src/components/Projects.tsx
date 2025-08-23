@@ -11,65 +11,92 @@ import {
 } from "../content";
 import { useState } from "react";
 
-// export default function Projects() {
-//   const p = P[2];
-//   const pt = PT[2];
-//   const pip = PIP[2];
-//   return (
-//     <section
-//       className="relative flex min-h-screen flex-col gap-24 bg-slate-800 font-mono"
-//       id="projects"
-//     >
-//       <div className="flex flex-col gap-8">
-//         <div className="flex flex-col">
-//           <span>{p.type}</span>
-//           <div className="flex justify-between">
-//             <h2>{p.name}</h2>
-//             <span className="text-xs">{p.duration}</span>
-//           </div>
-//         </div>
-//         <p>{p.desc}</p>
-//         <p>{p.role}</p>
-//         <ul>
-//           {pt.map((tech, i) => (
-//             <li key={i}>{tech}</li>
-//           ))}
-//         </ul>
-//       </div>
-//     </section>
-//   );
-// }
-
 export default function Projects() {
+  const p = P[2];
+  const pt = PT[2];
+  // const pip = PIP[2];
   return (
-    <section className="flex flex-col gap-24" id="projects">
-      <div className="about-header-animated w-fit cursor-default space-y-2">
-        <h2 className="text-4xl text-slate-300 uppercase">Selected Projects</h2>
-        <h3 className="font-thin tracking-widest text-slate-300">
-          Here are some projects relevant to Software Engineering
-        </h3>
-      </div>
+    <section
+      className="relative flex min-h-screen flex-col gap-24 bg-slate-800 font-mono"
+      id="projects"
+    >
+      <div className="flex flex-col gap-8">
+        <h2 className="text-2xl">PROJECTS</h2>
+        {/* project title and stuff */}
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex flex-1/2 flex-col">
+            <span>{p.type}</span>
+            <div className="flex items-end justify-between outline">
+              <h2>{p.name}</h2>
+              <span className="text-xs">{p.duration}</span>
+            </div>
+            <div>
+              <p>{p.desc}</p>
+              <p>{p.role}</p>
+              <ul className="flex gap-4">
+                {pt.map((tech, i) => (
+                  <li key={i}>{tech}</li>
+                ))}
+              </ul>
+              <div className="flex gap-4">
+                <div>
+                  <button className="outline">view Repository</button>
+                </div>
 
-      <div className="flex flex-col gap-16">
-        {P.map((proj, i) => (
-          <ProjectItem
-            title={proj.name}
-            duration={proj.duration}
-            desc={proj.desc}
-            role={proj.role}
-            imgs={PIP[i]}
-            techStack={PT[i]}
-            link={proj.link}
-            reversed={i % 2 === 0}
-            isDeployed={JSON.parse(proj.isDeployed)}
-            deploymentLink={proj.deploymentLink}
-            key={i}
-          />
-        ))}
+                <div>
+                  <button className="outline">view Deployment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="h-96 flex-1/2 bg-red-500"></div>
+        </div>
+
+        {/* project desc and actions thingy */}
+      </div>
+      <div className="flex flex-col gap-8">
+        {/* <div className="flex flex-col">
+          <span>{p.type}</span>
+          <div className="flex justify-between">
+            <h2>{p.name}</h2>
+            <span className="text-xs">{p.duration}</span>
+          </div>
+        </div> */}
       </div>
     </section>
   );
 }
+
+// export default function Projects() {
+//   return (
+//     <section className="flex flex-col gap-24" id="projects">
+//       <div className="about-header-animated w-fit cursor-default space-y-2">
+//         <h2 className="text-4xl text-slate-300 uppercase">Selected Projects</h2>
+//         <h3 className="font-thin tracking-widest text-slate-300">
+//           Here are some projects relevant to Software Engineering
+//         </h3>
+//       </div>
+
+//       <div className="flex flex-col gap-16">
+//         {P.map((proj, i) => (
+//           <ProjectItem
+//             title={proj.name}
+//             duration={proj.duration}
+//             desc={proj.desc}
+//             role={proj.role}
+//             imgs={PIP[i]}
+//             techStack={PT[i]}
+//             link={proj.link}
+//             reversed={i % 2 === 0}
+//             isDeployed={JSON.parse(proj.isDeployed)}
+//             deploymentLink={proj.deploymentLink}
+//             key={i}
+//           />
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
 
 function ProjectItem({
   title,
