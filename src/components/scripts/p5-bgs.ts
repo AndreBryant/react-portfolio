@@ -97,20 +97,26 @@ export const heroSketch2 = (p5: P5CanvasInstance) => {
 
 export const heroSketch3 = (p5: P5CanvasInstance) => {
   let squares: Record<string, number>[] = [];
-  const dim = 93;
   let currentGlowing: number[] = [];
-  const glowCount = 10;
+
+  const dim: number = 93;
+  const glowCount: number = 10;
+
+  let rows: number;
+  let cols: number;
+  let mouseOffsetX: number = 0;
+  let mouseOffsetY: number = 0;
 
   p5.setup = () => {
     p5.createCanvas(window.innerWidth, window.innerHeight);
     currentGlowing = Array.from({ length: glowCount }, () =>
       Math.floor(p5.random(squares.length)),
     );
-    const rows = p5.height / dim;
-    const cols = p5.width / dim;
+    rows = Math.ceil(p5.height / dim);
+    cols = Math.ceil(p5.width / dim);
 
-    for (let y = 0; y < rows; y++) {
-      for (let x = 0; x < cols; x++) {
+    for (let y = -1; y <= rows; y++) {
+      for (let x = -1; x <= cols; x++) {
         const square = {
           x: x * dim,
           y: y * dim,
@@ -118,6 +124,7 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
         squares.push(square);
       }
     }
+
     p5.noFill();
     p5.stroke(128, 25);
     squares.forEach((s, i) => {
@@ -133,15 +140,19 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
 
   p5.draw = () => {
     p5.clear();
+
     squares.forEach((s, i) => {
       p5.push();
+
       if (currentGlowing.includes(i)) {
         p5.stroke(128, 100);
         p5.fill(125, 5);
       }
-      p5.rect(s.x, s.y, dim);
+
+      p5.rect(s.x + mouseOffsetX, s.y + mouseOffsetY, dim);
       p5.pop();
     });
+
     if (p5.frameCount % 30 === 0) {
       currentGlowing = Array.from({ length: glowCount }, () =>
         Math.floor(p5.random(squares.length)),
@@ -149,12 +160,31 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
     }
   };
 
+  p5.mouseWheel = (event) => {
+    const delta = event.deltaY / 10;
+
+    squares.forEach((s) => {
+      s.y -= delta;
+
+      if (s.y + dim < 0) {
+        s.y += rows * dim;
+      } else if (s.y + dim > p5.height + dim) {
+        s.y -= rows * dim;
+      }
+    });
+  };
+
+  p5.mouseMoved = (event) => {
+    mouseOffsetX = p5.map(p5.mouseX, 0, p5.width, -dim / 2, dim / 2);
+    mouseOffsetY = p5.map(p5.mouseY, 0, p5.height, -dim / 4, dim / 4);
+  };
+
   p5.windowResized = () => {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
 
     squares = [];
-    const rows = p5.height / dim;
-    const cols = p5.width / dim;
+    rows = Math.ceil(p5.height / dim);
+    cols = Math.ceil(p5.width / dim);
 
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
@@ -171,8 +201,6 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
       p5.rect(s.x, s.y, dim);
     });
   };
-
-  p5.mouseMoved = () => {};
 };
 
 export const GlobalWrapperStyle = createGlobalStyle`

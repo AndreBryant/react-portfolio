@@ -8,7 +8,7 @@ import { ReactP5Wrapper } from "@p5-wrapper/react";
 
 export default function App() {
   return (
-    <div className="relative top-0 z-0 m-0 w-screen border p-0">
+    <div className="relative top-0 z-0 m-0 w-screen border p-0" id="app">
       <NavBar />
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch3} />
