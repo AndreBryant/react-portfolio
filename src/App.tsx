@@ -23,11 +23,11 @@ export default function App() {
       />
       <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch3} />
-      <div className="bg-[#0d0d0d] text-slate-300 [&>section]:px-4 [&>section]:py-32 [&>section]:md:px-32 [&>section]:xl:px-64 [&>section]:2xl:px-96">
+      <main className="bg-[#0d0d0d] text-slate-300 [&>section]:px-4 [&>section]:py-32 [&>section]:md:px-32 [&>section]:xl:px-64 [&>section]:2xl:px-96">
         <Hero sectionRef={heroRef} />
         <Projects sectionRef={projectsRef} />
         <Contact sectionRef={contactRef} />
-      </div>
+      </main>
     </div>
   );
 }

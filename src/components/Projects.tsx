@@ -12,7 +12,7 @@ import {
   PROJECT_TECHSTACK as PT,
   PROJECT_IMG_PATHS as PIP,
 } from "../content";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function Projects({
@@ -187,6 +187,19 @@ function PopoverGallery({
 
     setIndex(newValue);
   };
+
+  useEffect(() => {
+    const body = document.body;
+    const html = document.documentElement;
+
+    body.style.overflowY = "hidden";
+    html.style.overflowY = "hidden";
+
+    return () => {
+      body.style.overflowY = "";
+      html.style.overflowY = "";
+    };
+  }, []);
 
   return (
     <div
