@@ -12,154 +12,170 @@ import {
 import { useState } from "react";
 
 export default function Projects() {
-  const p = P[2];
-  const pt = PT[2];
-  // const pip = PIP[2];
   return (
     <section
-      className="relative flex min-h-screen flex-col gap-24 bg-slate-800 font-mono"
+      className="relative flex min-h-screen flex-col gap-24 bg-black/10 font-mono backdrop-blur-xs"
       id="projects"
     >
-      <div className="flex flex-col gap-8">
-        <h2 className="text-2xl">PROJECTS</h2>
-        {/* project title and stuff */}
-        <div className="flex flex-col lg:flex-row">
-          <div className="flex flex-1/2 flex-col">
-            <span>{p.type}</span>
-            <div className="flex items-end justify-between outline">
-              <h2>{p.name}</h2>
-              <span className="text-xs">{p.duration}</span>
-            </div>
-            <div>
-              <p>{p.desc}</p>
-              <p>{p.role}</p>
-              <ul className="flex gap-4">
-                {pt.map((tech, i) => (
-                  <li key={i}>{tech}</li>
-                ))}
-              </ul>
-              <div className="flex gap-4">
-                <div>
-                  <button className="outline">view Repository</button>
-                </div>
+      <div className="space-y-16">
+        <h2 className="text-4xl">PROJECTS</h2>
+        <div className="flex flex-col gap-32">
+          {P.map((p, i) => {
+            const pt = PT[i];
+            const pip = PIP[i][0];
 
-                <div>
-                  <button className="outline">view Deployment</button>
+            return (
+              <div
+                className={`flex flex-col gap-16 lg:flex-row${i % 2 ? "-reverse" : ""}`}
+              >
+                <div className="flex flex-1/2 flex-col gap-8">
+                  <ProjectHeader
+                    title={p.name}
+                    duration={p.duration}
+                    type={p.type}
+                  />
+                  <ProjectBody
+                    desc={p.desc}
+                    role={p.role}
+                    techStack={pt}
+                    link={p.Link}
+                    isDeployed={JSON.parse(p.isDeployed)}
+                    deploymentLink={p.deploymentLink}
+                  />
                 </div>
+                <ProjectImage src={pip} onLeft={i % 2 !== 0} />
               </div>
-            </div>
-          </div>
-          <div className="h-96 flex-1/2 bg-red-500"></div>
+            );
+          })}
         </div>
-
-        {/* project desc and actions thingy */}
-      </div>
-      <div className="flex flex-col gap-8">
-        {/* <div className="flex flex-col">
-          <span>{p.type}</span>
-          <div className="flex justify-between">
-            <h2>{p.name}</h2>
-            <span className="text-xs">{p.duration}</span>
-          </div>
-        </div> */}
       </div>
     </section>
   );
 }
 
-// export default function Projects() {
-//   return (
-//     <section className="flex flex-col gap-24" id="projects">
-//       <div className="about-header-animated w-fit cursor-default space-y-2">
-//         <h2 className="text-4xl text-slate-300 uppercase">Selected Projects</h2>
-//         <h3 className="font-thin tracking-widest text-slate-300">
-//           Here are some projects relevant to Software Engineering
-//         </h3>
-//       </div>
-
-//       <div className="flex flex-col gap-16">
-//         {P.map((proj, i) => (
-//           <ProjectItem
-//             title={proj.name}
-//             duration={proj.duration}
-//             desc={proj.desc}
-//             role={proj.role}
-//             imgs={PIP[i]}
-//             techStack={PT[i]}
-//             link={proj.link}
-//             reversed={i % 2 === 0}
-//             isDeployed={JSON.parse(proj.isDeployed)}
-//             deploymentLink={proj.deploymentLink}
-//             key={i}
-//           />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-function ProjectItem({
+function ProjectHeader({
   title,
   duration,
-  desc,
-  role,
-  imgs,
-  techStack,
-  link,
-  reversed,
-  isDeployed,
-  deploymentLink,
-}: Readonly<{
-  title: string;
-  duration: string;
-  desc: string;
-  role: string;
-  imgs: string[];
-  techStack: string[];
-  link: string;
-  reversed: boolean;
-  isDeployed: boolean;
-  deploymentLink?: string;
-}>) {
+  type,
+}: Readonly<{ title: string; duration: string; type: string }>) {
   return (
-    <div
-      className={`flex flex-col items-center justify-center gap-8 rounded-lg bg-slate-300/5 px-8 py-8 backdrop-blur-lg lg:h-96 lg:px-0 lg:py-0 ${reversed ? "lg:flex-row lg:pl-16" : "lg:flex-row-reverse lg:pr-16"}`}
-    >
-      <div className="flex w-full flex-col justify-center gap-4 lg:h-full lg:w-auto lg:flex-1/2">
-        <ProjectTitle title={title} duration={duration} />
-        <div className="space-y-8">
-          <p className="font-thin tracking-widest text-slate-300">{desc}</p>
-          <p className="font-thin tracking-widest text-slate-300">
-            <span className="font-semibold text-slate-300">Role: </span>
-            {role}
-          </p>
-          <div className="inline-flex flex-wrap gap-2">
-            {techStack.map((s: string) => (
-              <TechBadge tool={s} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-4">
-            <div>
-              <RepoButton link={link} isDeployment={false} />
-            </div>
-            {isDeployed && (
-              <div>
-                <RepoButton
-                  link={link}
-                  isDeployment={isDeployed}
-                  deploymentLink={deploymentLink}
-                />
-              </div>
-            )}
-          </div>
-        </div>
+    <div>
+      <div className="flex items-end justify-between gap-4">
+        <h2 className="w-fit text-4xl font-semibold">{title}</h2>
+        <span className="w-fit text-xs opacity-60">{duration}</span>
       </div>
-      <div className="flex h-full w-full items-center lg:w-auto lg:flex-1/2">
-        <ImgGallery imgs={imgs} />
+      <div>
+        <span className="w-fit text-sm opacity-60">{type}</span>
       </div>
     </div>
   );
 }
+
+function ProjectBody({
+  desc,
+  role,
+  techStack,
+  link,
+  deploymentLink,
+  isDeployed,
+}: Readonly<{
+  desc: string;
+  role: string;
+  techStack: string[];
+  link: string;
+  deploymentLink: string;
+  isDeployed: boolean;
+}>) {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="space-y-1 text-sm">
+        <p className="opacity-60">{desc}</p>
+        <p className="font-semibold">
+          Role: &nbsp;
+          <span className="">{role}</span>
+        </p>
+      </div>
+      <ul className="flex flex-wrap gap-4">
+        {techStack.map((tech, i) => (
+          <TechBadge tool={tech} key={i} />
+        ))}
+      </ul>
+      <div className="flex flex-wrap gap-4">
+        <div>
+          <RepoButton link={link} isDeployment={false} />
+        </div>
+        {isDeployed && (
+          <div>
+            <RepoButton
+              link={link}
+              isDeployment={isDeployed}
+              deploymentLink={deploymentLink}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjectImage({
+  src,
+  onLeft,
+}: Readonly<{ src: string; onLeft: boolean }>) {
+  return (
+    <div className="relative flex flex-1/2 basis-xl items-center justify-center rounded-xl bg-gradient-to-bl from-violet-600 to-fuchsia-600 py-8 backdrop-blur-lg">
+      <div
+        className={`h-64 rounded-xl shadow-2xl shadow-black ${onLeft ? "lg:-translate-x-16" : "lg:translate-x-16"}`}
+      >
+        <img src={src} alt={src} className="h-full rounded-xl" />
+      </div>
+    </div>
+  );
+}
+
+// function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
+//   const [index, setIndex] = useState(0);
+//   const [atStart, setAtStart] = useState(true);
+//   const [atEnd, setAtEnd] = useState(false);
+
+//   function updateIndex(change: 1 | -1) {
+//     const newIndex = index + change;
+//     if (newIndex > imgs.length - 1) return;
+//     if (newIndex < 0) return;
+
+//     setIndex(newIndex);
+
+//     setAtStart(newIndex === 0);
+//     setAtEnd(newIndex === imgs.length - 1);
+//   }
+//   return (
+//     <div className="group relative h-96 w-full overflow-hidden rounded-lg border border-slate-50/10 lg:h-full">
+//       <img src={imgs[index]} alt="" className="m-auto h-full object-contain" />
+//       <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
+//       {/* buttons */}
+//       <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
+//         <button
+//           disabled={atStart}
+//           className={`rounded-lg transition ${atStart ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
+//           onClick={() => updateIndex(-1)}
+//         >
+//           <ChevronLeft />
+//         </button>
+//       </div>
+//       <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
+//         <button
+//           disabled={atEnd}
+//           className={`rounded-lg transition ${atEnd ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
+//           onClick={() => updateIndex(1)}
+//         >
+//           <ChevronRight />
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// this can be refactored to only use 1 link prop
 
 function RepoButton({
   link,
@@ -197,65 +213,8 @@ function RepoButton({
 
 function TechBadge({ tool }: Readonly<{ tool: string }>) {
   return (
-    <span className="w-max cursor-default rounded-lg px-1 py-1 hover:bg-slate-400/20">
+    <span className="w-max cursor-default rounded-lg bg-slate-400/10 px-2 py-1 text-sm hover:bg-slate-400/20">
       {tool}
     </span>
-  );
-}
-
-function ProjectTitle({
-  title,
-  duration,
-}: Readonly<{ title: string; duration: string }>) {
-  return (
-    <div className="space-y-1">
-      <div className="flex items-end justify-between">
-        <h4 className="text-2xl font-normal text-slate-300">{title}</h4>{" "}
-        <span className="font-thin">{duration}</span>
-      </div>
-      <hr className="opacity-40" />
-    </div>
-  );
-}
-
-function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
-  const [index, setIndex] = useState(0);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-
-  function updateIndex(change: 1 | -1) {
-    const newIndex = index + change;
-    if (newIndex > imgs.length - 1) return;
-    if (newIndex < 0) return;
-
-    setIndex(newIndex);
-
-    setAtStart(newIndex === 0);
-    setAtEnd(newIndex === imgs.length - 1);
-  }
-  return (
-    <div className="group relative h-96 w-full overflow-hidden rounded-lg border border-slate-50/10 lg:h-full">
-      <img src={imgs[index]} alt="" className="m-auto h-full object-contain" />
-      <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
-      {/* buttons */}
-      <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
-        <button
-          disabled={atStart}
-          className={`rounded-lg transition ${atStart ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
-          onClick={() => updateIndex(-1)}
-        >
-          <ChevronLeft />
-        </button>
-      </div>
-      <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
-        <button
-          disabled={atEnd}
-          className={`rounded-lg transition ${atEnd ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
-          onClick={() => updateIndex(1)}
-        >
-          <ChevronRight />
-        </button>
-      </div>
-    </div>
   );
 }

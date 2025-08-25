@@ -213,7 +213,7 @@ export const heroSketch3 = (p5: P5CanvasInstance) => {
 
 export const GlobalWrapperStyle = createGlobalStyle`
   .${P5WrapperClassName}>canvas {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
