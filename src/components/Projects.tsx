@@ -1,17 +1,19 @@
-import type { Ref } from "react";
+import type { Dispatch, Ref, SetStateAction } from "react";
 
 import {
   Github,
   ExternalLinkIcon,
-  // ChevronLeft,
-  // ChevronRight,
+  ChevronLeft,
+  ChevronRight,
+  X,
 } from "lucide-react";
 import {
   PROJECTS as P,
   PROJECT_TECHSTACK as PT,
   PROJECT_IMG_PATHS as PIP,
 } from "../content";
-// import { useState } from "react";
+import { useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function Projects({
   sectionRef,
@@ -27,7 +29,7 @@ export default function Projects({
         <div className="flex flex-col gap-32">
           {P.map((p, i) => {
             const pt = PT[i];
-            const pip = PIP[i][0];
+            const pip = PIP[i];
 
             return (
               <div
@@ -49,7 +51,7 @@ export default function Projects({
                     deploymentLink={p.deploymentLink}
                   />
                 </div>
-                <ProjectImage src={pip} onLeft={i % 2 !== 0} />
+                <ProjectImage pip={pip} onLeft={i % 2 !== 0} />
               </div>
             );
           })}
@@ -125,66 +127,112 @@ function ProjectBody({
 }
 
 function ProjectImage({
-  src,
+  pip,
   onLeft,
-}: Readonly<{ src: string; onLeft: boolean }>) {
+}: Readonly<{ pip: string[]; onLeft: boolean }>) {
+  const [expanded, setExpanded] = useState(false);
+  const popover = <PopoverGallery imgPaths={pip} setExpanded={setExpanded} />;
+
   return (
-    <div className="relative flex flex-1/2 basis-xl items-center justify-center rounded-xl bg-gradient-to-bl from-violet-600/80 to-fuchsia-600/80 backdrop-blur-lg lg:py-8">
+    <>
+      <div className="relative flex flex-1/2 basis-xl items-center justify-center rounded-xl bg-gradient-to-bl from-violet-600/80 to-fuchsia-600/80 backdrop-blur-lg lg:py-8">
+        <div
+          className={`group absolute h-64 rounded-xl shadow-2xl shadow-black ${onLeft ? "lg:-translate-x-1/4" : "lg:translate-x-1/4"}`}
+          onClick={() => {
+            setExpanded(true);
+          }}
+        >
+          <img
+            src={pip[0]}
+            alt={pip[0]}
+            className={`h-64 cursor-pointer rounded-xl outline-2 outline-slate-50/25 transition-all group-hover:outline-slate-50/40 group-hover:brightness-110 lg:w-auto lg:max-w-none`}
+          />
+          <div
+            className={`${onLeft ? "right-4 justify-end" : "left-4 justify-start"} absolute bottom-2 flex w-full opacity-80 select-none group-hover:opacity-100`}
+          >
+            <p className="rounded-lg bg-black/60 px-2 py-1 text-xs text-slate-50/80 outline outline-slate-50/40 backdrop-blur-sm">
+              {pip.length} images
+            </p>
+          </div>
+        </div>
+      </div>
+      {expanded && createPortal(popover, document.body)}
+    </>
+  );
+}
+
+function PopoverGallery({
+  imgPaths,
+  setExpanded,
+}: Readonly<{
+  imgPaths: string[];
+  setExpanded: Dispatch<SetStateAction<boolean>>;
+}>) {
+  const [index, setIndex] = useState(0);
+  const [activeLeft, setActiveLeft] = useState(false);
+  const [activeRight, setActiveRight] = useState(true);
+
+  const updateIndex = (inc: number) => {
+    const newValue = index + inc;
+
+    if (newValue < 0) {
+      return;
+    }
+    if (newValue >= imgPaths.length) {
+      return;
+    }
+
+    setActiveLeft(newValue !== 0);
+    setActiveRight(newValue !== imgPaths.length - 1);
+
+    setIndex(newValue);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-10 flex items-center justify-center bg-black/80 select-none"
+      onClick={() => setExpanded(false)} // close on background click
+    >
       <div
-        className={`absolute h-64 rounded-xl shadow-2xl shadow-black ${onLeft ? "lg:-translate-x-1/4" : "lg:translate-x-1/4"}`}
-        // ${onLeft ? "lg:-translate-x-16" : "lg:translate-x-16"}
+        className="rounded-lg shadow-xl transition-all"
+        onClick={(e) => e.stopPropagation()}
       >
         <img
-          src={src}
-          alt={src}
-          className={`h-64 rounded-xl outline-2 outline-slate-50/25 lg:w-auto lg:max-w-none`}
+          src={imgPaths[index]}
+          alt={imgPaths[index]}
+          className="max-h-[80vh] max-w-[80vw] rounded outline-2 outline-slate-50/40"
         />
+      </div>
+      <div
+        className="fixed inset-8 z-20 flex items-end justify-between lg:items-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div
+          className={`z-50 rounded-lg bg-slate-50/10 p-2 text-slate-50 hover:bg-slate-50/20 ${!activeLeft ? "pointer-events-none opacity-60" : "cursor-pointer"}`}
+          onClick={() => updateIndex(-1)}
+        >
+          <ChevronLeft />
+        </div>
+        <div
+          className={`z-50 rounded-lg bg-slate-50/10 p-2 text-slate-50 hover:bg-slate-50/20 ${!activeRight ? "pointer-events-none opacity-60" : "cursor-pointer"}`}
+          onClick={() => updateIndex(1)}
+        >
+          <ChevronRight />
+        </div>
+      </div>
+      <div className="pointer-events-none fixed inset-8 flex items-end justify-center">
+        <p className="rounded-lg bg-slate-50/10 px-2 py-1 font-mono text-sm font-thin text-slate-50">
+          {index + 1} / {imgPaths.length}
+        </p>
+      </div>
+      <div className="fixed inset-8 z-20 flex h-fit">
+        <div className="cursor-pointer rounded-lg bg-slate-50/10 p-2 text-slate-50/60 hover:bg-slate-50/20 hover:text-slate-50">
+          <X />
+        </div>
       </div>
     </div>
   );
 }
-
-// function ImgGallery({ imgs }: Readonly<{ imgs: string[] }>) {
-//   const [index, setIndex] = useState(0);
-//   const [atStart, setAtStart] = useState(true);
-//   const [atEnd, setAtEnd] = useState(false);
-
-//   function updateIndex(change: 1 | -1) {
-//     const newIndex = index + change;
-//     if (newIndex > imgs.length - 1) return;
-//     if (newIndex < 0) return;
-
-//     setIndex(newIndex);
-
-//     setAtStart(newIndex === 0);
-//     setAtEnd(newIndex === imgs.length - 1);
-//   }
-//   return (
-//     <div className="group relative h-96 w-full overflow-hidden rounded-lg border border-slate-50/10 lg:h-full">
-//       <img src={imgs[index]} alt="" className="m-auto h-full object-contain" />
-//       <div className="absolute inset-0 rounded-lg bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.4)_100%)] transition-colors hover:bg-none"></div>
-//       {/* buttons */}
-//       <div className="invisible absolute top-1/2 left-0 translate-x-1/2 translate-y-1/2 group-hover:visible">
-//         <button
-//           disabled={atStart}
-//           className={`rounded-lg transition ${atStart ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
-//           onClick={() => updateIndex(-1)}
-//         >
-//           <ChevronLeft />
-//         </button>
-//       </div>
-//       <div className="invisible absolute top-1/2 right-8 translate-x-1/2 translate-y-1/2 group-hover:visible">
-//         <button
-//           disabled={atEnd}
-//           className={`rounded-lg transition ${atEnd ? "text-slate-50/50" : "text-slate-50 hover:bg-slate-50/10"}`}
-//           onClick={() => updateIndex(1)}
-//         >
-//           <ChevronRight />
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
 
 // this can be refactored to only use 1 link prop
 
