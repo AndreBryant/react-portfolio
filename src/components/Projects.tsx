@@ -17,7 +17,7 @@ export default function Projects() {
       className="relative -mx-4 flex min-h-screen flex-col gap-24 font-mono"
       id="projects"
     >
-      <div className="space-y-16 bg-slate-950/10 px-4 py-16 outline outline-slate-50/25 backdrop-blur-[5px] lg:rounded-lg lg:px-16">
+      <div className="space-y-16 bg-slate-950/10 px-4 py-16 outline outline-slate-50/25 backdrop-blur-[5px] md:rounded-lg lg:px-16">
         <h2 className="text-4xl">PROJECTS</h2>
         <div className="flex flex-col gap-32">
           {P.map((p, i) => {
@@ -26,7 +26,7 @@ export default function Projects() {
 
             return (
               <div
-                className={`flex flex-col gap-16 lg:flex-row${i % 2 ? "-reverse" : ""}`}
+                className={`flex flex-col gap-16 ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
               >
                 <div className="flex flex-1/2 flex-col gap-8">
                   <ProjectHeader
