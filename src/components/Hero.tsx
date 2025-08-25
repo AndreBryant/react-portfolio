@@ -1,3 +1,5 @@
+import type { Ref } from "react";
+
 import { ChevronDown } from "lucide-react";
 import { HERO_CONTENT } from "../content";
 import HeroMarquee from "./HeroMarquee";
@@ -5,9 +7,12 @@ import HeroMarquee from "./HeroMarquee";
 // import { GlobalWrapperStyle, heroSketch3 } from "./scripts/p5-bgs";
 // import { ReactP5Wrapper } from "@p5-wrapper/react";
 
-export default function Hero() {
+export default function Hero({
+  sectionRef,
+}: Readonly<{ sectionRef: Ref<HTMLElement> }>) {
   return (
     <section
+      ref={sectionRef}
       className="relative flex min-h-screen w-screen items-center justify-center bg-black/0 tracking-wider select-none"
       id="hero"
     >

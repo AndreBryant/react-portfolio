@@ -1,3 +1,5 @@
+import type { Ref } from "react";
+
 import {
   Github,
   ExternalLinkIcon,
@@ -11,9 +13,12 @@ import {
 } from "../content";
 // import { useState } from "react";
 
-export default function Projects() {
+export default function Projects({
+  sectionRef,
+}: Readonly<{ sectionRef: Ref<HTMLElement> }>) {
   return (
     <section
+      ref={sectionRef}
       className="relative -mx-4 flex min-h-screen flex-col gap-24 font-mono"
       id="projects"
     >

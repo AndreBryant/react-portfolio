@@ -1,47 +1,71 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type RefObject } from "react";
 
-export default function NavBar() {
+// google search AI
+function getVisibleArea(element: HTMLElement | null) {
+  if (!element) return null;
+
+  const rect = element.getBoundingClientRect();
+  const viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+  const viewportWidth =
+    window.innerWidth || document.documentElement.clientWidth;
+
+  // Calculate intersection coordinates
+  const visibleTop = Math.max(0, rect.top);
+  const visibleBottom = Math.min(viewportHeight, rect.bottom);
+  const visibleLeft = Math.max(0, rect.left);
+  const visibleRight = Math.min(viewportWidth, rect.right);
+
+  // Calculate visible dimensions and area
+  const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+  const visibleWidth = Math.max(0, visibleRight - visibleLeft);
+  const visibleArea = visibleWidth * visibleHeight;
+
+  return {
+    visibleHeight,
+    visibleWidth,
+    visibleArea,
+    isVisible: visibleHeight > 0 && visibleWidth > 0,
+  };
+}
+
+export default function NavBar({
+  sectionRefs,
+}: Readonly<{ sectionRefs: Record<string, RefObject<HTMLElement>> }>) {
   const [activeId, setActiveId] = useState<string | null>("hero");
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
   const toggleExpandedMenu = () => setExpandedMenu(!expandedMenu);
 
   useEffect(() => {
-    const sections = ["hero", "projects", "contact"];
-    const sectionElements = sections
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    let ticking = false;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let mostVisible = null;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let id: string | null = "";
+          let max = 0;
 
-        for (const entry of entries) {
-          if (entry.isIntersecting && sections.includes(entry.target.id)) {
-            if (
-              !mostVisible ||
-              entry.intersectionRatio > mostVisible.intersectionRatio
-            ) {
-              mostVisible = entry;
+          Object.values(sectionRefs).forEach((ref) => {
+            const area = getVisibleArea(ref.current)?.visibleArea ?? 0;
+
+            if (area >= max) {
+              max = area;
+              id = ref.current?.id ?? null;
             }
-          }
-        }
+          });
 
-        if (mostVisible) {
-          setActiveId(`${mostVisible.target.id}`);
-        }
-      },
-      {
-        root: null,
-        threshold: 0.5,
-      },
-    );
+          setActiveId((prev) => (id && id !== prev ? id : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    sectionElements.forEach((section) => {
-      observer.observe(section);
-    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // initial check
 
-    return () => observer.disconnect();
-  }, []);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [sectionRefs]);
 
   const sections: Record<string, string>[] = [
     { label: "home", id: "hero" },

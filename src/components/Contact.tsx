@@ -1,9 +1,12 @@
 import { ArrowRight, Facebook, Github, Linkedin } from "lucide-react";
-import type { ReactNode } from "react";
+import type { ReactNode, Ref } from "react";
 
-export default function Contact() {
+export default function Contact({
+  sectionRef,
+}: Readonly<{ sectionRef: Ref<HTMLElement> }>) {
   return (
     <section
+      ref={sectionRef}
       className="flex flex-col gap-8 py-32 sm:px-24 lg:h-screen xl:px-64"
       id="contact"
     >
