@@ -2,7 +2,8 @@ export const HERO_CONTENT: Record<string, string> = {
   heading: "Hello I'm",
   name: "Andre",
   job: "aspiring software developer",
-  // job: "please give me job",
+  intro:
+    "fresh Computer Science Graduate from University of the Philippines Baguio and DOST-SEI JLSS Merit 2023 awardee",
 };
 export const SKILLS = [
   "HTML5",
@@ -123,3 +124,16 @@ export const PROJECT_IMG_PATHS: string[][] = [
     "./assets/subaybay/subaybay-docs-2.png",
   ],
 ];
+
+/**
+ * ADD this
+ * midi spec webpage:
+ *  https://andrebryant.github.io/midi-spec-webpage
+ *  https://github.com/AndreBryant/midi-spec-webpage
+ *
+ *  July 2023
+ *
+ *  Standard MIDI-File Format Spec. 1.1 (Redesigned)
+ *  Front end redesign of the MIDI Spec 1.1 HTML Document by David Back (1999) using vanilla html-css-javascript.
+ *
+ */
