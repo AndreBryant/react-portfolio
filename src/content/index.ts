@@ -87,14 +87,14 @@ export const PROJECTS: Record<string, string>[] = [
 
 export const PROJECT_TECHSTACK: string[][] = [
   // ["HTML5", "CSS", "JavaScript", "jQuery", "Laravel", "Bootstrap", "MySQL"],
-  ["HTML5", "TailwindCSS", "PixiJS", "CCaptureJS"],
+  ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "PixiJS", "CCaptureJS"],
 
-  ["HTML5", "TailwindCSS", "P5.js", "WebSocket", "SvelteKit"],
+  ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "P5.js", "WebSocket"],
   [
     "HTML5",
+    "TailwindCSS",
     "TypeScript",
     "SvelteKit",
-    "TailwindCSS",
     "shadcn-svelte",
     "MongoDB",
     "Docker",
