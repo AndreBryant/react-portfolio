@@ -73,6 +73,16 @@ export const PROJECTS: Record<string, string>[] = [
     isDeployed: "false",
     deploymentLink: "",
   },
+  {
+    name: "SMF Format Spec. 1.1",
+    duration: "July 2023",
+    desc: "Front-end redesign of the MIDI Spec 1.1 HTML Document by David Back (1999) using vanilla html-css-javascript.",
+    role: "Project Manager and Developer",
+    type: "Personal Project",
+    link: "https://github.com/AndreBryant/midi-spec-webpage",
+    isDeployed: "true",
+    deploymentLink: "https://andrebryant.github.io/midi-spec-webpage",
+  },
 ];
 
 export const PROJECT_TECHSTACK: string[][] = [
@@ -89,6 +99,7 @@ export const PROJECT_TECHSTACK: string[][] = [
     "MongoDB",
     "Docker",
   ],
+  ["HTML5", "CSS3", "JavaScript"],
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
@@ -123,17 +134,11 @@ export const PROJECT_IMG_PATHS: string[][] = [
     "./assets/subaybay/subaybay-docs-1.png",
     "./assets/subaybay/subaybay-docs-2.png",
   ],
+  [
+    "./assets/smf/smf-1.png",
+    "./assets/smf/smf-2.png",
+    "./assets/smf/smf-3.png",
+    "./assets/smf/smf-4.png",
+    "./assets/smf/smf-5.png",
+  ],
 ];
-
-/**
- * ADD this
- * midi spec webpage:
- *  https://andrebryant.github.io/midi-spec-webpage
- *  https://github.com/AndreBryant/midi-spec-webpage
- *
- *  July 2023
- *
- *  Standard MIDI-File Format Spec. 1.1 (Redesigned)
- *  Front end redesign of the MIDI Spec 1.1 HTML Document by David Back (1999) using vanilla html-css-javascript.
- *
- */

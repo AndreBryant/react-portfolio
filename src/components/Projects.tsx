@@ -27,6 +27,7 @@ export default function Projects() {
             return (
               <div
                 className={`flex flex-col gap-16 ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+                key={i}
               >
                 <div className="flex flex-1/2 flex-col gap-8">
                   <ProjectHeader
@@ -61,7 +62,7 @@ function ProjectHeader({
   return (
     <div>
       <div className="flex items-end justify-between gap-4">
-        <h2 className="w-fit text-4xl font-semibold">{title}</h2>
+        <h2 className="line-clamp-1 w-fit text-4xl font-semibold">{title}</h2>
         <span className="w-fit text-xs opacity-60">{duration}</span>
       </div>
       <div>
