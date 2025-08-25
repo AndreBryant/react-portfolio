@@ -45,7 +45,7 @@ export const PROJECTS: Record<string, string>[] = [
   {
     name: "Emblaze App",
     duration: "2025 (ongoing)",
-    desc: "A browser based MIDI renderer made with Sveltekit, TailwindCSS, and PixiJS.",
+    desc: "A browser-based MIDI renderer made with Sveltekit, TailwindCSS, and PixiJS.",
     role: "Developer",
     type: "Personal Project",
     link: "https://github.com/AndreBryant/emblaze-app",
@@ -92,10 +92,10 @@ export const PROJECT_TECHSTACK: string[][] = [
 
 export const PROJECT_IMG_PATHS: string[][] = [
   [
+    "./assets/emblaze/emblaze-4.png",
     "./assets/emblaze/emblaze-1.png",
     "./assets/emblaze/emblaze-2.png",
     "./assets/emblaze/emblaze-3.png",
-    "./assets/emblaze/emblaze-4.png",
     "./assets/emblaze/emblaze-5.png",
     "./assets/emblaze/emblaze-6.png",
   ],

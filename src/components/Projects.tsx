@@ -1,23 +1,23 @@
 import {
   Github,
   ExternalLinkIcon,
-  ChevronLeft,
-  ChevronRight,
+  // ChevronLeft,
+  // ChevronRight,
 } from "lucide-react";
 import {
   PROJECTS as P,
   PROJECT_TECHSTACK as PT,
   PROJECT_IMG_PATHS as PIP,
 } from "../content";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Projects() {
   return (
     <section
-      className="relative flex min-h-screen flex-col gap-24 bg-black/10 font-mono backdrop-blur-xs"
+      className="relative -mx-4 flex min-h-screen flex-col gap-24 font-mono"
       id="projects"
     >
-      <div className="space-y-16">
+      <div className="space-y-16 bg-slate-950/10 px-4 py-16 outline outline-slate-50/25 backdrop-blur-[5px] lg:rounded-lg lg:px-16">
         <h2 className="text-4xl">PROJECTS</h2>
         <div className="flex flex-col gap-32">
           {P.map((p, i) => {
@@ -88,7 +88,7 @@ function ProjectBody({
 }>) {
   return (
     <div className="flex flex-col gap-4">
-      <div className="space-y-1 text-sm">
+      <div className="min-h-32 space-y-1 text-sm">
         <p className="opacity-60">{desc}</p>
         <p className="font-semibold">
           Role: &nbsp;
@@ -123,11 +123,16 @@ function ProjectImage({
   onLeft,
 }: Readonly<{ src: string; onLeft: boolean }>) {
   return (
-    <div className="relative flex flex-1/2 basis-xl items-center justify-center rounded-xl bg-gradient-to-bl from-violet-600 to-fuchsia-600 py-8 backdrop-blur-lg">
+    <div className="relative flex flex-1/2 basis-xl items-center justify-center rounded-xl bg-gradient-to-bl from-violet-600/80 to-fuchsia-600/80 backdrop-blur-lg lg:py-8">
       <div
-        className={`h-64 rounded-xl shadow-2xl shadow-black ${onLeft ? "lg:-translate-x-16" : "lg:translate-x-16"}`}
+        className={`absolute h-64 rounded-xl shadow-2xl shadow-black ${onLeft ? "lg:-translate-x-1/4" : "lg:translate-x-1/4"}`}
+        // ${onLeft ? "lg:-translate-x-16" : "lg:translate-x-16"}
       >
-        <img src={src} alt={src} className="h-full rounded-xl" />
+        <img
+          src={src}
+          alt={src}
+          className={`h-64 rounded-xl outline-2 outline-slate-50/25 lg:w-auto lg:max-w-none`}
+        />
       </div>
     </div>
   );
@@ -196,14 +201,13 @@ function RepoButton({
       >
         {!isDeployment && (
           <>
-            <Github />{" "}
-            <span className="hidden lg:inline">Visit repository</span>
+            <Github /> <span className="hidden lg:inline">Repository</span>
           </>
         )}
         {isDeployment && (
           <>
             <ExternalLinkIcon />
-            <span className="hidden lg:inline">View Deployment</span>
+            <span className="hidden lg:inline">Deployment</span>
           </>
         )}
       </span>

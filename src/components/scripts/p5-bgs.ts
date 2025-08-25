@@ -219,7 +219,7 @@ export const GlobalWrapperStyle = createGlobalStyle`
       width: 100vw;
       height: 110vh;
       filter: blur(1px);
-      background-image: linear-gradient(#050505, #54a7e920);
+      background-image: linear-gradient(#080808, #54a7e920);
 
       }
       `;

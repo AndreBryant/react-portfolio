@@ -13,7 +13,7 @@ export default function Hero() {
     >
       {/* <GlobalWrapperStyle />
       <ReactP5Wrapper sketch={heroSketch3} /> */}
-      <div className="absolute z-10 flex h-full w-full flex-col-reverse items-center justify-start gap-8">
+      <div className="absolute z-10 mb-32 flex h-full w-full flex-col-reverse items-center justify-start gap-8">
         <div className="flex animate-bounce items-center gap-2 text-white/20 peer-hover:text-white/30">
           <ChevronDown />
         </div>
@@ -23,12 +23,14 @@ export default function Hero() {
           {/* <div className="absolute -top-16 left-16 rounded-lg bg-amber-50/5 px-2 py-1">
             <p className="animate-pulse uppercase">Work in Progress...</p>
           </div> */}
-          <div className="min-w-2/3 uppercase">
-            <p className="text-sm md:text-xl">{HERO_CONTENT.heading}</p>
-            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-6xl tracking-tight text-transparent text-shadow-slate-50/10 text-shadow-sm md:text-8xl lg:text-9xl">
+          <div className="min-w-2/3 uppercase backdrop-blur-xs">
+            <p className="text-shadow-lg text-shadow-white/10 md:text-xl">
+              {HERO_CONTENT.heading}
+            </p>
+            <p className="hero-andre-animated bg-gradient-to-r from-slate-50 via-slate-600 to-slate-300 bg-clip-text text-center text-6xl tracking-tight text-transparent text-shadow-lg text-shadow-white/10 md:text-8xl lg:text-9xl">
               {HERO_CONTENT.name}
             </p>
-            <p className="mr-0 ml-auto max-w-64 text-right text-sm md:text-xl">
+            <p className="mr-0 ml-auto max-w-64 text-right text-sm text-shadow-lg text-shadow-white/10 md:text-xl">
               {HERO_CONTENT.job}
             </p>
           </div>
