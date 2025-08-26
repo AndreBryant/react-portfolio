@@ -30,7 +30,6 @@ export default function Projects({
           {P.map((p, i) => {
             const pt = PT[i];
             const pip = PIP[i];
-
             return (
               <div
                 className={`flex flex-col gap-16 ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
@@ -46,7 +45,7 @@ export default function Projects({
                     desc={p.desc}
                     role={p.role}
                     techStack={pt}
-                    link={p.Link}
+                    link={p.link}
                     isDeployed={JSON.parse(p.isDeployed)}
                     deploymentLink={p.deploymentLink}
                   />
