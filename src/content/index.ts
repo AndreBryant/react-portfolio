@@ -77,7 +77,7 @@ export const PROJECTS: Record<string, string>[] = [
     name: "SMF Format Spec. 1.1",
     duration: "July 2023",
     desc: "Front-end redesign of the MIDI Spec 1.1 HTML Document by David Back (1999) using vanilla html-css-javascript.",
-    role: "Project Manager and Developer",
+    role: "Developer",
     type: "Personal Project",
     link: "https://github.com/AndreBryant/midi-spec-webpage",
     isDeployed: "true",
@@ -87,7 +87,7 @@ export const PROJECTS: Record<string, string>[] = [
 
 export const PROJECT_TECHSTACK: string[][] = [
   // ["HTML5", "CSS", "JavaScript", "jQuery", "Laravel", "Bootstrap", "MySQL"],
-  ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "PixiJS", "CCaptureJS"],
+  ["HTML5", "TailwindCSS", "JavaScript", "SvelteKit", "PixiJS", "CCaptureJS"],
 
   ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "P5.js", "WebSocket"],
   [
