@@ -12,7 +12,7 @@ import {
   PROJECT_TECHSTACK as PT,
   PROJECT_IMG_PATHS as PIP,
 } from "../content";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function Projects({
@@ -167,9 +167,26 @@ function PopoverGallery({
   imgPaths: string[];
   setExpanded: Dispatch<SetStateAction<boolean>>;
 }>) {
-  const [index, setIndex] = useState(0);
-  const [activeLeft, setActiveLeft] = useState(false);
-  const [activeRight, setActiveRight] = useState(true);
+  const useImageLoaded = () => {
+    const [loaded, setLoaded] = useState(false);
+    const ref = useRef<HTMLImageElement | null>(null);
+
+    const onLoad = () => {
+      setLoaded(true);
+    };
+
+    const switchImg = () => {
+      setLoaded(false);
+    };
+
+    useEffect(() => {
+      if (ref.current && ref.current.complete) {
+        onLoad();
+      }
+    }, []);
+
+    return { ref, loaded, onLoad, switchImg };
+  };
 
   const updateIndex = (inc: number) => {
     const newValue = index + inc;
@@ -183,9 +200,15 @@ function PopoverGallery({
 
     setActiveLeft(newValue !== 0);
     setActiveRight(newValue !== imgPaths.length - 1);
+    switchImg();
 
     setIndex(newValue);
   };
+
+  const [index, setIndex] = useState(0);
+  const [activeLeft, setActiveLeft] = useState(false);
+  const [activeRight, setActiveRight] = useState(true);
+  const { ref, loaded, onLoad, switchImg } = useImageLoaded();
 
   useEffect(() => {
     const body = document.body;
@@ -209,10 +232,19 @@ function PopoverGallery({
         className="rounded-lg shadow-xl transition-all"
         onClick={(e) => e.stopPropagation()}
       >
+        {!loaded && (
+          <div className="pointer-events-none fixed top-1/2 left-1/2 -translate-1/2 items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
+          </div>
+        )}
         <img
+          ref={ref}
+          onLoad={onLoad}
           src={imgPaths[index]}
           alt={imgPaths[index]}
-          className="max-h-[80vh] max-w-[80vw] rounded outline-2 outline-slate-50/40"
+          className={`max-h-[80vh] max-w-[80vw] rounded outline-2 outline-slate-50/40 transition-opacity duration-300 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
         />
       </div>
       <div
