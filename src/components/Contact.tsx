@@ -7,32 +7,32 @@ export default function Contact({
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col gap-8 py-32 sm:px-24 lg:h-screen xl:px-64"
+      className="relative flex flex-col gap-8 py-32 font-mono sm:px-24 lg:h-screen xl:px-64"
       id="contact"
     >
       <h2 className="text-4xl">Contact me</h2>
       <div className="flex flex-col gap-8 lg:flex-row">
-        <div className="flex flex-1/2 flex-col items-center gap-16 rounded-lg border border-white/20 bg-black/50 p-4 py-16">
+        <div className="flex flex-1/2 flex-col items-center gap-16 rounded-lg border border-white/20 bg-black/10 px-8 py-16 backdrop-blur-xs">
           <div>
-            <p className="text-center text-3xl text-white/80">
+            <p className="text-center text-3xl font-semibold text-white/80">
               Thank you for taking the time to go over my portfolio!
             </p>
           </div>
           <div className="flex flex-col gap-8">
-            <ul className="flex items-center justify-center gap-8 text-sm lg:gap-16">
+            <ul className="flex items-center justify-evenly gap-8 text-sm lg:gap-16">
               <AnchorListItem
                 icon={<Linkedin size={42} />}
-                text="Link to my LinkedIn"
+                text="LinkedIn"
                 link="https://www.linkedin.com/in/andrebagalso/"
               />
               <AnchorListItem
                 icon={<Github size={42} />}
-                text="Link to my Github"
+                text="Github"
                 link="https://www.github.com/andrebryant"
               />
               <AnchorListItem
                 icon={<Facebook size={42} />}
-                text="Link to my Facebook"
+                text="Facebook"
                 link="https://m.me/andrebryant.bagalso"
               />
             </ul>
@@ -44,7 +44,7 @@ export default function Contact({
         </div>
         <form
           action=""
-          className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/20 bg-black/50 p-4"
+          className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-lg"
         >
           <div className="flex flex-col gap-4 lg:flex-row">
             <label
@@ -116,14 +116,16 @@ function AnchorListItem({
   const onclick = (link: string) => window.open(link, "_blank");
 
   return (
-    <li>
+    <li className="flex items-end gap-1 text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
+      <span className="text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
+        <ArrowRight size={16} />
+      </span>
       <div
         className="group flex flex-col items-center text-white/70 hover:cursor-pointer hover:text-white"
         onClick={() => onclick(link)}
       >
         <span>{icon}</span>
         <span className="flex items-center justify-center gap-1 text-center text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
-          <ArrowRight size={16} />
           {text}
         </span>
       </div>
