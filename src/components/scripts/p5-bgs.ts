@@ -218,6 +218,7 @@ export const GlobalWrapperStyle = createGlobalStyle`
       left: 0;
       width: 100vw;
       height: 110vh;
+      z-index: 0;
       filter: blur(1px);
       background-image: linear-gradient(#080808, #54a7e920);
 
