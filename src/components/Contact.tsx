@@ -93,7 +93,7 @@ export default function Contact({
           <div>
             <button
               type="submit"
-              className="rounded-md border border-cyan-200/20 bg-cyan-800 px-4 py-2 text-white hover:cursor-pointer hover:bg-cyan-900"
+              className="rounded-md bg-gradient-to-bl from-violet-600/30 to-fuchsia-600/30 px-4 py-2 text-slate-50/80 transition hover:cursor-pointer hover:from-violet-600/40 hover:to-fuchsia-600/40 hover:text-slate-50"
             >
               Submit
             </button>
@@ -116,16 +116,16 @@ function AnchorListItem({
   const onclick = (link: string) => window.open(link, "_blank");
 
   return (
-    <li className="flex items-end gap-1 text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
-      <span className="text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
+    <li className="group flex items-end gap-1 text-violet-400 underline underline-offset-4 hover:text-violet-500">
+      <span>
         <ArrowRight size={16} />
       </span>
       <div
-        className="group flex flex-col items-center text-white/70 hover:cursor-pointer hover:text-white"
+        className="flex flex-col items-center text-slate-50/70 hover:cursor-pointer hover:text-slate-50/80"
         onClick={() => onclick(link)}
       >
         <span>{icon}</span>
-        <span className="flex items-center justify-center gap-1 text-center text-cyan-800 underline underline-offset-4 group-hover:text-cyan-700">
+        <span className="text-violet-400 group-hover:text-violet-500">
           {text}
         </span>
       </div>
