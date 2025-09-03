@@ -5,6 +5,7 @@ export const HERO_CONTENT: Record<string, string> = {
   intro:
     "fresh Computer Science Graduate from University of the Philippines Baguio and DOST-SEI JLSS Merit 2023 awardee",
 };
+
 export const SKILLS = [
   "HTML5",
   "CSS3",
@@ -14,6 +15,13 @@ export const SKILLS = [
   "ReactJS",
   "TailwindCSS",
 ];
+
+export const ABOUT = {
+  intro:
+    "Hello, I am Andre Bryant, a computer science fresh graduate from the University of the Philippines and an aspiring professional software developer. I was also a DOST-SEI JLSS scholar from 2023 - 2025.",
+  likes:
+    "I enjoy using modern web frameworks such as SvelteKit & NextJS, and libraries such as p5.js for creative coding.",
+};
 
 export const EDUCATION: Record<string, string>[] = [
   {
