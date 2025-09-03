@@ -10,7 +10,8 @@ export default function Contact({
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col gap-8 py-32 font-mono sm:px-24 lg:h-screen xl:px-64"
+      //  sm:px-24 md:px-32 xl:px-64 2xl:px-96
+      className="relative flex flex-col gap-8 py-32 font-mono sm:px-24 md:px-32 lg:h-screen xl:px-64 2xl:px-96"
       id="contact"
     >
       <h2 className="text-4xl">Contact me</h2>
@@ -47,7 +48,7 @@ export default function Contact({
         </div>
         {state.succeeded && (
           <div className="flex w-full items-center justify-center rounded-lg bg-black/20 outline outline-slate-50/20 backdrop-blur-lg">
-            <p className="py-4 text-2xl font-semibold tracking-widest">
+            <p className="px-8 py-4 text-center text-2xl font-semibold tracking-widest">
               Thanks for reaching out!
             </p>
           </div>
@@ -57,7 +58,7 @@ export default function Contact({
             onSubmit={handleSubmit}
             className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-lg"
           >
-            <div className="flex flex-col gap-4 lg:flex-row">
+            <div className="flex flex-col">
               <label
                 htmlFor="email"
                 className="flex flex-1/2 flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
