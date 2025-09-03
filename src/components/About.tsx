@@ -1,5 +1,7 @@
 import { type Ref } from "react";
 import { ABOUT } from "../content";
+import CV from "/assets/cv-resume/cv.pdf";
+import RESUME from "/assets/cv-resume/resume.pdf";
 
 export default function About({
   sectionRef,
@@ -35,7 +37,30 @@ export default function About({
             </p>
           </div>
         </div>
-        <div className="w-full flex-1/3 border-t border-slate-50/40 lg:h-full"></div>
+        <div className="w-full flex-1/3 border-t border-slate-50/40 lg:h-full">
+          <div className="mt-8 flex w-full gap-8 lg:flex-col">
+            <div className="flex items-end gap-4">
+              <a href={CV} download="ANDRE_BAGALSO_CV" target="_blank">
+                <button className="cursor-pointer rounded-lg bg-slate-50/10 px-2 py-1 text-slate-50/70 outline outline-slate-50/10 hover:bg-slate-50/20 hover:text-slate-50/90 hover:outline-slate-50/20">
+                  <span className="text-sm tracking-widest">CV</span>
+                </button>
+              </a>
+              <span className="text-xs opacity-40">
+                last updated Aug. 26, 2025
+              </span>
+            </div>
+            <div className="flex items-end gap-4">
+              <a href={RESUME} download="ANDRE_BAGALSO_RESUME" target="_blank">
+                <button className="cursor-pointer rounded-lg bg-slate-50/10 px-2 py-1 text-slate-50/70 outline outline-slate-50/10 hover:bg-slate-50/20 hover:text-slate-50/90 hover:outline-slate-50/20">
+                  <span className="text-sm tracking-widest">résumé</span>
+                </button>
+              </a>
+              <span className="text-xs opacity-40">
+                last updated Aug. 26, 2025
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
