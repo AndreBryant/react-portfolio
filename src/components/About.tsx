@@ -9,7 +9,7 @@ export default function About({
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-fit flex-col gap-8 bg-black/20 font-mono outline outline-slate-400/20 backdrop-blur-sm"
+      className="relative flex min-h-fit flex-col gap-8 bg-black/20 font-mono outline outline-slate-400/20 backdrop-blur-sm lg:py-16! lg:pb-32!"
       id="about"
     >
       <div className="about-header-animated w-fit cursor-default">
