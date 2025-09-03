@@ -1,9 +1,12 @@
 import { ArrowRight, Facebook, Github, Linkedin } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 import type { ReactNode, Ref } from "react";
 
 export default function Contact({
   sectionRef,
 }: Readonly<{ sectionRef: Ref<HTMLElement> }>) {
+  const [state, handleSubmit] = useForm("mkgvpwlw");
+
   return (
     <section
       ref={sectionRef}
@@ -42,63 +45,77 @@ export default function Contact({
             </p>
           </div>
         </div>
-        <form
-          action=""
-          className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-lg"
-        >
-          <div className="flex flex-col gap-4 lg:flex-row">
-            <label
-              htmlFor="form-name"
-              className="flex flex-1/2 flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
-            >
-              <input
-                type="text"
-                name="name"
-                id="form-name"
-                className="peer h-12 rounded-md border border-white/20 px-2 py-1 text-slate-50/80"
-              />
-              <div className="">
-                <span className="">Name of Company</span>
-              </div>
-            </label>
-            <label
-              htmlFor="form-email"
-              className="flex flex-1/2 flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
-            >
-              <input
-                type="email"
-                name="email"
-                id="form-email"
-                className="h-12 rounded-md border border-white/20 px-2 py-1 text-slate-50/80"
-              />
-              <div>
-                <span>Email Address</span>
-              </div>
-            </label>
+        {state.succeeded && (
+          <div className="flex w-full items-center justify-center rounded-lg bg-black/20 outline outline-slate-50/20 backdrop-blur-lg">
+            <p className="py-4 text-2xl font-semibold tracking-widest">
+              Thanks for reaching out!
+            </p>
           </div>
-
-          <label
-            htmlFor="form-message"
-            className="flex grow flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
+        )}
+        {!state.succeeded && (
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-1/2 flex-col gap-4 rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-lg"
           >
-            <textarea
-              name="message"
-              id="form-message"
-              className="min-h-64 grow resize-none rounded-md border border-white/20 px-2 py-4 text-slate-50/80"
-            ></textarea>
-            <div>
-              <span>Your Message</span>
+            <div className="flex flex-col gap-4 lg:flex-row">
+              <label
+                htmlFor="email"
+                className="flex flex-1/2 flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="h-12 rounded-md border border-white/20 px-2 py-1 text-slate-50/80"
+                />
+                <div>
+                  <span className="rounded-lg bg-violet-600/80 px-2">
+                    Email Address
+                  </span>
+                </div>
+              </label>
+              <div className="text-red-700">
+                <ValidationError
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
+                />
+              </div>
             </div>
-          </label>
-          <div>
-            <button
-              type="submit"
-              className="rounded-md bg-gradient-to-bl from-violet-600/30 to-fuchsia-600/30 px-4 py-2 text-slate-50/80 transition hover:cursor-pointer hover:from-violet-600/40 hover:to-fuchsia-600/40 hover:text-slate-50"
+
+            <label
+              htmlFor="message"
+              className="flex grow flex-col-reverse gap-1 [&>div]:ml-2 [&>div]:translate-y-1/2 focus-within:[&>div]:ml-0 focus-within:[&>div]:translate-y-0"
             >
-              Submit
-            </button>
-          </div>
-        </form>
+              <textarea
+                name="message"
+                id="message"
+                className="min-h-64 grow resize-none rounded-md border border-white/20 px-2 py-4 text-slate-50/80"
+              ></textarea>
+              <div>
+                <span className="rounded-lg bg-violet-600/70 px-2">
+                  Your Message
+                </span>
+              </div>
+            </label>
+            <div className="text-red-700">
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
+            </div>
+            <div>
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="rounded-md bg-gradient-to-bl from-violet-600/30 to-fuchsia-600/30 px-4 py-2 text-slate-50/80 transition hover:cursor-pointer hover:from-violet-600/40 hover:to-fuchsia-600/40 hover:text-slate-50"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   );
