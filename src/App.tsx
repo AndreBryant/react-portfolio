@@ -14,7 +14,6 @@ export default function App() {
   const aboutRef = useRef<HTMLElement | null>(null);
   const projectsRef = useRef<HTMLElement | null>(null);
   const contactRef = useRef<HTMLElement | null>(null);
-
   return (
     <div className="relative top-0 z-0 m-0 w-screen border p-0" id="app">
       <NavBar

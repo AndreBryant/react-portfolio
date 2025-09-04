@@ -1,3 +1,5 @@
+import FILES from "../assets/index";
+
 export const HERO_CONTENT: Record<string, string> = {
   heading: "Hello I'm",
   name: "Andre",
@@ -21,6 +23,7 @@ export const ABOUT = {
     "Hello, I am Andre Bryant, a computer science fresh graduate from the University of the Philippines and an aspiring professional software developer. I was also a DOST-SEI JLSS scholar from 2023 - 2025.",
   likes:
     "I enjoy using modern web frameworks such as SvelteKit & NextJS, and libraries such as p5.js for creative coding.",
+  credentials: FILES.DOCUMENTS,
 };
 
 export const EDUCATION: Record<string, string>[] = [
@@ -111,42 +114,46 @@ export const PROJECT_TECHSTACK: string[][] = [
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
-  [
-    "./assets/emblaze/emblaze-4.png",
-    "./assets/emblaze/emblaze-1.png",
-    "./assets/emblaze/emblaze-2.png",
-    "./assets/emblaze/emblaze-3.png",
-    "./assets/emblaze/emblaze-5.png",
-    "./assets/emblaze/emblaze-6.png",
-  ],
-  [
-    "./assets/deer/deer-1.png",
-    "./assets/deer/deer-2.png",
-    "./assets/deer/deer-3.png",
-    "./assets/deer/deer-4.png",
-    "./assets/deer/deer-5.png",
-    "./assets/deer/deer-6.png",
-    "./assets/deer/deer-7.png",
-    "./assets/deer/deer-8.png",
-    "./assets/deer/deer-9.png",
-    "./assets/deer/deer-10.png",
-    "./assets/deer/deer-11.png",
-  ],
-  [
-    "./assets/subaybay/subaybay-1.png",
-    "./assets/subaybay/subaybay-2.png",
-    "./assets/subaybay/subaybay-3.png",
-    "./assets/subaybay/subaybay-4.png",
-    "./assets/subaybay/subaybay-5.png",
-    "./assets/subaybay/subaybay-6.png",
-    "./assets/subaybay/subaybay-docs-1.png",
-    "./assets/subaybay/subaybay-docs-2.png",
-  ],
-  [
-    "./assets/smf/smf-1.png",
-    "./assets/smf/smf-2.png",
-    "./assets/smf/smf-3.png",
-    "./assets/smf/smf-4.png",
-    "./assets/smf/smf-5.png",
-  ],
+  FILES.EMBLAZE,
+  FILES.DEER,
+  FILES.SUBAYBAY,
+  FILES.SMF,
+  // [
+  //   "./assets/emblaze/emblaze-4.png",
+  //   "./assets/emblaze/emblaze-1.png",
+  //   "./assets/emblaze/emblaze-2.png",
+  //   "./assets/emblaze/emblaze-3.png",
+  //   "./assets/emblaze/emblaze-5.png",
+  //   "./assets/emblaze/emblaze-6.png",
+  // ],
+  // [
+  //   "./assets/deer/deer-1.png",
+  //   "./assets/deer/deer-2.png",
+  //   "./assets/deer/deer-3.png",
+  //   "./assets/deer/deer-4.png",
+  //   "./assets/deer/deer-5.png",
+  //   "./assets/deer/deer-6.png",
+  //   "./assets/deer/deer-7.png",
+  //   "./assets/deer/deer-8.png",
+  //   "./assets/deer/deer-9.png",
+  //   "./assets/deer/deer-10.png",
+  //   "./assets/deer/deer-11.png",
+  // ],
+  // [
+  //   "./assets/subaybay/subaybay-1.png",
+  //   "./assets/subaybay/subaybay-2.png",
+  //   "./assets/subaybay/subaybay-3.png",
+  //   "./assets/subaybay/subaybay-4.png",
+  //   "./assets/subaybay/subaybay-5.png",
+  //   "./assets/subaybay/subaybay-6.png",
+  //   "./assets/subaybay/subaybay-docs-1.png",
+  //   "./assets/subaybay/subaybay-docs-2.png",
+  // ],
+  // [
+  //   "./assets/smf/smf-1.png",
+  //   "./assets/smf/smf-2.png",
+  //   "./assets/smf/smf-3.png",
+  //   "./assets/smf/smf-4.png",
+  //   "./assets/smf/smf-5.png",
+  // ],
 ];

@@ -1,7 +1,7 @@
 import { type Ref } from "react";
 import { ABOUT } from "../content";
-import CV from "/assets/cv-resume/cv.pdf";
-import RESUME from "/assets/cv-resume/resume.pdf";
+// import CV from "/assets/cv-resume/cv.pdf";
+// import RESUME from "/assets/cv-resume/resume.pdf";
 
 export default function About({
   sectionRef,
@@ -40,7 +40,11 @@ export default function About({
         <div className="w-full flex-1/3 border-t border-slate-50/20 lg:h-full">
           <div className="mt-8 flex w-full gap-8 lg:flex-col">
             <div className="flex items-end gap-4">
-              <a href={CV} download="ANDRE_BAGALSO_CV" target="_blank">
+              <a
+                href={ABOUT.credentials.CV}
+                download="ANDRE_BAGALSO_CV"
+                target="_blank"
+              >
                 <button className="cursor-pointer rounded-lg bg-slate-50/10 px-2 py-1 text-slate-50/70 outline outline-slate-50/10 hover:bg-slate-50/20 hover:text-slate-50/90 hover:outline-slate-50/20">
                   <span className="text-sm tracking-widest">CV</span>
                 </button>
@@ -50,7 +54,11 @@ export default function About({
               </span>
             </div>
             <div className="flex items-end gap-4">
-              <a href={RESUME} download="ANDRE_BAGALSO_RESUME" target="_blank">
+              <a
+                href={ABOUT.credentials.RESUME}
+                download="ANDRE_BAGALSO_RESUME"
+                target="_blank"
+              >
                 <button className="cursor-pointer rounded-lg bg-slate-50/10 px-2 py-1 text-slate-50/70 outline outline-slate-50/10 hover:bg-slate-50/20 hover:text-slate-50/90 hover:outline-slate-50/20">
                   <span className="text-sm tracking-widest">résumé</span>
                 </button>
