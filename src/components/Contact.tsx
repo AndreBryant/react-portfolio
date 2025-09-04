@@ -10,8 +10,7 @@ export default function Contact({
   return (
     <section
       ref={sectionRef}
-      //  sm:px-24 md:px-32 xl:px-64 2xl:px-96
-      className="relative flex flex-col gap-8 py-32 font-mono sm:px-24 md:px-32 lg:h-screen xl:px-64 2xl:px-96"
+      className="relative flex flex-col gap-8 font-mono sm:px-24 md:px-32 lg:h-screen xl:px-64 2xl:px-96"
       id="contact"
     >
       <h2 className="text-4xl">Contact me</h2>

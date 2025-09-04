@@ -1,7 +1,6 @@
 import { type Ref } from "react";
 import { ABOUT } from "../content";
-// import CV from "/assets/cv-resume/cv.pdf";
-// import RESUME from "/assets/cv-resume/resume.pdf";
+import SABLAY from "../assets/sablay_cropped.png";
 
 export default function About({
   sectionRef,
@@ -18,9 +17,14 @@ export default function About({
 
       <div className="flex flex-col items-center justify-center gap-16 lg:h-96 lg:flex-row lg:items-start lg:[&>div]:h-full">
         <div className="flex w-full flex-1/3 items-center justify-center border-b border-slate-50/20 py-8">
-          <div className="about-me-imgxxx flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-bl from-violet-600/80 to-fuchsia-600/80">
-            <p className="text-4xl font-thin text-purple-50/20">◝(ᵔᗜᵔ)◜</p>
-            <p className="text-4xl font-thin text-purple-50/20">img here</p>
+          <div className="flex h-96 items-end overflow-hidden rounded-b-full border-b lg:mb-32">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-bl from-red-950/80 to-amber-400/80 shadow-2xl shadow-amber-300 select-none">
+              <img
+                src={SABLAY}
+                alt=""
+                className="object-cover shadow-black/80 transition"
+              />
+            </div>
           </div>
         </div>
         <div className="flex flex-2/3 flex-col items-center justify-center gap-6 font-thin tracking-widest text-slate-50">
