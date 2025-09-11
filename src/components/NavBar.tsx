@@ -40,6 +40,11 @@ export default function NavBar({
   useEffect(() => {
     let ticking = false;
 
+    const navBarOnScroll = () => {
+      setNavBarOnTop(window.scrollY > 250);
+    };
+    window.addEventListener("scroll", navBarOnScroll, { passive: true });
+
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -61,14 +66,8 @@ export default function NavBar({
         ticking = true;
       }
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll(); // initial check
-
-    const navBarOnScroll = () => {
-      setNavBarOnTop(window.scrollY > 250);
-    };
-    window.addEventListener("scroll", navBarOnScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -84,12 +83,11 @@ export default function NavBar({
   ];
 
   return (
-    // sm:px-24 md:px-32 xl:px-64 2xl:px-96
     <nav
-      className={`fixed z-50 block w-full font-mono select-none ${navBarOnTop ? "top-0" : "top-8"}`}
+      className={`fixed z-50 block w-full font-mono select-none ${navBarOnTop ? "top-0 mx-0" : "top-8 sm:px-24 md:px-32 xl:px-64 2xl:px-96"}`}
     >
       <div
-        className={`relative flex items-center justify-between bg-slate-500/20 px-8 py-6 shadow-lg shadow-black/80 backdrop-blur-lg ${navBarOnTop ? "w-full sm:px-24 md:px-32 xl:px-64 2xl:px-96" : "rounded-xl sm:mx-24 md:mx-32 xl:mx-64 2xl:mx-96"}`}
+        className={`relative flex items-center justify-between rounded-xl bg-slate-500/20 px-8 py-4 shadow-lg shadow-black/80 backdrop-blur-lg ${navBarOnTop ? "w-fullsm:px-24 md:px-32 xl:px-64 2xl:px-96" : ""}`}
       >
         {/* Left logo */}
         <div
