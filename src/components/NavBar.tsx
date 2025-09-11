@@ -34,6 +34,7 @@ export default function NavBar({
 }: Readonly<{ sectionRefs: Record<string, RefObject<HTMLElement>> }>) {
   const [activeId, setActiveId] = useState<string | null>("hero");
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
+  const [navBarOnTop, setNavBarOnTop] = useState<boolean>(false);
   const toggleExpandedMenu = () => setExpandedMenu(!expandedMenu);
 
   useEffect(() => {
@@ -64,7 +65,15 @@ export default function NavBar({
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll(); // initial check
 
-    return () => window.removeEventListener("scroll", onScroll);
+    const navBarOnScroll = () => {
+      setNavBarOnTop(window.scrollY > 250);
+    };
+    window.addEventListener("scroll", navBarOnScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", navBarOnScroll);
+    };
   }, [sectionRefs]);
 
   const sections: Record<string, string>[] = [
@@ -75,8 +84,13 @@ export default function NavBar({
   ];
 
   return (
-    <nav className="fixed top-8 z-50 block w-full px-4 font-mono select-none sm:px-24 md:px-32 xl:px-64 2xl:px-96">
-      <div className="relative mx-auto flex items-center justify-between rounded-xl bg-slate-500/20 px-8 py-4 shadow-lg shadow-black/80 backdrop-blur-lg">
+    // sm:px-24 md:px-32 xl:px-64 2xl:px-96
+    <nav
+      className={`fixed z-50 block w-full font-mono select-none ${navBarOnTop ? "top-0" : "top-8"}`}
+    >
+      <div
+        className={`relative flex items-center justify-between bg-slate-500/20 px-8 py-6 shadow-lg shadow-black/80 backdrop-blur-lg ${navBarOnTop ? "w-full sm:px-24 md:px-32 xl:px-64 2xl:px-96" : "rounded-xl sm:mx-24 md:mx-32 xl:mx-64 2xl:mx-96"}`}
+      >
         {/* Left logo */}
         <div
           className="group flex items-center gap-4"
@@ -121,7 +135,7 @@ export default function NavBar({
 
       {/* Mobile dropdown */}
       {expandedMenu && (
-        <div className="absolute top-16 right-4 z-50 w-36 rounded-lg bg-slate-500/10 px-4 py-2 text-slate-50 backdrop-blur-lg sm:right-24 lg:hidden xl:right-64">
+        <div className="absolute top-20 right-4 z-50 w-36 rounded-lg bg-slate-500/10 px-4 py-2 text-slate-50 backdrop-blur-lg sm:right-24 lg:hidden xl:right-64">
           <ul className="flex flex-col justify-end gap-1">
             {sections.map((s, i) => (
               <NavLink
