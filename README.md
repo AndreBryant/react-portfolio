@@ -1,4 +1,22 @@
-# React + TypeScript + Vite
+# <img src="./public/logo.svg" width="28"/> My First Portfolio Website
+
+This website features some of the projects that I am most proud of, including their github repo links and deployment links (if deployed publicly).
+
+## Techstack
+
+- HTML5
+- CSS
+- TailwindCSS
+- TypeScript
+- ReactJS
+- Vite
+- P5.js
+
+## Deployment
+
+This website is deployed using Vercel and can be accessed in [this link](https://andre-bryant-portfolio.vercel.app).
+
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -51,4 +69,4 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 })
-```
+``` -->
