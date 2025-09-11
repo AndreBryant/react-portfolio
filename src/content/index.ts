@@ -57,7 +57,7 @@ export const PROJECTS: Record<string, string>[] = [
   },
   {
     name: "My Portfolio Website",
-    duration: "August 2025",
+    duration: "June - August 2025",
     desc: "A portfolio website to showcase projects that I am most proud of.",
     role: "Developer/Designer",
     type: "Personal Project",
