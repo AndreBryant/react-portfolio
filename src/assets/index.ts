@@ -20,6 +20,14 @@ import EMBLAZE_4 from "./emblaze/emblaze-4.png";
 import EMBLAZE_5 from "./emblaze/emblaze-5.png";
 import EMBLAZE_6 from "./emblaze/emblaze-6.png";
 
+import RP_1 from "./react-portfolio/react-portfolio-1.png";
+import RP_2 from "./react-portfolio/react-portfolio-2.png";
+import RP_3 from "./react-portfolio/react-portfolio-3.png";
+import RP_4 from "./react-portfolio/react-portfolio-4.png";
+import RP_5 from "./react-portfolio/react-portfolio-5.png";
+import RP_6 from "./react-portfolio/react-portfolio-6.png";
+import RP_7 from "./react-portfolio/react-portfolio-7.png";
+
 import SMF_1 from "./smf/smf-1.png";
 import SMF_2 from "./smf/smf-2.png";
 import SMF_3 from "./smf/smf-3.png";
@@ -51,6 +59,7 @@ export default {
     DEER_10,
     DEER_11,
   ],
+  PORTFOLIO: [RP_1, RP_2, RP_3, RP_4, RP_5, RP_6, RP_7],
   EMBLAZE: [EMBLAZE_4, EMBLAZE_1, EMBLAZE_2, EMBLAZE_3, EMBLAZE_5, EMBLAZE_6],
   SMF: [SMF_1, SMF_2, SMF_3, SMF_4, SMF_5],
   SUBAYBAY: [

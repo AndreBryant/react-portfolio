@@ -56,6 +56,16 @@ export const PROJECTS: Record<string, string>[] = [
     deploymentLink: "https://emblaze-midi.vercel.app",
   },
   {
+    name: "My Portfolio Website",
+    duration: "August 2025",
+    desc: "A portfolio website to showcase projects that I am most proud of.",
+    role: "Developer/Designer",
+    type: "Personal Project",
+    link: "https://github.com/AndreBryant/react-portfolio",
+    isDeployed: "false",
+    deploymentLink: "",
+  },
+  {
     name: "Deer Game",
     duration: "October - December 2024",
     desc: "A semestral project in CMSC 135 demonstrating networking concepts such as using WebSocket.",
@@ -89,7 +99,7 @@ export const PROJECTS: Record<string, string>[] = [
 
 export const PROJECT_TECHSTACK: string[][] = [
   ["HTML5", "TailwindCSS", "JavaScript", "SvelteKit", "PixiJS", "CCaptureJS"],
-
+  ["HTML5", "TailwindCSS", "CSS", "TypeScript", "ReactJS", "Vite", "P5.js"],
   ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "P5.js", "WebSocket"],
   [
     "HTML5",
@@ -105,6 +115,7 @@ export const PROJECT_TECHSTACK: string[][] = [
 
 export const PROJECT_IMG_PATHS: string[][] = [
   FILES.EMBLAZE,
+  FILES.PORTFOLIO,
   FILES.DEER,
   FILES.SUBAYBAY,
   FILES.SMF,
