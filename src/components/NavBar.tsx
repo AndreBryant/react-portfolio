@@ -87,7 +87,7 @@ export default function NavBar({
       className={`fixed z-50 block w-full font-mono select-none ${navBarOnTop ? "top-0 mx-0" : "top-8 sm:px-24 md:px-32 xl:px-64 2xl:px-96"}`}
     >
       <div
-        className={`relative flex items-center justify-between rounded-xl bg-slate-500/20 px-8 py-4 shadow-lg shadow-black/80 backdrop-blur-lg ${navBarOnTop ? "w-fullsm:px-24 md:px-32 xl:px-64 2xl:px-96" : ""}`}
+        className={`relative flex items-center justify-between px-8 py-4 shadow-lg shadow-black/80 backdrop-blur-lg ${navBarOnTop ? "w-full bg-slate-800/40 sm:px-24 md:px-32 xl:px-64 2xl:px-96" : "rounded-xl bg-slate-500/20"}`}
       >
         {/* Left logo */}
         <div
