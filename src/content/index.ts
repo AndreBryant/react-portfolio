@@ -56,6 +56,16 @@ export const PROJECTS: Record<string, string>[] = [
     deploymentLink: "https://emblaze-midi.vercel.app",
   },
   {
+    name: "A Real Estate Webpage Revamp",
+    duration: "October 21 - 23, 2025",
+    desc: "A revamp of a real estate website. I didnt hear anything from the recruitment team after submitting so I added this here.",
+    role: "Developer/Designer",
+    type: "Personal Project",
+    link: "https://github.com/AndreBryant/home-project-wb-application",
+    isDeployed: "true",
+    deploymentLink: "https://bagalso-junior-wb-applicant.vercel.app",
+  },
+  {
     name: "My Portfolio Website",
     duration: "June - August 2025",
     desc: "A portfolio website to showcase projects that I am most proud of.",
@@ -98,8 +108,26 @@ export const PROJECTS: Record<string, string>[] = [
 ];
 
 export const PROJECT_TECHSTACK: string[][] = [
-  ["HTML5", "TailwindCSS", "JavaScript", "SvelteKit", "PixiJS", "CCaptureJS"],
-  ["HTML5", "TailwindCSS", "CSS", "TypeScript", "ReactJS", "Vite", "P5.js"],
+  [
+    "HTML5",
+    "TailwindCSS",
+    "JavaScript",
+    "SvelteKit",
+    "PixiJS",
+    "CCaptureJS",
+    "Vercel",
+  ],
+  ["HTML5", "TailwindCSS", "CSS", "TypeScript", "ReactJS", "Vite", "Vercel"],
+  [
+    "HTML5",
+    "TailwindCSS",
+    "CSS",
+    "TypeScript",
+    "ReactJS",
+    "Vite",
+    "P5.js",
+    "Vercel",
+  ],
   ["HTML5", "TailwindCSS", "TypeScript", "SvelteKit", "P5.js", "WebSocket"],
   [
     "HTML5",
@@ -115,6 +143,7 @@ export const PROJECT_TECHSTACK: string[][] = [
 
 export const PROJECT_IMG_PATHS: string[][] = [
   FILES.EMBLAZE,
+  FILES.REAL_ESTATE,
   FILES.PORTFOLIO,
   FILES.DEER,
   FILES.SUBAYBAY,

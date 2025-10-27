@@ -28,6 +28,13 @@ import RP_5 from "./react-portfolio/react-portfolio-5.png";
 import RP_6 from "./react-portfolio/react-portfolio-6.png";
 import RP_7 from "./react-portfolio/react-portfolio-7.png";
 
+import RE_1 from "./real-estate/real-estate-1.png";
+import RE_2 from "./real-estate/real-estate-2.png";
+import RE_3 from "./real-estate/real-estate-3.png";
+import RE_4 from "./real-estate/real-estate-4.png";
+import RE_5 from "./real-estate/real-estate-5.png";
+import RE_6 from "./real-estate/real-estate-6.png";
+
 import SMF_1 from "./smf/smf-1.png";
 import SMF_2 from "./smf/smf-2.png";
 import SMF_3 from "./smf/smf-3.png";
@@ -59,6 +66,7 @@ export default {
     DEER_10,
     DEER_11,
   ],
+  REAL_ESTATE: [RE_1, RE_2, RE_3, RE_4, RE_5, RE_6],
   PORTFOLIO: [RP_1, RP_2, RP_3, RP_4, RP_5, RP_6, RP_7],
   EMBLAZE: [EMBLAZE_4, EMBLAZE_1, EMBLAZE_2, EMBLAZE_3, EMBLAZE_5, EMBLAZE_6],
   SMF: [SMF_1, SMF_2, SMF_3, SMF_4, SMF_5],
