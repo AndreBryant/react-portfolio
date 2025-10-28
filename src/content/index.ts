@@ -58,7 +58,7 @@ export const PROJECTS: Record<string, string>[] = [
   {
     name: "A Real Estate Webpage Revamp",
     duration: "October 21 - 23, 2025",
-    desc: "A revamp of a real estate website. I didnt hear anything from the recruitment team after submitting so I added this here.",
+    desc: "A revamp of a real estate website.",
     role: "Developer/Designer",
     type: "Personal Project",
     link: "https://github.com/AndreBryant/home-project-wb-application",
