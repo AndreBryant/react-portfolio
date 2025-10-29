@@ -138,7 +138,7 @@ export const PROJECT_TECHSTACK: string[][] = [
     "MongoDB",
     "Docker",
   ],
-  ["HTML5", "CSS3", "JavaScript"],
+  ["HTML5", "CSS3", "JavaScript", "Github Pages"],
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
