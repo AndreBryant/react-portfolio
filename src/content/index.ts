@@ -46,16 +46,6 @@ export const EDUCATION: Record<string, string>[] = [
 
 export const PROJECTS: Record<string, string>[] = [
   {
-    name: "Emblaze App",
-    duration: "2025 (ongoing)",
-    desc: "A browser-based MIDI renderer made with Sveltekit, TailwindCSS, and PixiJS.",
-    role: "Developer",
-    type: "Personal Project",
-    link: "https://github.com/AndreBryant/emblaze-app",
-    isDeployed: "true",
-    deploymentLink: "https://emblaze-midi.vercel.app",
-  },
-  {
     name: "A Real Estate Webpage Revamp",
     duration: "October 21 - 23, 2025",
     desc: "A revamp of a real estate website. I didnt hear anything from the recruitment team after submitting so I added this here.",
@@ -64,6 +54,16 @@ export const PROJECTS: Record<string, string>[] = [
     link: "https://github.com/AndreBryant/home-project-wb-application",
     isDeployed: "true",
     deploymentLink: "https://bagalso-junior-wb-applicant.vercel.app",
+  },
+  {
+    name: "Emblaze App",
+    duration: "July - August 2025",
+    desc: "A browser-based MIDI renderer made with Sveltekit, TailwindCSS, and PixiJS.",
+    role: "Developer",
+    type: "Personal Project",
+    link: "https://github.com/AndreBryant/emblaze-app",
+    isDeployed: "true",
+    deploymentLink: "https://emblaze-midi.vercel.app",
   },
   {
     name: "My Portfolio Website",
@@ -96,7 +96,7 @@ export const PROJECTS: Record<string, string>[] = [
     deploymentLink: "",
   },
   {
-    name: "SMF Format Spec. 1.1",
+    name: "Standard MIDI File Format Specifications 1.1 Revamp",
     duration: "July 2023",
     desc: "Front-end redesign of the MIDI Spec 1.1 HTML Document by David Back (1999) using vanilla html-css-javascript.",
     role: "Developer",
@@ -108,6 +108,7 @@ export const PROJECTS: Record<string, string>[] = [
 ];
 
 export const PROJECT_TECHSTACK: string[][] = [
+  ["HTML5", "TailwindCSS", "CSS", "TypeScript", "ReactJS", "Vite", "Vercel"],
   [
     "HTML5",
     "TailwindCSS",
@@ -117,7 +118,6 @@ export const PROJECT_TECHSTACK: string[][] = [
     "CCaptureJS",
     "Vercel",
   ],
-  ["HTML5", "TailwindCSS", "CSS", "TypeScript", "ReactJS", "Vite", "Vercel"],
   [
     "HTML5",
     "TailwindCSS",
@@ -142,8 +142,8 @@ export const PROJECT_TECHSTACK: string[][] = [
 ];
 
 export const PROJECT_IMG_PATHS: string[][] = [
-  FILES.EMBLAZE,
   FILES.REAL_ESTATE,
+  FILES.EMBLAZE,
   FILES.PORTFOLIO,
   FILES.DEER,
   FILES.SUBAYBAY,

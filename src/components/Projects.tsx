@@ -25,7 +25,12 @@ export default function Projects({
       id="projects"
     >
       <div className="space-y-16 bg-slate-950/10 px-4 py-16 shadow-xl shadow-black/60 outline outline-slate-50/25 backdrop-blur-[5px] md:rounded-lg lg:px-16">
-        <h2 className="text-4xl">PROJECTS</h2>
+        <h2 className="text-4xl">
+          PROJECTS{" "}
+          <span className="text-xs text-white/40">
+            (click title to expand )
+          </span>
+        </h2>
         <div className="flex flex-col gap-32">
           {P.map((p, i) => {
             const pt = PT[i];
@@ -65,11 +70,33 @@ function ProjectHeader({
   duration,
   type,
 }: Readonly<{ title: string; duration: string; type: string }>) {
+  const [expanded, setExpanded] = useState(false);
   return (
-    <div>
-      <div className="flex items-end justify-between gap-4">
-        <h2 className="line-clamp-1 w-fit text-4xl font-semibold">{title}</h2>
-        <span className="w-fit text-xs opacity-60">{duration}</span>
+    <div className="space-y-4">
+      <div
+        className={`group relative flex cursor-pointer justify-between gap-2 ${expanded ? "flex-col" : "flex-row items-end"}`}
+        onClick={() => setExpanded(!expanded)}
+      >
+        {!expanded && (
+          <>
+            <h2 className="line-clamp-1 w-fit text-4xl font-semibold transition-all">
+              {title}
+            </h2>
+            <span className="w-fit text-xs opacity-60 transition-all">
+              {duration}
+            </span>
+          </>
+        )}
+        {expanded && (
+          <>
+            <h2 className="w-fit bg-purple-950/40 text-4xl font-semibold outline outline-white/20 transition-all">
+              {title}
+            </h2>
+            <span className="w-fit text-xs opacity-60 transition-all">
+              {duration}
+            </span>
+          </>
+        )}
       </div>
       <div>
         <span className="w-fit text-sm opacity-60">{type}</span>
