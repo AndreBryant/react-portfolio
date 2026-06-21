@@ -68,7 +68,7 @@ export default function About({
                 </button>
               </a>
               <span className="text-xs opacity-40">
-                last updated Oct. 8, 2025
+                last updated June 21, 2025
               </span>
             </div>
           </div>
